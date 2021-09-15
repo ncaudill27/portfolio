@@ -29,7 +29,7 @@ module.exports = {
           google: [
             {
               family: "Open Sans",
-              variants: ["300", "400", "600"],
+              variants: ["300", "400", "700"],
             },
             {
               family: "Rubik",
