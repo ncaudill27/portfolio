@@ -21,21 +21,23 @@ html {
   /* ----------
     COLOR PALETTE
   ---------- */
-  --color-text: hsl(140deg, 30%, 12%);
-  --color-background: hsl(20deg, 43%, 99%);
-  --color-primary: hsl(140deg, 52%, 55%);
-  --color-primary-muted: hsl(140deg, 40%, 71%);
-  --color-primary-darkened: hsl(140deg, 52%, 36%);
+  --color-text: hsl(183deg, 9%, 16%);
+  --color-background: hsl(183deg, 58%, 95%);
+  --color-primary: hsl(183deg, 100%, 63%);
+  --color-primary-muted: hsl(183deg, 66%, 79%);
+  --color-primary-darkened: hsl(183deg, 100%, 30%);
   /* ----------
     BASE TYPOGRAPHY RULES
   ---------- */
+  --font-weight-black: 900;
   --font-weight-bold: 700;
   --font-weight-semi-bold: 600;
   --font-weight-medium: 500;
   --font-weight-regular: 400;
   --font-weight-light: 300;
-  --font-family-primary: "Montserrat", "DejaVu Sans", "Verdana", "sans‑serif";
+  --font-family-primary: "Rubik", "Asap", "DejaVu Sans", "Verdana", "sans‑serif";
   --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
+  --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
   }
   /* ----------
     CSS RESET

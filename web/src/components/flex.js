@@ -3,7 +3,6 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const Flex = ({ justify, align, ...props }) => {
-  console.log('flex', justify, align);
   return (
     <StyledFlex
       style={{

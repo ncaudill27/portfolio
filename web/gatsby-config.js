@@ -21,6 +21,27 @@ module.exports = {
         watchMode: !isProd,
         overlayDrafts: !isProd && token
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Open Sans",
+              variants: ["300", "400", "600"],
+            },
+            {
+              family: "Rubik",
+              variants: ["500", "700", "900"],
+            },
+            {
+              family: "Oxygen Mono",
+              variants: ["400"],
+            },
+          ],
+        },
+      },
+    },
   ]
 };
