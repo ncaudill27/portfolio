@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
-import Container from "./container";
 import RoleList from "./role-list";
 
 import * as styles from "./project.module.css";
@@ -25,7 +24,7 @@ function Project(props) {
           />
         </div>
       )}
-      <Container>
+      <div>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
@@ -68,7 +67,7 @@ function Project(props) {
             )}
           </aside>
         </div>
-      </Container>
+      </div>
     </article>
   );
 }
