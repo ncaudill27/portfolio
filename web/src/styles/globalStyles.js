@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 html {
@@ -122,4 +122,4 @@ html {
       scroll-behavior: auto !important;
     }
   }
-`
+`;
