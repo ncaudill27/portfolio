@@ -11,6 +11,11 @@ import Layout from "../containers/layout";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 
+import Github from '../components/images/iconGithub'
+import Twitter from '../components/images/iconTwitter'
+import Linkedin from '../components/images/iconLinkedin'
+import Mail from '../components/images/iconMail'
+
 const IndexPage = ({ data, errors }) => {
   const titleEl = React.useRef();
   const { width } = useRefDimensions(titleEl);
@@ -49,7 +54,18 @@ const IndexPage = ({ data, errors }) => {
         </Body>
       </IntroWrapper>
       <Flex justify="center" gap={8}>
-        
+        <IconWrapper>
+          <Github />
+        </IconWrapper>
+        <IconWrapper>
+          <Twitter />
+        </IconWrapper>
+        <IconWrapper>
+          <Linkedin />
+        </IconWrapper>
+        <IconWrapper>
+          <Mail />
+        </IconWrapper>
       </Flex>
     </Layout>
   );
@@ -61,6 +77,13 @@ const MainHeader = styled(Heading)`
 
 const IntroWrapper = styled(MaxWidthWrapper)`
   margin-top: 150px;
+`;
+
+const IconWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
 `;
 
 export const query = graphql`
