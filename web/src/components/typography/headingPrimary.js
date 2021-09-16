@@ -7,7 +7,7 @@ export default styled.h1`
   /* ----------
     FONT SIZE VARIABLES
   ---------- */
-  --type-fontsize-min: 1.625em; /* 26px */
+  --type-fontsize-min: 2.5em; /* 40px */
   --type-fontsize-max: 4em; /* 64px */
   --type-fontsize-value: 0.73em + 4.36vw;
   font-size: clamp(
