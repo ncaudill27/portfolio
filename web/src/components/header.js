@@ -1,21 +1,23 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 import { Link } from "gatsby";
 
-import Flex from './flex'
+import Body from "./typography/bodyRegular.js";
+
+import Flex from "./flex";
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <nav>
-      <Flex as='ul' role='list' justify="center" gap={40}>
+      <Flex as="ul" role="list" justify="center" gap={40}>
         <li>
-          <Link to="/projects/">Projects</Link>
+          <StyledLink to="/projects/">Projects</StyledLink>
         </li>
         <li>
-          <Link to="/">{siteTitle}</Link>
+          <StyledLink to="/">{siteTitle}</StyledLink>
         </li>
         <li>
-          <Link to="/blog/">Blog</Link>
+          <StyledLink to="/blog/">Blog</StyledLink>
         </li>
       </Flex>
     </nav>
@@ -25,6 +27,14 @@ const Header = ({ siteTitle }) => (
 const StyledHeader = styled.header`
   margin-top: 40px;
   height: 50px;
+`;
+
+const StyledLink = styled(Link)`
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  font-size: 16px;
+  text-decoration: none;
 `;
 
 export default Header;
