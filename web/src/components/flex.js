@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const Flex = ({ justify, align, ...props }) => {
+const Flex = ({ justify, align, gap, ...props }) => {
   return (
     <StyledFlex
       style={{
         "--justify": justify,
-        "--align": align
+        "--align": align,
+        '--gap': gap + 'px',
       }}
       {...props}
     />
@@ -30,7 +31,8 @@ Flex.propTypes = {
     "stretch",
     "baseline",
     "space-evenly"
-  ])
+  ]),
+  gap: PropTypes.number
 };
 
 const StyledFlex = styled.div`
@@ -39,7 +41,7 @@ const StyledFlex = styled.div`
   display: flex;
   justify-content: var(--justify);
   align-items: var(--align);
-  gap: 40px;
+  gap: var(--gap);
 `;
 
 export default Flex;

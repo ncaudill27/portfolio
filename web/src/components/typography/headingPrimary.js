@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export default styled.h1`
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
+  color: var(--color-text);
   /* ----------
     FONT SIZE VARIABLES
   ---------- */
@@ -25,4 +26,4 @@ export default styled.h1`
     var(--type-lineheight-value),
     var(--type-lineheight-max)
   );
-`
+`;

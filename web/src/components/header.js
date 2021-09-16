@@ -7,7 +7,7 @@ import Flex from './flex'
 const Header = ({ siteTitle }) => (
   <StyledHeader>
     <nav>
-      <Flex as='ul' role='list' justify="center">
+      <Flex as='ul' role='list' justify="center" gap={40}>
         <li>
           <Link to="/projects/">Projects</Link>
         </li>
