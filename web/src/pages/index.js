@@ -5,8 +5,11 @@ import useRefDimensions from "../hooks/useRefDimensions";
 
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
+
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
+import VisuallyHidden from "@reach/visually-hidden";
+
 import Layout from "../containers/layout";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
@@ -42,7 +45,7 @@ const IndexPage = ({ data, errors }) => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <IntroWrapper width={510}>
         <MainHeader ref={titleEl}>{site.title}</MainHeader>
-        <MainBody style={{'--width': width + 'px'}}>
+        <MainBody style={{ "--width": width + "px" }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras placerat lectus justo, porta
           rutrum arcu gravida quis. Ut at iaculis erat. Maecenas sagittis nibh sem, at pellentesque
           dolor condimentum eu. Nam varius quam in hendrerit lacinia. Curabitur id imperdiet sapien.
@@ -53,10 +56,22 @@ const IndexPage = ({ data, errors }) => {
           mattis nibh vel nibh eleifend ornare.
         </MainBody>
         <IconWrapper justify="center" gap={8}>
-          <Github />
-          <Twitter />
-          <Linkedin />
-          <Mail />
+          <a href="https://github.com/ncaudill27">
+            <VisuallyHidden>Github profile</VisuallyHidden>
+            <Github />
+          </a>
+          <a href="https://twitter.com/pixel8dChappie">
+            <VisuallyHidden>Twitter profile</VisuallyHidden>
+            <Twitter />
+          </a>
+          <a href="https://www.linkedin.com/in/nelson-caudill/">
+            <VisuallyHidden>LinkedIn profile</VisuallyHidden>
+            <Linkedin />
+          </a>
+          <a href="">
+            <VisuallyHidden>Send Nelson an email</VisuallyHidden>
+            <Mail />
+          </a>
         </IconWrapper>
       </IntroWrapper>
     </Layout>
@@ -82,11 +97,7 @@ const IntroWrapper = styled(MaxWidthWrapper)`
   --margin-top-min: var(--spacing-1);
   --margin-top-max: 150px;
   --margin-top-value: 30px + 5.83vw;
-  margin-top: clamp(
-    var(--margin-top-min),
-    var(--margin-top-max),
-    var(--margin-top-value)
-  );
+  margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
 
   padding: 0 var(--spacing-1);
 `;
@@ -95,12 +106,7 @@ const IconWrapper = styled(Flex)`
   --margin-top-min: var(--spacing-2);
   --margin-top-max: var(--spacing-8);
   --margin-top-value: 3px + 4.7vw;
-  margin-top: clamp(
-    var(--margin-top-min),
-    var(--margin-top-max),
-    var(--margin-top-value)
-  );
-
+  margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
 `;
 
 export const query = graphql`

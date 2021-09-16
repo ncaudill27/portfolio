@@ -23,7 +23,7 @@ const useRefHeight = ref => {
       const debouncedHandleResize = debounce(function handleResize() {
         setHeight(ref.current.getBoundingClientRect().height);
         setWidth(ref.current.getBoundingClientRect().width);
-      }, 50);
+      }, 500);
 
       window.addEventListener("resize", debouncedHandleResize);
 
