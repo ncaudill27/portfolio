@@ -5,15 +5,13 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // Document types
-import category from "./documents/category";
-import person from "./documents/person";
+import technology from "./documents/technology";
 import sampleProject from "./documents/sampleProject";
 import siteSettings from "./documents/siteSettings";
 
 // Object types
 import bioPortableText from "./objects/bioPortableText";
 import figure from "./objects/figure";
-import projectMember from "./objects/projectMember";
 import projectPortableText from "./objects/projectPortableText";
 import simplePortableText from "./objects/simplePortableText";
 
@@ -28,13 +26,11 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     bioPortableText,
     figure,
-    projectMember,
     projectPortableText,
     simplePortableText,
     // The following are document types which will appear
     // in the studio.
-    category,
-    person,
+    technology,
     sampleProject,
     siteSettings
   ])

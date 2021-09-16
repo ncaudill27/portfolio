@@ -1,9 +1,12 @@
+import React from 'react'
 import { format } from "date-fns";
+import { MdAspectRatio, MdReorder } from "react-icons/md";
 
 export default {
   name: "sampleProject",
   title: "Sample project",
   type: "document",
+  icon: MdAspectRatio,
   fields: [
     {
       name: "title",
@@ -32,12 +35,6 @@ export default {
       type: "simplePortableText"
     },
     {
-      name: "members",
-      title: "Members",
-      type: "array",
-      of: [{ type: "projectMember" }]
-    },
-    {
       name: "startedAt",
       title: "Started at",
       type: "datetime"
@@ -53,10 +50,11 @@ export default {
       type: "figure"
     },
     {
-      name: "categories",
-      title: "Categories",
+      name: "stack",
+      title: "Stack",
       type: "array",
-      of: [{ type: "reference", to: { type: "category" } }]
+      icon: MdReorder,
+      of: [{ type: "reference", to: { type: "technology" } }]
     },
     {
       name: "body",
@@ -75,15 +73,21 @@ export default {
       title: "title",
       publishedAt: "publishedAt",
       slug: "slug",
-      media: "mainImage"
+      media: "mainImage",
+      tech0: "tech0.logo",
+      tech1: "tech1.logo",
+      tech2: "tech2.logo",
+      tech3: "tech3.logo"
     },
-    prepare({ title = "No title", publishedAt, slug = {}, media }) {
+    prepare({ title = "No title", publishedAt, slug = {}, media, tech0, tech1, tech2, tech3 }) {
       const dateSegment = format(publishedAt, "YYYY/MM");
+      const stackIcons = [tech0, tech1, tech2, tech3].filter(Boolean)
       const path = `/${dateSegment}/${slug.current}/`;
       return {
         title,
         media,
-        subtitle: publishedAt ? path : "Missing publishing date"
+        subtitle: publishedAt ? path : "Missing publishing date",
+        stack: <div style={{display: 'flex'}}>{stackIcons.map(icon => <div styles={{height: 30, width: 30}}>{icon}</div>)}</div>
       };
     }
   }
