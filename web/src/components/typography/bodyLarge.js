@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export default styled.p`
   font-family: var(--font-family-secondary);
@@ -10,11 +10,7 @@ export default styled.p`
   --type-fontsize-min: 1.125em; /* 18px */
   --type-fontsize-max: 1.4375em; /* 23px */
   --type-fontsize-value: 1.02em + 0.53vw;
-  font-size: clamp(
-    var(--type-fontsize-min),
-    var(--type-fontsize-value),
-    var(--type-fontsize-max)
-  );
+  font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
   /* ----------
     LINE HEIGHT VARIABLES
   ---------- */
@@ -26,4 +22,4 @@ export default styled.p`
     var(--type-lineheight-value),
     var(--type-lineheight-max)
   );
-`
+`;

@@ -29,19 +29,19 @@ module.exports = {
           google: [
             {
               family: "Open Sans",
-              variants: ["300", "400", "700"],
+              variants: ["300", "400", "700"]
             },
             {
               family: "Rubik",
-              variants: ["500", "700", "900"],
+              variants: ["500", "700", "900"]
             },
             {
               family: "Oxygen Mono",
-              variants: ["400"],
-            },
-          ],
-        },
-      },
-    },
+              variants: ["400"]
+            }
+          ]
+        }
+      }
+    }
   ]
 };

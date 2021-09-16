@@ -8,7 +8,7 @@ const Flex = ({ justify, align, gap, ...props }) => {
       style={{
         "--justify": justify,
         "--align": align,
-        '--gap': gap + 'px',
+        "--gap": gap + "px"
       }}
       {...props}
     />

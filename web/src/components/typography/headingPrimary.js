@@ -10,11 +10,7 @@ export default styled.h1`
   --type-fontsize-min: 2.5em; /* 40px */
   --type-fontsize-max: 4em; /* 64px */
   --type-fontsize-value: 0.73em + 4.36vw;
-  font-size: clamp(
-    var(--type-fontsize-min),
-    var(--type-fontsize-value),
-    var(--type-fontsize-max)
-  );
+  font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
   /* ----------
     LINE HEIGHT VARIABLES
   ---------- */
