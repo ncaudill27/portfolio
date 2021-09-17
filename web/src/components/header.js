@@ -40,7 +40,7 @@ const LogoPlaceholder = styled.div`
 
 const StyledLink = styled(Link)`
   display: block;
-  padding-bottom: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   color: inherit;

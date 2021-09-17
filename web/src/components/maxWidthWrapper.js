@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   max-width: var(--max-width);
   width: 100%;
 `;
+
 Wrapper.propTypes = {
   width: PropTypes.number.isRequired
 };
