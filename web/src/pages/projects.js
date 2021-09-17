@@ -37,7 +37,7 @@ const ProjectsPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-        <ProjectPreviewGrid nodes={projectNodes} />
+      <ProjectPreviewGrid nodes={projectNodes} />
     </Layout>
   );
 };
@@ -49,11 +49,7 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
+    projects: allSanitySampleProject(limit: 6, filter: { slug: { current: { ne: null } } }) {
       edges {
         node {
           id

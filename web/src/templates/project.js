@@ -9,7 +9,6 @@ export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     sampleProject: sanitySampleProject(id: { eq: $id }) {
       id
-      publishedAt
       relatedProjects {
         title
         _id

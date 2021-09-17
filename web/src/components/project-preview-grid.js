@@ -1,18 +1,13 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import MaxWidthWrapper from './maxWidthWrapper';
+import MaxWidthWrapper from "./maxWidthWrapper";
 import ProjectPreview from "./project-preview";
 
 function ProjectPreviewGrid(props) {
   return (
     <RootWrapper width={1400}>
-      <Grid>
-        {props.nodes &&
-          props.nodes.map(node => (
-              <ProjectPreview {...node} />
-          ))}
-      </Grid>
+      <Grid>{props.nodes && props.nodes.map(node => <ProjectPreview {...node} />)}</Grid>
     </RootWrapper>
   );
 }
@@ -30,8 +25,6 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   width: 100%;
 `;
-
-
 
 ProjectPreviewGrid.defaultProps = {
   title: "",

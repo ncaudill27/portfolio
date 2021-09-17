@@ -55,24 +55,24 @@ const IndexPage = ({ data, errors }) => {
           mattis nibh vel nibh eleifend ornare.
         </MainBody>
       </IntroWrapper>
-        <IconWrapper justify="center" gap={8}>
-          <a href="https://github.com/ncaudill27">
-            <VisuallyHidden>Github profile</VisuallyHidden>
-            <Github />
-          </a>
-          <a href="https://twitter.com/pixel8dChappie">
-            <VisuallyHidden>Twitter profile</VisuallyHidden>
-            <Twitter />
-          </a>
-          <a href="https://www.linkedin.com/in/nelson-caudill/">
-            <VisuallyHidden>LinkedIn profile</VisuallyHidden>
-            <Linkedin />
-          </a>
-          <a href="">
-            <VisuallyHidden>Send Nelson an email</VisuallyHidden>
-            <Mail />
-          </a>
-        </IconWrapper>
+      <IconWrapper justify="center" gap={8}>
+        <a href="https://github.com/ncaudill27">
+          <VisuallyHidden>Github profile</VisuallyHidden>
+          <Github />
+        </a>
+        <a href="https://twitter.com/pixel8dChappie">
+          <VisuallyHidden>Twitter profile</VisuallyHidden>
+          <Twitter />
+        </a>
+        <a href="https://www.linkedin.com/in/nelson-caudill/">
+          <VisuallyHidden>LinkedIn profile</VisuallyHidden>
+          <Linkedin />
+        </a>
+        <a href="">
+          <VisuallyHidden>Send Nelson an email</VisuallyHidden>
+          <Mail />
+        </a>
+      </IconWrapper>
     </Layout>
   );
 };

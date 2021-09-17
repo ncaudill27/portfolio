@@ -1,19 +1,20 @@
 import { format, distanceInWords, differenceInDays } from "date-fns";
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
-import MaxWidthWrapper from './maxWidthWrapper'
+import LordIcon from "./lordIcon";
+import MaxWidthWrapper from "./maxWidthWrapper";
 
 import * as styles from "./project.module.css";
 
 function Project(props) {
-  const { _rawBody, title, mainImage, publishedAt, relatedProjects } = props;
+  const { _rawBody, title, mainImage, relatedProjects } = props;
   return (
-    <RootWrapper as='article' width={1200}>
+    <RootWrapper as="article" width={1200}>
       {props.mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
@@ -32,13 +33,7 @@ function Project(props) {
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM Do YYYY")}
-              </div>
-            )}
+            <LordIcon />
             {relatedProjects && relatedProjects.length > 0 && (
               <div className={styles.relatedProjects}>
                 <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>

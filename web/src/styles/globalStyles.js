@@ -22,13 +22,11 @@ export default createGlobalStyle`
     COLOR PALETTE
     ---------- */
     --color-text: hsl(183deg, 9%, 16%);
-    /* --color-text: hsl(183deg, 58%, 95%); */
     --color-background: hsl(183deg, 58%, 95%);
-    /* --color-background: hsl(183deg, 9%, 16%); */
-    --color-primary: hsl(183deg, 100%, 63%);
+    --color-primary: hsl(3deg, 100%, 63%);
     --color-primary-muted: hsl(183deg, 66%, 79%);
     --color-primary-darkened: hsl(183deg, 100%, 30%);
-    --color-secondary: hsl(3deg, 100%, 63%);
+    --color-secondary: hsl(3deg, 100%, 43%);
     --color-secondary-muted: hsl(3deg, 66%, 79%);
     --color-secondary-darkened: hsl(3deg, 100%, 30%);
     /* ----------

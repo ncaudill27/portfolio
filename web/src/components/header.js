@@ -12,7 +12,9 @@ const Header = () => (
           <StyledLink to="/projects/">Projects</StyledLink>
         </li>
         <li>
-          <Link to="/"><LogoPlaceholder /></Link>
+          <Link to="/">
+            <LogoPlaceholder />
+          </Link>
         </li>
         <li>
           <StyledLink to="/blog/">Blog</StyledLink>
@@ -29,7 +31,7 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
   height: 100%;
   color: var(--color-text);
-`
+`;
 
 const LogoPlaceholder = styled.div`
   width: 90px;
