@@ -15,6 +15,17 @@ export default {
       name: "logo",
       type: "figure",
       title: "Logo"
+    },
+    {
+      name: "color",
+      type: "string",
+      title: "Brand Color"
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title",
+      media: "logo"
+    }
+  }
 };

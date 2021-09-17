@@ -24,25 +24,24 @@ export default {
       }
     },
     {
-      name: "publishedAt",
-      title: "Published at",
-      description: "You can use this field to schedule projects where you show them",
-      type: "datetime"
+      name: "liveSite",
+      title: "Live site URL",
+      type: "string"
+    },
+    {
+      name: "githubRepo",
+      title: "GitHub repository",
+      type: "string"
+    },
+    {
+      name: "demoVideo",
+      title: "Link to demo video",
+      type: "string"
     },
     {
       name: "excerpt",
       title: "Excerpt",
       type: "simplePortableText"
-    },
-    {
-      name: "startedAt",
-      title: "Started at",
-      type: "datetime"
-    },
-    {
-      name: "endedAt",
-      title: "Ended at",
-      type: "datetime"
     },
     {
       name: "mainImage",
