@@ -4,33 +4,46 @@ import { Link } from "gatsby";
 
 import Flex from "./flex";
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <StyledHeader>
-    <nav>
-      <Flex as="ul" role="list" justify="center" gap={40}>
+    <StyledNav>
+      <Flex as="ul" role="list" justify="center" align="flex-end" gap={40}>
         <li>
           <StyledLink to="/projects/">Projects</StyledLink>
         </li>
         <li>
-          <StyledLink to="/">{siteTitle}</StyledLink>
+          <Link to="/"><LogoPlaceholder /></Link>
         </li>
         <li>
           <StyledLink to="/blog/">Blog</StyledLink>
         </li>
       </Flex>
-    </nav>
+    </StyledNav>
   </StyledHeader>
 );
 
 const StyledHeader = styled.header`
   margin-top: 40px;
-  height: 50px;
+`;
+
+const StyledNav = styled.nav`
+  height: 100%;
+  color: var(--color-text);
+`
+
+const LogoPlaceholder = styled.div`
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: var(--color-text);
 `;
 
 const StyledLink = styled(Link)`
+  display: block;
+  padding-bottom: var(--spacing-1);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
-  color: var(--color-text);
+  color: inherit;
   font-size: 16px;
   text-decoration: none;
 `;

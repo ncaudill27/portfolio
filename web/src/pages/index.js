@@ -39,7 +39,6 @@ const IndexPage = ({ data, errors }) => {
     );
   }
 
-  console.log(width);
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
@@ -55,6 +54,7 @@ const IndexPage = ({ data, errors }) => {
           venenatis pulvinar euismod. Integer pharetra libero nec erat aliquet ultrices. Donec
           mattis nibh vel nibh eleifend ornare.
         </MainBody>
+      </IntroWrapper>
         <IconWrapper justify="center" gap={8}>
           <a href="https://github.com/ncaudill27">
             <VisuallyHidden>Github profile</VisuallyHidden>
@@ -73,7 +73,6 @@ const IndexPage = ({ data, errors }) => {
             <Mail />
           </a>
         </IconWrapper>
-      </IntroWrapper>
     </Layout>
   );
 };

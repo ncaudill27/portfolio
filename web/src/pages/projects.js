@@ -5,10 +5,12 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from "../lib/helpers";
+
 import GraphQLErrorList from "../components/graphql-error-list";
-import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+
+import ProjectPreviewGrid from "../components/project-preview-grid";
 
 const ProjectsPage = props => {
   const { data, errors } = props;
@@ -21,12 +23,10 @@ const ProjectsPage = props => {
     );
   }
 
-  const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
+  const site = data?.site;
+  const projectNodes = mapEdgesToNodes(data?.projects)
+    .filter(filterOutDocsWithoutSlugs)
+    .filter(filterOutDocsPublishedInTheFuture);
 
   if (!site) {
     throw new Error(
@@ -37,15 +37,7 @@ const ProjectsPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <div>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title="Latest projects"
-            nodes={projectNodes}
-            browseMoreHref="/archive/"
-          />
-        )}
-      </div>
+        <ProjectPreviewGrid nodes={projectNodes} />
     </Layout>
   );
 };
