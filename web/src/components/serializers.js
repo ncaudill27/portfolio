@@ -1,6 +1,6 @@
-import { Figure } from "./serializers/figure";
+import { Figure } from "./figure";
 
-import Body from '../components/typography/bodyRegular'
+import Body from './typography/bodyRegular'
 
 const serializers = {
   types: {
