@@ -7,7 +7,11 @@ import ProjectPreview from "./project-preview";
 function ProjectPreviewGrid(props) {
   return (
     <RootWrapper width={1400}>
-      <Grid>{props.nodes && props.nodes.map(node => <ProjectPreview {...node} />)}</Grid>
+      <Grid>
+        {props.nodes.map(node => (
+          <ProjectPreview {...node} />
+        ))}
+      </Grid>
     </RootWrapper>
   );
 }
@@ -22,8 +26,13 @@ const RootWrapper = styled(MaxWidthWrapper)`
 const Grid = styled.div`
   display: grid;
   gap: var(--spacing-2);
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   width: 100%;
+
+  @media (min-width: 724px) and (max-width: 1332px) {
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+  }
 `;
 
 ProjectPreviewGrid.defaultProps = {
