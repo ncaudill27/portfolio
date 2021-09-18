@@ -4,14 +4,17 @@ import { defineLordIconElement } from "lord-icon-element";
 
 defineLordIconElement(lottie.loadAnimation);
 
-const LordIcon = () => (
-  <lord-icon
-    src="https://cdn.lordicon.com/jvucoldz.json"
-    trigger="hover"
-    colors="primary:#252525,secondary:#42f6ff"
-    scale="61"
-    style={{width: 500, height: 500}}
-  />
-);
+const LordIcon = () => {
+  const isDark = true; //TODO
+  return (
+    <lord-icon
+      src="https://cdn.lordicon.com/jvucoldz.json"
+      trigger="hover"
+      colors={`primary:${isDark ? "#252525" : "#ebf9fa"},secondary:#0063db`}
+      scale="61"
+      style={{ width: 500, height: 500 }}
+    />
+  );
+};
 
 export default LordIcon;
