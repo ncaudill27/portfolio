@@ -1,9 +1,8 @@
 import React from "react";
+import styled from 'styled-components';
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getGatsbyImageData } from "gatsby-source-sanity";
-import clientConfig from "../../client-config";
-
-import * as styles from "./figure.module.css";
+import clientConfig from "../../../client-config";
 
 export function Figure({ node }) {
   if (!node.asset) {
@@ -13,9 +12,13 @@ export function Figure({ node }) {
   const imageData = getGatsbyImageData(node.asset, { maxWidth: 675 }, clientConfig.sanity);
 
   return (
-    <figure className={styles.root}>
+    <RootWrapper>
       <GatsbyImage image={imageData} alt={node.alt} />
       {node.caption && <figcaption>{node.caption}</figcaption>}
-    </figure>
+    </RootWrapper>
   );
 }
+
+const RootWrapper = styled.figure`
+  
+`;

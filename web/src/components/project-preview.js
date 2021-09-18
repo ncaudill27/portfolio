@@ -3,7 +3,7 @@ import React from "react";
 import styled from 'styled-components';
 import { cn, buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
-import BlockText from "./block-text";
+import BlockContent from "./block-content";
 
 import * as styles from "./project-preview.module.css";
 
@@ -25,7 +25,7 @@ function ProjectPreview(props) {
       <Title>{props.title}</Title>
       {props._rawExcerpt && (
         <div className={styles.excerpt}>
-          <BlockText blocks={props._rawExcerpt} />
+          <BlockContent blocks={props._rawExcerpt} />
         </div>
       )}
     </RootWrapper>

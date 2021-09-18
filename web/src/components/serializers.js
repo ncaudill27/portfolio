@@ -1,11 +1,16 @@
-import { Figure } from "./figure";
-
-import Body from './typography/bodyRegular'
+import { Figure } from "./serializers/figure";
+import { Normal } from "./serializers/normal";
+import { Strong } from "./serializers/strong";
+import { Hyperlink } from "./serializers/hyperlink";
 
 const serializers = {
   types: {
     figure: Figure,
-    normal: Body
+    block: Normal
+  },
+  marks: {
+    strong: Strong,
+    link: Hyperlink
   }
 };
 

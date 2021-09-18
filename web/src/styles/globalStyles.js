@@ -23,9 +23,9 @@ export default createGlobalStyle`
     ---------- */
     --color-text: hsl(183deg, 9%, 16%);
     --color-background: hsl(183deg, 58%, 95%);
-    --color-primary: hsl(3deg, 100%, 63%);
+    --color-primary: hsl(198deg, 100%, 63%);
     --color-primary-muted: hsl(183deg, 66%, 79%);
-    --color-primary-darkened: hsl(183deg, 100%, 30%);
+    --color-primary-darkened: hsl(198deg, 100%, 30%);
     --color-secondary: hsl(3deg, 100%, 43%);
     --color-secondary-muted: hsl(3deg, 66%, 79%);
     --color-secondary-darkened: hsl(3deg, 100%, 30%);
@@ -34,11 +34,12 @@ export default createGlobalStyle`
     ---------- */
     --font-weight-black: 900;
     --font-weight-bold: 700;
+    --font-weight-semi-bold: 600;
     --font-weight-medium: 500;
     --font-weight-regular: 400;
     --font-weight-light: 300;
     --font-family-primary: "Rubik", "Asap", "DejaVu Sans", "Verdana", "sans‑serif";
-    --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
+    --font-family-secondary: "Work Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
     --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
   }
   /* ----------
@@ -63,6 +64,7 @@ export default createGlobalStyle`
   dl,
   dd {
     margin: 0;
+    font-smooth: antialiased;
   }
 
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -83,12 +85,7 @@ export default createGlobalStyle`
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    font-family: var(--font-family-secondary);
     background-color: var(--color-background);
-  }
-
-  h1,h2,h3,h4,h5,h6 {
-    font-family: var(--font-family-primary);
   }
 
   /* A elements that don't have a class get default styles */

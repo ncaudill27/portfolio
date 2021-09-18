@@ -13,6 +13,7 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -29,7 +30,7 @@ module.exports = {
           google: [
             {
               family: "Open Sans",
-              variants: ["300", "400", "700"]
+              variants: ["300", "400", "600", "700"]
             },
             {
               family: "Rubik",
