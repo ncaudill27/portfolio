@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 import { graphql } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -28,7 +29,8 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
         </div>
       )}
       <MaxWidthWrapper width={2000}>
-        <img
+        <ImageWrapper>
+          <img
           src={imageUrlFor(buildImageObj(project.mainImage))
             .width(2000)
             .height(500)
@@ -39,10 +41,24 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
             marginBottom: 'var(--spacing-1)'
           }}
         />
+          </ImageWrapper>
         <Project {...project} />
       </MaxWidthWrapper>
     </>
   );
 };
+
+const ImageWrapper = styled.div`
+  & > img {
+    min-width: 860px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+`;
 
 export default ProjectTemplate;

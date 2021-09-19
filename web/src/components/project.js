@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Heading from "./typography/headingPrimary";
 import AsideHeading from "./typography/headingTertiary";
@@ -9,12 +11,24 @@ import Header from "./headerSide";
 import BlockContent from "./block-content";
 import Stack from "./projectStack";
 
-function Project({ _rawBody, title, relatedProjects, githubRepo, demoVideo, liveSite, stack }) {
-  console.log(stack);
+function Project({ _rawBody, title, mainImage, relatedProjects, githubRepo, demoVideo, liveSite, stack }) {
   return (
     <RootWrapper>
       <Header />
       <article>
+      <ImageWrapper>
+          <img
+          src={imageUrlFor(buildImageObj(mainImage))
+            .width(650)
+            .height(300)
+            // .fit('fill')
+            .url()}
+          alt={mainImage.alt}
+          style={{
+            marginBottom: 'var(--spacing-1)'
+          }}
+        />
+          </ImageWrapper>
         <Title>{title}</Title>
         <BlockContent blocks={_rawBody} />
       </article>
@@ -49,6 +63,8 @@ const RootWrapper = styled.div`
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  padding-left: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
+  padding-right: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
   display: grid;
   grid-template-columns: 90px minmax(500px, 650px) 1fr;
   gap: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
@@ -61,6 +77,12 @@ const AsideWrapper = styled.aside`
 const StickyWrapper = styled.div`
   position: sticky;
   top: var(--spacing-4);
+`;
+
+const ImageWrapper = styled.div`
+  @media (min-width: 700px) {
+    display: none;
+  }
 `;
 
 export default Project;
