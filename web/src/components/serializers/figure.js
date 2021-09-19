@@ -20,5 +20,8 @@ export function Figure({ node }) {
 }
 
 const RootWrapper = styled.figure`
-  
+  @media (max-width: 700px) {
+    margin-left: calc(var(--spacing-1) * -1);
+    margin-right: calc(var(--spacing-1) * -1);
+  }
 `;

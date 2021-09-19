@@ -4,13 +4,13 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
 import Flex from "./flex";
-import LordIcon from "./lordIcon";
+// import LordIcon from "./lordIcon";
 import Title from './typography/headingTertiary'
 
 const Stack = ({ stack }) => (
   <Flex as='ul' stack gap={0} role='list'>
     <TechWrapper>
-      <LordIcon />
+      {/* <LordIcon /> */}
       <Title>Stack</Title>
     </TechWrapper>
     {stack.map(({ title, logo }) => (

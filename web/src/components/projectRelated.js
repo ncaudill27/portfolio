@@ -17,3 +17,5 @@ const RelatedProjects = ({relatedProjects}) => (
     </ul>
   </div>
 )
+
+export default RelatedProjects
