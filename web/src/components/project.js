@@ -11,6 +11,8 @@ import Header from "./headerSide";
 import BlockContent from "./block-content";
 import Stack from "./projectStack";
 import Related from './projectRelated';
+import AsideCategory from "./projectAsideCategory";
+import RelatedProjects from "./projectRelated";
 
 function Project({
   _rawBody,
@@ -46,8 +48,8 @@ function Project({
       </article>
       <AsideWrapper>
         <StickyWrapper>
-          {stack.length > 0 && <Stack stack={stack} />}
-          {relatedProjects.length > 0 && <Related relatedProjects={relatedProjects} />}
+          {stack.length > 0 && <AsideCategory title="Stack"><Stack list={stack} /></AsideCategory>}
+          {relatedProjects.length > 0 && <AsideCategory title="Related Projects"><RelatedProjects list={relatedProjects} /></AsideCategory>}
         </StickyWrapper>
       </AsideWrapper>
     </RootWrapper>
