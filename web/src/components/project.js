@@ -5,9 +5,10 @@ import { Link } from "gatsby";
 import Header from "./headerSide";
 import Heading from "./typography/headingPrimary";
 import BlockContent from "./block-content";
-import LordIcon from "./lordIcon";
+import Stack from './projectStack'
 
-function Project({ _rawBody, title, relatedProjects }) {
+function Project({ _rawBody, title, relatedProjects, githubRepo, demoVideo, liveSite, stack }) {
+  console.log(stack);
   return (
     <RootWrapper>
       <Header />
@@ -17,8 +18,8 @@ function Project({ _rawBody, title, relatedProjects }) {
       </article>
       <AsideWrapper>
         <StickyWrapper>
-          <LordIcon />
-          {relatedProjects && relatedProjects.length > 0 && (
+          {stack.length > 0 && <Stack stack={stack} />}
+          {relatedProjects.length > 0 && (
             <div>
               <h3>Related projects</h3>
               <ul>
@@ -49,9 +50,8 @@ const RootWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 90px minmax(500px, 650px) 300px;
+  grid-template-columns: 90px minmax(500px, 650px) 1fr;
   gap: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
-  height: 200vh;
 `;
 
 const AsideWrapper = styled.aside`

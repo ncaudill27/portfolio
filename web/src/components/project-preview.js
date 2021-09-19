@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from 'styled-components';
-import { cn, buildImageObj } from "../lib/helpers";
+import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
@@ -21,11 +21,7 @@ function ProjectPreview(props) {
           />
       </ImageWrapper>
       <Title>{props.title}</Title>
-      {props._rawExcerpt && (
-        <div className={styles.excerpt}>
-          <BlockContent blocks={props._rawExcerpt} />
-        </div>
-      )}
+      <BlockContent blocks={props._rawExcerpt} />
     </RootWrapper>
   );
 }
