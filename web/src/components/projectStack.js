@@ -5,12 +5,13 @@ import { imageUrlFor } from "../lib/image-url";
 
 import Flex from "./flex";
 import LordIcon from "./lordIcon";
+import Title from './typography/headingTertiary'
 
 const Stack = ({ stack }) => (
   <Flex as='ul' stack gap={0} role='list'>
     <TechWrapper>
       <LordIcon />
-      Stack
+      <Title>Stack</Title>
     </TechWrapper>
     {stack.map(({ title, logo }) => (
       <TechWrapper>
@@ -40,7 +41,6 @@ const TechWrapper = styled.li`
   font-weight: var(--font-weight-bold);
 
   &:first-of-type {
-    font-size: 20px;
     border-bottom: 1px solid var(--color-primary);
   }
 `;

@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
-
-import Header from "./headerSide";
+// TYPOGRAPHY
 import Heading from "./typography/headingPrimary";
+import AsideHeading from "./typography/headingTertiary";
+import Link from './typography/navLink'
+// UI COMPONENTS
+import Header from "./headerSide";
 import BlockContent from "./block-content";
-import Stack from './projectStack'
+import Stack from "./projectStack";
 
 function Project({ _rawBody, title, relatedProjects, githubRepo, demoVideo, liveSite, stack }) {
   console.log(stack);
@@ -21,15 +23,13 @@ function Project({ _rawBody, title, relatedProjects, githubRepo, demoVideo, live
           {stack.length > 0 && <Stack stack={stack} />}
           {relatedProjects.length > 0 && (
             <div>
-              <h3>Related projects</h3>
+              <AsideHeading>Related projects</AsideHeading>
               <ul>
                 {relatedProjects.map(project => (
                   <li key={`related_${project._id}`}>
-                    {project.slug ? (
-                      <Link to={`/project/${project.slug.current}`}>{project.title}</Link>
-                    ) : (
-                      <span>{project.title}</span>
-                    )}
+                    <Link to={`/project/${project.slug.current}`}>
+                      {project.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
