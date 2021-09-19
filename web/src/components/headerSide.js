@@ -24,11 +24,14 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
   </header>
 );
 
-const StyledNav = styled.nav`
-  position: sticky;
-  top: var(--spacing-2);
+const StyledHeader = styled.header`
   padding-top: var(--spacing-2);
   color: var(--color-text);
+`;
+
+const StyledNav = styled.nav`
+  position: sticky;
+  top: var(--spacing-4);
 `;
 
 const LogoPlaceholder = styled.div`

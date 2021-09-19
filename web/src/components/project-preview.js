@@ -5,8 +5,6 @@ import { cn, buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
-import * as styles from "./project-preview.module.css";
-
 import Heading from './typography/headingSecondary';
 
 function ProjectPreview(props) {
