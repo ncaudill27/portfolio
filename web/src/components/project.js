@@ -1,11 +1,10 @@
-
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import Title from './typography/headingPrimary'
+import Title from "./typography/headingPrimary";
 import BlockContent from "./block-content";
 
 import LordIcon from "./lordIcon";
@@ -13,11 +12,10 @@ import MaxWidthWrapper from "./maxWidthWrapper";
 
 import * as styles from "./project.module.css";
 
-function Project(props) {
-  const { _rawBody, title, mainImage, relatedProjects } = props;
+function Project({ _rawBody, title, mainImage, relatedProjects }) {
   return (
     <RootWrapper as="article" width={1200}>
-      {props.mainImage && mainImage.asset && (
+      {mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -32,7 +30,7 @@ function Project(props) {
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <Title>{title}</Title>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            <BlockContent blocks={_rawBody} />
           </div>
           <aside className={styles.metaContent}>
             <LordIcon />

@@ -1,10 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
-} from "../lib/helpers";
+import { mapEdgesToNodes } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -12,9 +8,7 @@ import Layout from "../containers/layout";
 
 import ProjectPreviewGrid from "../components/project-preview-grid";
 
-const ProjectsPage = props => {
-  const { data, errors } = props;
-
+const ProjectsPage = ({ data, errors }) => {
   if (errors) {
     return (
       <Layout>
@@ -24,9 +18,7 @@ const ProjectsPage = props => {
   }
 
   const site = data?.site;
-  const projectNodes = mapEdgesToNodes(data?.projects)
-    .filter(filterOutDocsWithoutSlugs)
-    .filter(filterOutDocsPublishedInTheFuture);
+  const projectNodes = mapEdgesToNodes(data?.projects);
 
   if (!site) {
     throw new Error(
@@ -52,37 +44,10 @@ export const query = graphql`
     projects: allSanitySampleProject(limit: 6, filter: { slug: { current: { ne: null } } }) {
       edges {
         node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
+          ...SanityProject
         }
       }
-    }
+    }  
   }
 `;
 

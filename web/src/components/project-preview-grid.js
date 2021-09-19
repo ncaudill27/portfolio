@@ -37,8 +37,7 @@ const Grid = styled.div`
 
 ProjectPreviewGrid.defaultProps = {
   title: "",
-  nodes: [],
-  browseMoreHref: ""
+  nodes: []
 };
 
 export default ProjectPreviewGrid;
