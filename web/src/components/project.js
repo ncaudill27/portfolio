@@ -2,22 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-import Title from "./typography/headingPrimary";
+import Header from './headerSide'
+import Heading from "./typography/headingPrimary";
 import BlockContent from "./block-content";
 import LordIcon from "./lordIcon";
-import MaxWidthWrapper from "./maxWidthWrapper";
 
 import * as styles from "./project.module.css";
 
 function Project({ _rawBody, title, relatedProjects }) {
   return (
-    <MaxWidthWrapper as="article" width={650}>
-      <div className={styles.grid}>
-        <div className={styles.mainContent}>
-          <Title>{title}</Title>
-          <BlockContent blocks={_rawBody} />
-        </div>
-        <aside className={styles.metaContent}>
+    <RootWrapper>
+    <Header />
+    <article>
+      <Title>{title}</Title>
+      <BlockContent blocks={_rawBody} />
+    </article>
+    <aside className={styles.metaContent}>
           <LordIcon />
           {relatedProjects && relatedProjects.length > 0 && (
             <div className={styles.relatedProjects}>
@@ -36,16 +36,22 @@ function Project({ _rawBody, title, relatedProjects }) {
             </div>
           )}
         </aside>
-      </div>
-    </MaxWidthWrapper>
+    </RootWrapper>
   );
 }
 
-const RootWrapper = styled(MaxWidthWrapper)`
-  --margin-top-min: var(--spacing-1);
-  --margin-top-max: var(--spacing-12);
-  --margin-top-value: 30px + 3.83vw;
-  margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
+const Title = styled(Heading)`
+  margin-bottom: var(--spacing-1);
+`;
+
+const RootWrapper = styled.div`
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 90px minmax(500px, 650px) 300px;
+  gap: clamp(var(--spacing-2),1px + 5vw, var(--spacing-10));
+  height: 200vh;
 `;
 
 export default Project;

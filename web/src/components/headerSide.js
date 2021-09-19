@@ -4,32 +4,30 @@ import { Link } from "gatsby";
 
 import Flex from "./flex";
 
-const Header = ({siteTitle, onHideNav, onShowNav, showNav}) => (
-  <StyledHeader>
+const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
+  <header>
     <StyledNav>
-      <Flex as="ul" role="list" justify="center" align="flex-end" gap={5}>
-        <li>
-          <StyledLink to="/projects/">Projects</StyledLink>
-        </li>
+      <Flex as="ul" role="list" justify="center" gap={1} stack>
         <li>
           <Link to="/">
             <LogoPlaceholder />
           </Link>
         </li>
         <li>
+          <StyledLink to="/projects/">Projects</StyledLink>
+        </li>
+        <li>
           <StyledLink to="/blog/">Blog</StyledLink>
         </li>
       </Flex>
     </StyledNav>
-  </StyledHeader>
+  </header>
 );
 
-const StyledHeader = styled.header`
-  margin-top: 40px;
-`;
-
 const StyledNav = styled.nav`
-  height: 100%;
+  position: sticky;
+  top: var(--spacing-2);
+  padding-top: var(--spacing-2);
   color: var(--color-text);
 `;
 
@@ -41,8 +39,6 @@ const LogoPlaceholder = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  display: block;
-  margin-bottom: var(--spacing-1);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   color: inherit;

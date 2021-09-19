@@ -12,7 +12,7 @@ const LordIcon = () => {
       trigger="hover"
       colors={`primary:${isDark ? "#252525" : "#ebf9fa"},secondary:#0063db`}
       scale="61"
-      style={{ width: 500, height: 500 }}
+      style={{ width: 300, height: 300 }}
     />
   );
 };

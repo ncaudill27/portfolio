@@ -32,8 +32,12 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
           src={imageUrlFor(buildImageObj(project.mainImage))
             .width(2000)
             .height(500)
+            // .fit('fill')
             .url()}
           alt={project.mainImage.alt}
+          style={{
+            marginBottom: 'var(--spacing-1)'
+          }}
         />
         <Project {...project} />
       </MaxWidthWrapper>
