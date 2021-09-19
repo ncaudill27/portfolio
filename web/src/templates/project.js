@@ -1,57 +1,24 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
+
+import SEO from "../components/seo";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Project from "../components/project";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import MaxWidthWrapper from "../components/maxWidthWrapper";
 
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
     sampleProject: sanitySampleProject(id: { eq: $id }) {
-      id
-      relatedProjects {
-        title
-        _id
-        slug {
-          current
-        }
-      }
-      mainImage {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
-      title
-      slug {
-        current
-      }
-      _rawBody
+      ...SanityProject
     }
   }
 `;
 
-const ProjectTemplate = props => {
-  const { data, errors } = props;
-  const project = data && data.sampleProject;
+const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
   return (
-    <Layout>
+    <>
       {errors && <SEO title="GraphQL Error" />}
       {project && <SEO title={project.title || "Untitled"} />}
 
@@ -60,8 +27,17 @@ const ProjectTemplate = props => {
           <GraphQLErrorList errors={errors} />
         </div>
       )}
-      {project && <Project {...project} />}
-    </Layout>
+      <MaxWidthWrapper width={2000}>
+        <img
+          src={imageUrlFor(buildImageObj(project.mainImage))
+            .width(2000)
+            .height(500)
+            .url()}
+          alt={project.mainImage.alt}
+        />
+        <Project {...project} />
+      </MaxWidthWrapper>
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import VisuallyHidden from "@reach/visually-hidden";
 
-import Layout from "../containers/layout";
+import Header from "../components/headerTop";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 
@@ -40,8 +40,9 @@ const IndexPage = ({ data, errors }) => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
+      <Header />
       <IntroWrapper width={510}>
         <MainHeader ref={titleEl}>{site.title}</MainHeader>
         <MainBody style={{ "--width": width + "px" }}>
@@ -73,7 +74,7 @@ const IndexPage = ({ data, errors }) => {
           <Mail />
         </a>
       </IconWrapper>
-    </Layout>
+    </>
   );
 };
 

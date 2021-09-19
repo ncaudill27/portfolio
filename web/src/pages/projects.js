@@ -4,7 +4,7 @@ import { mapEdgesToNodes } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+
 
 import ProjectPreviewGrid from "../components/project-preview-grid";
 
@@ -27,10 +27,10 @@ const ProjectsPage = ({ data, errors }) => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <ProjectPreviewGrid nodes={projectNodes} />
-    </Layout>
+    </>
   );
 };
 

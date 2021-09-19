@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 import Flex from "./flex";
 
-const Header = () => (
+const Header = ({siteTitle, onHideNav, onShowNav, showNav}) => (
   <StyledHeader>
     <StyledNav>
       <Flex as="ul" role="list" justify="center" align="flex-end" gap={40}>
