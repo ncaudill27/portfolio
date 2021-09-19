@@ -5,50 +5,49 @@ import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Heading from "./typography/headingPrimary";
 import AsideHeading from "./typography/headingTertiary";
-import Link from './typography/navLink'
+import Link from "./typography/navLink";
 // UI COMPONENTS
 import Header from "./headerSide";
 import BlockContent from "./block-content";
 import Stack from "./projectStack";
+import Related from './projectRelated';
 
-function Project({ _rawBody, title, mainImage, relatedProjects, githubRepo, demoVideo, liveSite, stack }) {
+function Project({
+  _rawBody,
+  title,
+  mainImage,
+  relatedProjects,
+  githubRepo,
+  demoVideo,
+  liveSite,
+  stack
+}) {
   return (
     <RootWrapper>
       <Header />
       <article>
-      <ImageWrapper>
+        <ImageWrapper>
           <img
-          src={imageUrlFor(buildImageObj(mainImage))
-            .width(650)
-            .height(300)
-            // .fit('fill')
-            .url()}
-          alt={mainImage.alt}
-          style={{
-            marginBottom: 'var(--spacing-1)'
-          }}
-        />
-          </ImageWrapper>
-        <Title>{title}</Title>
-        <BlockContent blocks={_rawBody} />
+            src={imageUrlFor(buildImageObj(mainImage))
+              .width(650)
+              .height(300)
+              // .fit('fill')
+              .url()}
+            alt={mainImage.alt}
+            style={{
+              marginBottom: "var(--spacing-1)"
+            }}
+          />
+        </ImageWrapper>
+        <CopyWrapper>
+          <Title>{title}</Title>
+          <BlockContent blocks={_rawBody} />
+        </CopyWrapper>
       </article>
       <AsideWrapper>
         <StickyWrapper>
           {stack.length > 0 && <Stack stack={stack} />}
-          {relatedProjects.length > 0 && (
-            <div>
-              <AsideHeading>Related projects</AsideHeading>
-              <ul>
-                {relatedProjects.map(project => (
-                  <li key={`related_${project._id}`}>
-                    <Link to={`/project/${project.slug.current}`}>
-                      {project.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {relatedProjects.length > 0 && <Related relatedProjects={relatedProjects} />}
         </StickyWrapper>
       </AsideWrapper>
     </RootWrapper>
@@ -60,14 +59,23 @@ const Title = styled(Heading)`
 `;
 
 const RootWrapper = styled.div`
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
-  padding-right: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
-  display: grid;
-  grid-template-columns: 90px minmax(500px, 650px) 1fr;
-  gap: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
+  @media (min-width: 700px) {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
+    padding-right: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
+    display: grid;
+    grid-template-columns: 90px minmax(500px, 650px) 1fr;
+    gap: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
+  }
+`;
+
+const CopyWrapper = styled.div`
+  @media (max-width: 700px) {
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
+  }
 `;
 
 const AsideWrapper = styled.aside`

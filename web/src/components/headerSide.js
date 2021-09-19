@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import Flex from "./flex";
 
 const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
-  <header>
+  <StyledHeader>
     <StyledNav>
       <Flex as="ul" role="list" justify="center" gap={1} stack>
         <li>
@@ -21,12 +21,16 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
         </li>
       </Flex>
     </StyledNav>
-  </header>
+  </StyledHeader>
 );
 
 const StyledHeader = styled.header`
   padding-top: var(--spacing-2);
   color: var(--color-text);
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const StyledNav = styled.nav`
