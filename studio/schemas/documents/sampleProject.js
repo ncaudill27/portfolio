@@ -1,5 +1,4 @@
 import React from "react";
-import { format } from "date-fns";
 import { MdAspectRatio, MdReorder } from "react-icons/md";
 
 export default {
@@ -24,19 +23,10 @@ export default {
       }
     },
     {
-      name: "liveSite",
-      title: "Live site URL",
-      type: "string"
-    },
-    {
-      name: "githubRepo",
-      title: "GitHub repository",
-      type: "string"
-    },
-    {
-      name: "demoVideo",
-      title: "Link to demo video",
-      type: "string"
+      name: "links",
+      title: "Active Links",
+      type: "array",
+      of: [{ type: "link" }]
     },
     {
       name: "excerpt",

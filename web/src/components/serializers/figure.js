@@ -14,7 +14,6 @@ export function Figure({ node }) {
   return (
     <RootWrapper>
       <GatsbyImage image={imageData} alt={node.alt} />
-      {node.caption && <figcaption>{node.caption}</figcaption>}
     </RootWrapper>
   );
 }

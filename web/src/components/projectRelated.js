@@ -30,6 +30,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   gap: var(--spacing-1);
   color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
 
   cursor: pointer;
 `;

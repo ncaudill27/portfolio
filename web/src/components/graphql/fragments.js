@@ -31,9 +31,10 @@ export const SanityProject = graphql`
     _rawExcerpt
     id
     title
-    githubRepo
-    demoVideo
-    liveSite
+    links {
+      title
+      url
+    }
     slug {
       current
     }
