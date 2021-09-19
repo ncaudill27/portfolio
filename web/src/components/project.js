@@ -4,13 +4,10 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Heading from "./typography/headingPrimary";
-import AsideHeading from "./typography/headingTertiary";
-import Link from "./typography/navLink";
 // UI COMPONENTS
 import Header from "./headerSide";
 import BlockContent from "./block-content";
 import Stack from "./projectStack";
-import Related from './projectRelated';
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";
 
@@ -48,8 +45,16 @@ function Project({
       </article>
       <AsideWrapper>
         <StickyWrapper>
-          {stack.length > 0 && <AsideCategory title="Stack"><Stack list={stack} /></AsideCategory>}
-          {relatedProjects.length > 0 && <AsideCategory title="Related Projects"><RelatedProjects list={relatedProjects} /></AsideCategory>}
+          {stack.length > 0 && (
+            <AsideCategory title="Stack">
+              <Stack list={stack} />
+            </AsideCategory>
+          )}
+          {relatedProjects.length > 0 && (
+            <AsideCategory title="Related Projects">
+              <RelatedProjects list={relatedProjects} />
+            </AsideCategory>
+          )}
         </StickyWrapper>
       </AsideWrapper>
     </RootWrapper>
@@ -86,7 +91,11 @@ const AsideWrapper = styled.aside`
 
 const StickyWrapper = styled.div`
   position: sticky;
-  top: var(--spacing-4);
+  top: var(--spacing-3);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
 `;
 
 const ImageWrapper = styled.div`

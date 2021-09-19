@@ -51,6 +51,9 @@ export const SanityProject = graphql`
       slug {
         current
       }
+      mainImage {
+        ...SanityImage
+      }
     }
   }
 `;

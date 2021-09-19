@@ -3,10 +3,6 @@ import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import Flex from "./flex";
-// import LordIcon from "./lordIcon";
-import Title from "./typography/headingTertiary";
-
 const Stack = ({ list }) => (
   <>
     {list.map(({ title, logo }) => (
@@ -14,7 +10,7 @@ const Stack = ({ list }) => (
         <img
           src={imageUrlFor(buildImageObj(logo)).url()}
           alt={logo}
-          style={{ width: "auto", height: "25px" }}
+          style={{ width: "25px", height: "auto" }}
         />
         {title}
       </TechWrapper>
