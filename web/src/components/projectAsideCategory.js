@@ -16,6 +16,8 @@ const AsideCategory = ({ title, children }) => (
 const RootWrapper = styled(Flex)`
   padding-left: var(--spacing-1);
   padding-right: var(--spacing-1);
+
+  font-family: var(--font-family-primary);
 `;
 
 export default AsideCategory;

@@ -32,7 +32,23 @@ const StyledLink = styled(Link)`
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
 
-  cursor: pointer;
+  
+  & > span {
+    box-shadow: 0px 2px 0px var(--color-primary);
+    transition: box-shadow 100ms ease 0s;
+  }
+
+  @media (min-width: 700px) {
+    & > span {
+      box-shadow: 0px 0px 0px var(--color-primary);
+    }
+
+    &:hover > span {
+      cursor: pointer;
+      color: var(--color-primary);
+      box-shadow: 0px 2px 0px var(--color-primary);
+    }
+  }
 `;
 
 export default RelatedProjects;
