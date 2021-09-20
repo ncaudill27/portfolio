@@ -7,18 +7,18 @@ import Flex from './flex'
 const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
   <StyledHeader>
     <StyledNav>
-      <Flex as="ul" role="list" justify="center" stack>
+      <Flex as="ul" role="list" justify="center" gap={0} stack>
         <li>
           {/* <Link to="/">
             <LogoPlaceholder />
           </Link> */}
-          <Link to='/'>Home</Link>
+          <StyledLink to='/'>Home</StyledLink>
         </li>
         <li>
-          <Link to="/projects/">Projects</Link>
+          <StyledLink to="/projects/">Projects</StyledLink>
         </li>
         <li>
-          <Link to="/blog/">Blog</Link>
+          <StyledLink to="/blog/">Blog</StyledLink>
         </li>
       </Flex>
     </StyledNav>
@@ -44,6 +44,10 @@ const LogoPlaceholder = styled.div`
   height: 90px;
   border-radius: 50%;
   background-color: var(--color-text);
+`;
+
+const StyledLink = styled(Link)`
+  margin-bottom: 0;
 `;
 
 export default Header;
