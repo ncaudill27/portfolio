@@ -1,27 +1,29 @@
 import { Link } from "gatsby";
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
-import Heading from './typography/headingSecondary';
+import Title from "./typography/headingSecondary";
 
 function ProjectPreview(props) {
   return (
     <RootWrapper to={`/project/${props.slug.current}`}>
       <ImageWrapper>
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .url()}
-            alt={props.mainImage.alt}
-            style={{width: '100%', height: '100%'}}
-          />
+        <img
+          src={imageUrlFor(buildImageObj(props.mainImage))
+            .width(600)
+            .height(Math.floor((9 / 16) * 600))
+            .url()}
+          alt={props.mainImage.alt}
+          style={{ width: "100%", height: "100%" }}
+        />
       </ImageWrapper>
-      <Title>{props.title}</Title>
-      <BlockContent blocks={props._rawExcerpt} />
+      <CopyWrapper>
+        <Title>{props.title}</Title>
+        <BlockContent blocks={props._rawExcerpt} />
+      </CopyWrapper>
     </RootWrapper>
   );
 }
@@ -46,7 +48,12 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Title = styled(Heading)`
+const CopyWrapper = styled.div`
+  @media (max-width: 723px) {
+    padding-top: var(--spacing-1);
+    padding-left: var(--spacing-2);
+    padding-right: var(--spacing-2);
+    padding-bottom: var(--spacing-4);
+  }
 `;
-
 export default ProjectPreview;

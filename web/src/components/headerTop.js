@@ -29,8 +29,10 @@ const StyledHeader = styled.header`
 `;
 
 const StyledNav = styled.nav`
-  height: 100%;
   color: var(--color-text);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const LogoPlaceholder = styled.div`
@@ -42,6 +44,7 @@ const LogoPlaceholder = styled.div`
 
 const StyledLink = styled(Link)`
   display: block;
+  width: 64.84px;
   margin-bottom: var(--spacing-1);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);

@@ -40,7 +40,7 @@ const IndexPage = ({ data, errors }) => {
   }
 
   return (
-    <>
+    <main>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Header />
       <IntroWrapper width={510}>
@@ -55,8 +55,7 @@ const IndexPage = ({ data, errors }) => {
           venenatis pulvinar euismod. Integer pharetra libero nec erat aliquet ultrices. Donec
           mattis nibh vel nibh eleifend ornare.
         </MainBody>
-      </IntroWrapper>
-      <IconWrapper justify="center" gap={8}>
+        <IconWrapper justify="center" gap={0}>
         <a href="https://github.com/ncaudill27">
           <VisuallyHidden>Github profile</VisuallyHidden>
           <Github />
@@ -74,7 +73,8 @@ const IndexPage = ({ data, errors }) => {
           <Mail />
         </a>
       </IconWrapper>
-    </>
+      </IntroWrapper>
+    </main>
   );
 };
 
@@ -83,20 +83,25 @@ const MainHeader = styled(Heading)`
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 333px) {
+    width: 100%;
+  }
 `;
 
 const MainBody = styled(Body)`
   margin-left: auto;
   margin-right: auto;
   width: var(--width);
+  min-width: 297px;
 
   transition: width 150ms ease-in-out;
 `;
 
 const IntroWrapper = styled(MaxWidthWrapper)`
   --margin-top-min: var(--spacing-1);
-  --margin-top-max: 150px;
-  --margin-top-value: 30px + 5.83vw;
+  --margin-top-max: 120px;
+  --margin-top-value: 4px + 7.83vw;
   margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
 
   padding: 0 var(--spacing-1);
