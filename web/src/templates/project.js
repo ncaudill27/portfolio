@@ -32,9 +32,9 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
         <ImageWrapper>
           <img
           src={imageUrlFor(buildImageObj(project.mainImage))
-            .width(2000)
-            .height(500)
-            // .fit('fill')
+            .width(1500)
+            .height(300)
+            .fit('crop')
             .url()}
           alt={project.mainImage.alt}
           style={{
@@ -49,9 +49,12 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
 };
 
 const ImageWrapper = styled.div`
+  width: 100%;
+
   & > img {
-    min-width: 860px;
+    min-width: 900px;
     width: 100%;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
   }

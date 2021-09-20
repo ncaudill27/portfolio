@@ -16,9 +16,6 @@ function Project({
   title,
   mainImage,
   relatedProjects,
-  githubRepo,
-  demoVideo,
-  liveSite,
   stack
 }) {
   return (
@@ -99,6 +96,12 @@ const StickyWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  & > img {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @media (min-width: 700px) {
     display: none;
   }
