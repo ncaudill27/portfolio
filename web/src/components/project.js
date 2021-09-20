@@ -11,13 +11,7 @@ import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";
 
-function Project({
-  _rawBody,
-  title,
-  mainImage,
-  relatedProjects,
-  stack
-}) {
+function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
     <RootWrapper>
       <Header />
@@ -42,6 +36,7 @@ function Project({
       </article>
       <AsideWrapper>
         <StickyWrapper>
+          {links.length > 0 && <AsideCategory title="Project Links"></AsideCategory>}
           {stack.length > 0 && (
             <AsideCategory title="Stack">
               <Stack list={stack} />

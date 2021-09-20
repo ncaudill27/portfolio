@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { graphql } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -31,17 +31,17 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
       <MaxWidthWrapper width={2000}>
         <ImageWrapper>
           <img
-          src={imageUrlFor(buildImageObj(project.mainImage))
-            .width(1500)
-            .height(300)
-            .fit('crop')
-            .url()}
-          alt={project.mainImage.alt}
-          style={{
-            marginBottom: 'var(--spacing-1)'
-          }}
-        />
-          </ImageWrapper>
+            src={imageUrlFor(buildImageObj(project.mainImage))
+              .width(1500)
+              .height(300)
+              .fit("crop")
+              .url()}
+            alt={project.mainImage.alt}
+            style={{
+              marginBottom: "var(--spacing-1)"
+            }}
+          />
+        </ImageWrapper>
         <Project {...project} />
       </MaxWidthWrapper>
     </>

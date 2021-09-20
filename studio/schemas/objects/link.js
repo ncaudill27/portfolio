@@ -6,7 +6,7 @@ export default {
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "string"
     },
     {
       name: "url",
@@ -14,4 +14,4 @@ export default {
       type: "string"
     }
   ]
-}
+};

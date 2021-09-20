@@ -9,7 +9,7 @@ async function createProjectPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanitySampleProject(filter: {slug: {current: {ne: "null"}}}) {
+      allSanitySampleProject(filter: { slug: { current: { ne: "null" } } }) {
         edges {
           node {
             id

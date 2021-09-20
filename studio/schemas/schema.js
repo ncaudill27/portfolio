@@ -14,7 +14,7 @@ import bioPortableText from "./objects/bioPortableText";
 import figure from "./objects/figure";
 import projectPortableText from "./objects/projectPortableText";
 import simplePortableText from "./objects/simplePortableText";
-import link from './objects/link'
+import link from "./objects/link";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

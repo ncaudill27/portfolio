@@ -12,7 +12,7 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
     }
   };
 
-  const activeColor = (path) => (isActive(path) ? "var(--color-primary)" : "var(--color-text)");
+  const activeColor = path => (isActive(path) ? "var(--color-primary)" : "var(--color-text)");
 
   return (
     <StyledHeader>
@@ -22,7 +22,7 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
             <StyledLink
               to="/projects/"
               style={{
-                "--color": activeColor('/projects/')
+                "--color": activeColor("/projects/")
               }}
             >
               Projects
@@ -37,7 +37,7 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
             <StyledLink
               to="/blog/"
               style={{
-                "--color": activeColor('/blog/')
+                "--color": activeColor("/blog/")
               }}
             >
               Blog

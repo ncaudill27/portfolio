@@ -41,6 +41,11 @@ export default createGlobalStyle`
     --font-family-primary: "Rubik", "Asap", "DejaVu Sans", "Verdana", "sans‑serif";
     --font-family-secondary: "Work Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
     --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
+    /* ----------
+    SET FULL SIZE PAGE ALWAYS
+    ---------- */
+    min-height: 100%;
+    height: 100%;
   }
   /* ----------
     CSS RESET

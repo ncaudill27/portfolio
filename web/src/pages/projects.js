@@ -5,7 +5,7 @@ import { mapEdgesToNodes } from "../lib/helpers";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 
-import Header from '../components/headerTop'
+import Header from "../components/headerTop";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 
 const ProjectsPage = ({ data, errors }) => {
@@ -48,7 +48,7 @@ export const query = graphql`
           ...SanityProject
         }
       }
-    }  
+    }
   }
 `;
 

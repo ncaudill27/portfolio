@@ -13,9 +13,7 @@ const NotFoundPage = () => {
       <SEO title="404: Not found" />
       <IntroWrapper>
         <MainHeader>NOT FOUND</MainHeader>
-        <Body>
-          Oopsy! You just hit a route that doesn&#39;t exist... the sadness.
-        </Body>
+        <Body>Oopsy! You just hit a route that doesn&#39;t exist... the sadness.</Body>
       </IntroWrapper>
     </Layout>
   );

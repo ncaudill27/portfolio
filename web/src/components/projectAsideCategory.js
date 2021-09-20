@@ -7,8 +7,8 @@ import Title from "./typography/headingTertiary";
 const AsideCategory = ({ title, children }) => (
   <RootWrapper stack gap={0}>
     <Title>{title}</Title>
-    <Flex as='ul' role='list' stack gap={0}>
-    {children}
+    <Flex as="ul" role="list" stack gap={0}>
+      {children}
     </Flex>
   </RootWrapper>
 );
