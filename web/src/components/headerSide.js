@@ -1,23 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import Link from "./headerLink";
 
-import Flex from "./flex";
+import Flex from './flex'
 
 const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
   <StyledHeader>
     <StyledNav>
-      <Flex as="ul" role="list" justify="center" gap={1} stack>
+      <Flex as="ul" role="list" justify="center" stack>
         <li>
-          <Link to="/">
+          {/* <Link to="/">
             <LogoPlaceholder />
-          </Link>
+          </Link> */}
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <StyledLink to="/projects/">Projects</StyledLink>
+          <Link to="/projects/">Projects</Link>
         </li>
         <li>
-          <StyledLink to="/blog/">Blog</StyledLink>
+          <Link to="/blog/">Blog</Link>
         </li>
       </Flex>
     </StyledNav>
@@ -43,14 +44,6 @@ const LogoPlaceholder = styled.div`
   height: 90px;
   border-radius: 50%;
   background-color: var(--color-text);
-`;
-
-const StyledLink = styled(Link)`
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-medium);
-  color: inherit;
-  font-size: 16px;
-  text-decoration: none;
 `;
 
 export default Header;

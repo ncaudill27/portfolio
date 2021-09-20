@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "./typography/navLink";
+import { Link } from "gatsby";
 
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
@@ -29,10 +29,10 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
-  color: var(--color-primary);
+  color: var(--color-primary-muted);
   font-weight: var(--font-weight-bold);
+  text-decoration: none;
 
-  
   & > span {
     box-shadow: 0px 2px 0px var(--color-primary);
     transition: box-shadow 100ms ease 0s;

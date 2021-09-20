@@ -1,49 +1,38 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 
-import Flex from "./flex";
+import Link from "./headerLink";
 
 const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
-  const isActive = string => {
-    if (typeof window !== "undefined") {
-      console.log("path:", window.location.pathname);
-      return window.location.pathname === string;
-    }
-  };
-
-  const activeColor = path => (isActive(path) ? "var(--color-primary)" : "var(--color-text)");
-
   return (
     <StyledHeader>
       <StyledNav>
-        <Flex as="ul" role="list" justify="center" align="flex-end" gap={5}>
+        <StyledList role="list">
           <li>
-            <StyledLink
+            <Link
               to="/projects/"
-              style={{
-                "--color": activeColor("/projects/")
-              }}
             >
               Projects
-            </StyledLink>
-          </li>
-          <li>
-            <Link to="/">
-              <LogoPlaceholder />
             </Link>
           </li>
           <li>
-            <StyledLink
+            {/* <Link to="/">
+              <LogoPlaceholder />
+            </Link> */}
+            <Link
+              to="/"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/blog/"
-              style={{
-                "--color": activeColor("/blog/")
-              }}
             >
               Blog
-            </StyledLink>
+            </Link>
           </li>
-        </Flex>
+        </StyledList>
       </StyledNav>
     </StyledHeader>
   );
@@ -51,6 +40,7 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
 
 const StyledHeader = styled.header`
   margin-top: 40px;
+  text-align: center;
 `;
 
 const StyledNav = styled.nav`
@@ -60,22 +50,17 @@ const StyledNav = styled.nav`
   margin-right: auto;
 `;
 
+const StyledList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--spacing-0);
+`;
+
 const LogoPlaceholder = styled.div`
   width: 90px;
   height: 90px;
   border-radius: 50%;
   background-color: var(--color-text);
-`;
-
-const StyledLink = styled(Link)`
-  display: block;
-  width: 64.84px;
-  margin-bottom: var(--spacing-1);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-medium);
-  color: var(--color);
-  font-size: 16px;
-  text-decoration: none;
 `;
 
 export default Header;

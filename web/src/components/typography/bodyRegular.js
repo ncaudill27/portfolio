@@ -5,4 +5,8 @@ export default styled.p`
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
   font-size: 16px;
+
+  & + p {
+    padding-top: var(--spacing-1);
+  }
 `;

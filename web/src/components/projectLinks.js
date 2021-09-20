@@ -14,7 +14,7 @@ const Links = ({ list }) => (
 );
 
 const StyledLink = styled.a`
-  color: var(--color-primary);
+  color: var(--color-primary-muted);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
 
