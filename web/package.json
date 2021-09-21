@@ -17,6 +17,7 @@
     "@sanity/image-url": "^0.140.18",
     "babel-plugin-styled-components": "^1.13.2",
     "date-fns": "^1.30.1",
+    "dotenv": "^8.6.0",
     "gatsby": "^3.0.4",
     "gatsby-plugin-image": "^1.14.0",
     "gatsby-plugin-postcss": "^4.0.0",
@@ -24,11 +25,11 @@
     "gatsby-plugin-styled-components": "^4.13.0",
     "gatsby-plugin-webfonts": "^2.1.1",
     "gatsby-source-sanity": "^7.0.0",
+    "mailgun-js": "^0.22.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^5.2.0",
-    "styled-components": "^5.3.1",
-    "dotenv": "^8.6.0"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "eslint": "^7.22.0",
