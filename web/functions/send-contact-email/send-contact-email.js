@@ -22,8 +22,6 @@ exports.handler = async (event) => {
   }
 
   try {
-    console.log(mailgunData);
-  console.log(mailgun.messages());
     await mailgun.messages().send(mailgunData)
 
     return {

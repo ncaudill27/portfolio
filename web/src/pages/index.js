@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import useRefDimensions from "../hooks/useRefDimensions";
 
 import Heading from "../components/typography/headingPrimary";
@@ -13,7 +13,6 @@ import VisuallyHidden from "@reach/visually-hidden";
 import Header from "../components/headerTop";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
-import Footer from '../components/footer';
 import Github from "../components/images/iconGithub";
 import Twitter from "../components/images/iconTwitter";
 import Linkedin from "../components/images/iconLinkedin";
@@ -69,10 +68,10 @@ const IndexPage = ({ data, errors }) => {
             <VisuallyHidden>LinkedIn profile</VisuallyHidden>
             <Linkedin />
           </a>
-          <a href="">
+          <Link href="/contact/">
             <VisuallyHidden>Send Nelson an email</VisuallyHidden>
             <Mail />
-          </a>
+          </Link>
         </IconWrapper>
       </IntroWrapper>
       </main>
