@@ -29,11 +29,11 @@ const Form = props => {
   };
 
   const handleSubmit = async e => {
+    e.preventDefault();
     if (!!honeypot) return;
 
-    e.preventDefault();
     // clear any current responses
-    setResponse([]);
+    setResponse("");
     // call validation function to check inputs and log any discrepancies
     const { validEmail, error } = await validateEmail(email);
     // update styling if errors
@@ -43,22 +43,24 @@ const Form = props => {
     if (!validEmail) return;
 
     setLoading(true);
-    fetch("/.netlify/functions/send-contact-email", {
+    const contactData = {
       message,
       contactName: name,
       contactEmail: email
-    });
+    }
+    const response = fetch("/.netlify/functions/send-contact-email", contactData)
+    const { data, error } = await response.json()
     setLoading(false);
 
     if (error) {
-      updateResponse(error);
-      setServerError(true);
-      return; // kick out response
+      console.log(error);
+      setResponse("Oh no! It looks like service is down. Try again soon.")
     }
 
-    updateResponse("You're all signed up! Thank you!");
-    //? anything useful we can do with the return data
-    //? possibly log is somewhere
+    if (data) {
+      resetState();
+      updateResponse("You're all signed up! Thank you!");
+    }
   };
 
   return (
