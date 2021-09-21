@@ -13,7 +13,7 @@ import VisuallyHidden from "@reach/visually-hidden";
 import Header from "../components/headerTop";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
-
+import Footer from '../components/footer';
 import Github from "../components/images/iconGithub";
 import Twitter from "../components/images/iconTwitter";
 import Linkedin from "../components/images/iconLinkedin";
@@ -40,9 +40,10 @@ const IndexPage = ({ data, errors }) => {
   }
 
   return (
-    <main>
+    <>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Header />
+      <main>
       <IntroWrapper width={510}>
         <MainHeader ref={titleEl}>{site.title}</MainHeader>
         <MainBody style={{ "--width": width + "px" }}>
@@ -74,7 +75,9 @@ const IndexPage = ({ data, errors }) => {
           </a>
         </IconWrapper>
       </IntroWrapper>
-    </main>
+      </main>
+      {/* <Footer /> */}
+    </>
   );
 };
 

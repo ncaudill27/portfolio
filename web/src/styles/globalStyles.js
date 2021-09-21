@@ -45,8 +45,8 @@ export default createGlobalStyle`
     /* ----------
     SET FULL SIZE PAGE ALWAYS
     ---------- */
-    min-height: 100%;
-    height: 100%;
+    min-height: 100vh;
+    height: 100vh;
   }
   /* ----------
     CSS RESET
