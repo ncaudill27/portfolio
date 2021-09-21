@@ -18,7 +18,7 @@ exports.handler = async (event) => {
     to: CONTACT_TO_EMAIL_ADDRESS,
     'h:Reply-To': contactEmail,
     subject: `New contact from ${contactName}`,
-    text: `Name: ${contactName}\nEmail: ${contactEmail}\nMessage: ${contactEmail}`
+    text: `Name: ${contactName}\nEmail: ${contactEmail}\nMessage: ${message}`
   }
 
   try {

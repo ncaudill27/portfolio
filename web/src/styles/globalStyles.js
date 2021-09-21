@@ -47,6 +47,13 @@ export default createGlobalStyle`
     ---------- */
     min-height: 100vh;
     height: 100vh;
+    /* ----------
+    RESPONSIVE MARGIN FOR INDEX/404/BLOG/CONTACT
+    ---------- */
+    --margin-top-min: var(--spacing-1);
+    --margin-top-max: 120px;
+    --margin-top-value: 4px + 7.83vw;
+    --responsive-margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
   }
   /* ----------
     CSS RESET

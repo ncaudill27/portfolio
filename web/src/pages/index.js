@@ -102,10 +102,7 @@ const MainBody = styled(Body)`
 `;
 
 const IntroWrapper = styled(MaxWidthWrapper)`
-  --margin-top-min: var(--spacing-1);
-  --margin-top-max: 120px;
-  --margin-top-value: 4px + 7.83vw;
-  margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
+  margin-top: var(--responsive-margin-top);
 
   padding: 0 var(--spacing-1);
 `;
