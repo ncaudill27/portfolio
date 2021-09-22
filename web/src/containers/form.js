@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { validateEmail } from "../lib/emailValidation";
 
 import StyledForm from "../components/form";
-import Toast from "./formToast";
+import Toast from "../components/toast";
 
 const Form = props => {
   const [name, setName] = useState("");
@@ -60,7 +60,6 @@ const Form = props => {
     await setLoading(false);
 
     if (error) {
-      console.log(error);
       setResponse("Oh no! It looks like service is down. Try again soon.");
     }
 
@@ -94,7 +93,7 @@ const Form = props => {
 
   return (
     <>
-      {!!response && <Toast response={response} setResponse={setResponse} />}
+      {!!response && <Toast response={response} error={emailError || serverError} setResponse={setResponse} />}
       <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />
     </>
   );
