@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import StyledLink from './typography/navLink'
+import StyledLink from "./typography/navLink";
 
 const NavLink = ({ to, ...props }) => {
   const isActive = () => {

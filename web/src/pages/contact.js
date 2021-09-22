@@ -4,22 +4,22 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Heading from "../components/typography/headingPrimary";
-import Body from "../components/typography/bodyRegular";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
+import Form from '../containers/form'
 
 const ContactPage = () => {
   return (
     <Layout>
       <SEO title="404: Not found" />
-      <IntroWrapper>
+      <Wrapper width={510}>
         <MainHeader>Contact</MainHeader>
-        <Body>Oopsy! You just hit a route that doesn&#39;t exist... the sadness.</Body>
-      </IntroWrapper>
+        <Form />
+      </Wrapper>
     </Layout>
   );
 };
 
-const IntroWrapper = styled(MaxWidthWrapper)`
+const Wrapper = styled(MaxWidthWrapper)`
   margin-top: var(--responsive-margin-top);
 
   text-align: center;

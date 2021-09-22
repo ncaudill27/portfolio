@@ -3,11 +3,9 @@ import styled from "styled-components";
 
 const Links = ({ list }) => (
   <>
-    {list.map(({title, url}) => (
+    {list.map(({ title, url }) => (
       <li key={url}>
-        <StyledLink href={url}>
-          {title}
-        </StyledLink>
+        <StyledLink href={url}>{title}</StyledLink>
       </li>
     ))}
   </>

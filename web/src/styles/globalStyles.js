@@ -21,12 +21,12 @@ export default createGlobalStyle`
     /* ----------
     COLOR PALETTE
     ---------- */
-    --color-text: hsl(183deg, 9%, 16%);//#252525
-    --color-text-transparent: hsla(183deg, 9%, 16%, 0.1);//#252525
+    --color-text: hsl(183deg, 18%, 25%);//#252525
+    --color-text-transparent: hsla(183deg, 18%, 25%, 0.1);//#252525
     --color-background: hsl(183deg, 58%, 95%);//#ebf9fa
     --color-primary: hsl(213deg, 100%, 43%);
     --color-primary-muted: hsl(213deg, 66%, 63%);
-    --color-primary-darkened: hsl(213deg, 100%, 23%);
+    --color-primary-shade: hsl(213deg, 100%, 23%);
     --color-secondary: hsl(3deg, 100%, 43%);
     --color-secondary-muted: hsl(3deg, 66%, 79%);
     --color-secondary-darkened: hsl(3deg, 100%, 30%);

@@ -10,7 +10,7 @@ import BlockContent from "./block-content";
 import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";
-import Links from './projectLinks'
+import Links from "./projectLinks";
 
 function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
@@ -37,9 +37,11 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
       </article>
       <AsideWrapper>
         <StickyWrapper>
-          {links.length > 0 && <AsideCategory title="Project Links">
-            <Links list={links} />
-            </AsideCategory>}
+          {links.length > 0 && (
+            <AsideCategory title="Project Links">
+              <Links list={links} />
+            </AsideCategory>
+          )}
           {stack.length > 0 && (
             <AsideCategory title="Stack">
               <Stack list={stack} />

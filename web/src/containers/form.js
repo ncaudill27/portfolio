@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { validateEmail } from "../utils/emailValidation";
+import { validateEmail } from "../lib/emailValidation";
 
-import Button from "./button";
-import TextField from "./textField";
+import StyledForm from "../components/form";
 
 const Form = props => {
   const [name, setName] = useState("");
@@ -30,31 +29,40 @@ const Form = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if (!!honeypot) return;
-
+    console.log('here');
+    if (!!honeypot) return; // kick out if honeypot filled
+  console.log('made it');
     // clear any current responses
-    setResponse("");
-    // call validation function to check inputs and log any discrepancies
-    const { validEmail, error } = await validateEmail(email);
-    // update styling if errors
-    // if (!validName) setNameError(true)
-    if (!validEmail) setEmailError(true);
-    // block from sending request to mailchimp if not validated
-    if (!validEmail) return;
+    await setResponse("");
+    // call validation function to check inputs
+    const { validEmail, error: emailError } = await validateEmail(email);
+    if (!validEmail) {
+      await setEmailError(true);
+      await setResponse(emailError);
+      return; // kick out if invalid email
+    }
 
-    setLoading(true);
+    await setLoading(true);
     const contactData = {
       message,
       contactName: name,
       contactEmail: email
+    };
+    const fetchObj = {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(contactData)
     }
-    const response = fetch("/.netlify/functions/send-contact-email", contactData)
-    const { data, error } = await response.json()
-    setLoading(false);
+    const response = await fetch("/.netlify/functions/send-contact-email", fetchObj);
+    const { data, error } = await response.json();
+    await setLoading(false);
 
     if (error) {
       console.log(error);
-      setResponse("Oh no! It looks like service is down. Try again soon.")
+      setResponse("Oh no! It looks like service is down. Try again soon.");
     }
 
     if (data) {
@@ -63,34 +71,29 @@ const Form = props => {
     }
   };
 
-  return (
-    <StyledForm onSubmit={handleSubmit} resetForm={resetState} {...props}>
-      <Response
-        style={{
-          "--color": emailError || serverError ? "red" : "green"
-        }}
-      >
-        {response.map(response => (
-          <div key={response}>{response}</div>
-        ))}
-      </Response>
-      <InputsWrapper>
-        <div style={{ display: "none" }}>
-          <label htmlFor="name">Name</label>
-          <input id="name" value={honeypot} onChange={handleChange(setHoneypot)} />
-        </div>
-        <TextField
-          id="email"
-          value={email}
-          placeholder="Please enter your email"
-          onChange={handleChange(setEmail)}
-          disabled={loading}
-          error={emailError}
-        />
-      </InputsWrapper>
-      <Button disabled={loading} onKeyDown={handleEscKey(props.closeForm)}>
-        Join
-      </Button>
-    </StyledForm>
-  );
+  const formLogic = {
+    name,
+    email,
+    message,
+    loading,
+    response,
+    emailError,
+    serverError,
+    honeypot,
+    setName,
+    setEmail,
+    setMessage,
+    setLoading,
+    setResponse,
+    setEmailError,
+    serverError,
+    setHoneypot,
+    resetState,
+    handleChange,
+    handleSubmit
+  };
+
+  return <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />;
 };
+
+export default Form;

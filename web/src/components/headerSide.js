@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "./headerLink";
 
-import Flex from './flex'
+import Flex from "./flex";
 
 const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
   <StyledHeader>
@@ -12,7 +12,7 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
           {/* <Link to="/">
             <LogoPlaceholder />
           </Link> */}
-          <StyledLink to='/'>Home</StyledLink>
+          <StyledLink to="/">Home</StyledLink>
         </li>
         <li>
           <StyledLink to="/projects/">Projects</StyledLink>

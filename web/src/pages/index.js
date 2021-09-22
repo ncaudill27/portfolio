@@ -43,37 +43,37 @@ const IndexPage = ({ data, errors }) => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Header />
       <main>
-      <IntroWrapper width={510}>
-        <MainHeader ref={titleEl}>{site.title}</MainHeader>
-        <MainBody style={{ "--width": width + "px" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras placerat lectus justo, porta
-          rutrum arcu gravida quis. Ut at iaculis erat. Maecenas sagittis nibh sem, at pellentesque
-          dolor condimentum eu. Nam varius quam in hendrerit lacinia. Curabitur id imperdiet sapien.
-          Nam metus arcu, elementum a ante quis, dignissim tincidunt dolor. Nulla egestas, magna
-          eget ultricies tempus, sem tellus accumsan felis, vitae rutrum turpis turpis id nunc.
-          Etiam fermentum non odio ut laoreet. Nam mollis quam a tortor lobortis hendrerit. Nunc
-          venenatis pulvinar euismod. Integer pharetra libero nec erat aliquet ultrices. Donec
-          mattis nibh vel nibh eleifend ornare.
-        </MainBody>
-        <IconWrapper justify="center" gap={0}>
-          <a href="https://github.com/ncaudill27">
-            <VisuallyHidden>Github profile</VisuallyHidden>
-            <Github />
-          </a>
-          <a href="https://twitter.com/pixel8dChappie">
-            <VisuallyHidden>Twitter profile</VisuallyHidden>
-            <Twitter />
-          </a>
-          <a href="https://www.linkedin.com/in/nelson-caudill/">
-            <VisuallyHidden>LinkedIn profile</VisuallyHidden>
-            <Linkedin />
-          </a>
-          <Link href="/contact/">
-            <VisuallyHidden>Send Nelson an email</VisuallyHidden>
-            <Mail />
-          </Link>
-        </IconWrapper>
-      </IntroWrapper>
+        <IntroWrapper width={510}>
+          <MainHeader ref={titleEl}>{site.title}</MainHeader>
+          <MainBody style={{ "--width": width + "px" }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras placerat lectus justo,
+            porta rutrum arcu gravida quis. Ut at iaculis erat. Maecenas sagittis nibh sem, at
+            pellentesque dolor condimentum eu. Nam varius quam in hendrerit lacinia. Curabitur id
+            imperdiet sapien. Nam metus arcu, elementum a ante quis, dignissim tincidunt dolor.
+            Nulla egestas, magna eget ultricies tempus, sem tellus accumsan felis, vitae rutrum
+            turpis turpis id nunc. Etiam fermentum non odio ut laoreet. Nam mollis quam a tortor
+            lobortis hendrerit. Nunc venenatis pulvinar euismod. Integer pharetra libero nec erat
+            aliquet ultrices. Donec mattis nibh vel nibh eleifend ornare.
+          </MainBody>
+          <IconWrapper justify="center" gap={0}>
+            <a href="https://github.com/ncaudill27">
+              <VisuallyHidden>Github profile</VisuallyHidden>
+              <Github />
+            </a>
+            <a href="https://twitter.com/pixel8dChappie">
+              <VisuallyHidden>Twitter profile</VisuallyHidden>
+              <Twitter />
+            </a>
+            <a href="https://www.linkedin.com/in/nelson-caudill/">
+              <VisuallyHidden>LinkedIn profile</VisuallyHidden>
+              <Linkedin />
+            </a>
+            <Link href="/contact/">
+              <VisuallyHidden>Send Nelson an email</VisuallyHidden>
+              <Mail />
+            </Link>
+          </IconWrapper>
+        </IntroWrapper>
       </main>
       {/* <Footer /> */}
     </>

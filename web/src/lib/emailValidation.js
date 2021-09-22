@@ -6,7 +6,7 @@ const validate = email => {
   return regex.test(email);
 };
 
-const validateEmail = async (email) => {
+const validateEmail = async email => {
   let validEmail = true;
   let error = "";
 

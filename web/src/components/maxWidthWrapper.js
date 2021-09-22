@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 const MaxWidthWrapper = ({ children, width, ...props }) => (
   <Wrapper
@@ -19,9 +18,5 @@ const Wrapper = styled.div`
   max-width: var(--max-width);
   width: 100%;
 `;
-
-Wrapper.propTypes = {
-  width: PropTypes.number.isRequired
-};
 
 export default MaxWidthWrapper;
