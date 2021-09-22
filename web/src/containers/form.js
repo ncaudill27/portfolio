@@ -67,7 +67,7 @@ const Form = props => {
 
     if (data) {
       resetState();
-      updateResponse("You're all signed up! Thank you!");
+      setResponse("You're all signed up! Thank you!");
     }
   };
 

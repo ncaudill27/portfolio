@@ -11,16 +11,11 @@ const Form = ({
   response,
   emailError,
   serverError,
-  setServerError,
   honeypot,
   setName,
   setEmail,
   setMessage,
-  setLoading,
-  setResponse,
-  setEmailError,
   setHoneypot,
-  resetState,
   handleChange,
   handleSubmit
 }) => {
@@ -48,7 +43,7 @@ const Form = ({
           onChange={handleChange(setMessage)}
         />
       </Label>
-      <button>Submit</button>
+      <StyledButton disabled={loading}>Submit</StyledButton>
     </StyledForm>
   );
 };
@@ -73,6 +68,30 @@ const StyledInput = styled.input`
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
+`;
+
+const StyledButton = styled.button`
+  width: fit-content;
+  padding: var(--spacing-0) var(--spacing-3);
+  color: var(--color-background);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 2px;
+  appearance: none;
+  
+  font-family: var(--font-family-primary);
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-muted);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: var(--color-text-transparent);
+    cursor: wait;
+  }
 `;
 
 export default Form;
