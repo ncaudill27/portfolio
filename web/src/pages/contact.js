@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Heading from "../components/typography/headingPrimary";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
-import Form from '../containers/form'
+import Form from "../containers/form";
 
 const ContactPage = () => {
   return (

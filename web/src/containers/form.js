@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { validateEmail } from "../lib/emailValidation";
 
 import StyledForm from "../components/form";
+import Toast from "./formToast";
 
 const Form = props => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState([]);
+  const [response, setResponse] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [serverError, setServerError] = useState(false);
   const [honeypot, setHoneypot] = useState("");
@@ -29,9 +30,7 @@ const Form = props => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('here');
     if (!!honeypot) return; // kick out if honeypot filled
-  console.log('made it');
     // clear any current responses
     await setResponse("");
     // call validation function to check inputs
@@ -52,10 +51,10 @@ const Form = props => {
       method: "POST",
       header: {
         "Content-Type": "application/json",
-        "Accepts": "application/json"
+        Accepts: "application/json"
       },
       body: JSON.stringify(contactData)
-    }
+    };
     const response = await fetch("/.netlify/functions/send-contact-email", fetchObj);
     const { data, error } = await response.json();
     await setLoading(false);
@@ -67,7 +66,7 @@ const Form = props => {
 
     if (data) {
       resetState();
-      setResponse("You're all signed up! Thank you!");
+      setResponse(data);
     }
   };
 
@@ -93,7 +92,12 @@ const Form = props => {
     handleSubmit
   };
 
-  return <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />;
+  return (
+    <>
+      {!!response && <Toast response={response} setResponse={setResponse} />}
+      <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />
+    </>
+  );
 };
 
 export default Form;

@@ -62,7 +62,7 @@ const Honeypot = styled(Label)`
 const StyledInput = styled.input`
   width: 100%;
   padding: 2px var(--spacing-0);
-  background-color: hsl(0, 0%, 97%);
+  background-color: var(--color-background-alt);
   border: 1px solid hsl(183, 38%, 93%);
   outline-color: var(--color-text);
   font-family: var(--font-family-secondary);
@@ -78,7 +78,7 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 2px;
   appearance: none;
-  
+
   font-family: var(--font-family-primary);
   text-transform: uppercase;
 

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  html {
+  :root {
     /* ----------
     SPACING VARIABLES
     ---------- */
@@ -24,6 +24,7 @@ export default createGlobalStyle`
     --color-text: hsl(183deg, 18%, 25%);//#252525
     --color-text-transparent: hsla(183deg, 18%, 25%, 0.1);//#252525
     --color-background: hsl(183deg, 58%, 95%);//#ebf9fa
+    --color-background-alt: hsl(0, 0%, 97%);
     --color-primary: hsl(213deg, 100%, 43%);
     --color-primary-muted: hsl(213deg, 66%, 63%);
     --color-primary-shade: hsl(213deg, 100%, 23%);
@@ -54,6 +55,8 @@ export default createGlobalStyle`
     --margin-top-max: 120px;
     --margin-top-value: 4px + 7.83vw;
     --responsive-margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
+
+    --toastify-icon-color-success: var(--color-primary);
   }
   /* ----------
     CSS RESET
