@@ -6,6 +6,8 @@ import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
 import Title from "./typography/headingSecondary";
+import Flex from './flex'
+import TechStack from './projectStack'
 
 function ProjectPreview(props) {
   return (
@@ -20,10 +22,17 @@ function ProjectPreview(props) {
           style={{ width: "100%", height: "100%" }}
         />
       </ImageWrapper>
-      <CopyWrapper>
+      <ContentWrapper>
+        <Flex gap={1}>
+        <StackWrapper justify="space-between" stack>
+          <TechStack list={props.stack} iconOnly />
+        </StackWrapper>
+        <div>
         <Title>{props.title}</Title>
         <BlockContent blocks={props._rawExcerpt} />
-      </CopyWrapper>
+        </div>
+        </Flex>
+      </ContentWrapper>
     </RootWrapper>
   );
 }
@@ -48,11 +57,19 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const CopyWrapper = styled.div`
+const StackWrapper = styled(Flex)`
+  padding-top: var(--spacing-0);
+
+  @media (min-width: 723px) {
+    padding-top: var(--spacing-1);
+  }
+`;
+
+const ContentWrapper = styled.div`
   @media (max-width: 723px) {
     padding-top: var(--spacing-1);
-    padding-left: var(--spacing-2);
-    padding-right: var(--spacing-2);
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
     padding-bottom: var(--spacing-4);
   }
 `;

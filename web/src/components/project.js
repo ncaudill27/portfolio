@@ -12,7 +12,7 @@ import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";
 import Links from "./projectLinks";
 
-function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
+function Project({ _rawBody, _rawExcerpt, title, mainImage, relatedProjects, stack, links }) {
   return (
     <RootWrapper>
       <Header />
@@ -32,6 +32,7 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
         </ImageWrapper>
         <CopyWrapper>
           <Title>{title}</Title>
+          <BlockContent blocks={_rawExcerpt} />
           <BlockContent blocks={_rawBody} />
         </CopyWrapper>
       </article>
