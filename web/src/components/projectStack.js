@@ -9,10 +9,7 @@ const Stack = ({ list, iconOnly }) => (
   <>
     {list.map(({ title, logo }) => (
       <TechWrapper>
-        <StyledIcon
-          src={imageUrlFor(buildImageObj(logo)).url()}
-          alt={logo}
-        />
+        <StyledIcon src={imageUrlFor(buildImageObj(logo)).url()} alt={logo} />
         {!iconOnly && title}
       </TechWrapper>
     ))}

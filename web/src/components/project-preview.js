@@ -6,8 +6,8 @@ import { imageUrlFor } from "../lib/image-url";
 import BlockContent from "./block-content";
 
 import Title from "./typography/headingSecondary";
-import Flex from './flex'
-import TechStack from './projectStack'
+import Flex from "./flex";
+import TechStack from "./projectStack";
 
 function ProjectPreview(props) {
   return (
@@ -24,13 +24,13 @@ function ProjectPreview(props) {
       </ImageWrapper>
       <ContentWrapper>
         <Flex gap={1}>
-        <StackWrapper justify="space-between" stack>
-          <TechStack list={props.stack} iconOnly />
-        </StackWrapper>
-        <div>
-        <Title>{props.title}</Title>
-        <BlockContent blocks={props._rawExcerpt} />
-        </div>
+          <StackWrapper justify="space-between" stack>
+            <TechStack list={props.stack} iconOnly />
+          </StackWrapper>
+          <div>
+            <Title>{props.title}</Title>
+            <BlockContent blocks={props._rawExcerpt} />
+          </div>
         </Flex>
       </ContentWrapper>
     </RootWrapper>

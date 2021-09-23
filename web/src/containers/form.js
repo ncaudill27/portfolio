@@ -18,7 +18,7 @@ const Form = props => {
     setResponse("");
     setEmailError(false);
     setServerError(false);
-  }
+  };
 
   const resetState = () => {
     setName("");
