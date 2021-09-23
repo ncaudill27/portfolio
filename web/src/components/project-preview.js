@@ -40,6 +40,14 @@ function ProjectPreview(props) {
 const RootWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
+  transform: scale(0.98);
+  transition: transform 100ms ease-in-out;
+
+  &:hover {
+    transform: scale(1);
+    background-color: var(--color-text-transparent);
+    border-radius: 2px;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -66,6 +74,15 @@ const StackWrapper = styled(Flex)`
 `;
 
 const ContentWrapper = styled.div`
+  transition: padding 100ms ease-in-out;
+  padding-right: var(--spacing-3);
+  padding-bottom: var(--spacing-1);
+
+  ${RootWrapper}:hover & {
+    padding: var(--spacing-1);
+    padding-top: 0;
+  }
+
   @media (max-width: 723px) {
     padding-top: var(--spacing-1);
     padding-left: var(--spacing-1);

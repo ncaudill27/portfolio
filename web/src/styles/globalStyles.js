@@ -41,7 +41,7 @@ export default createGlobalStyle`
     --font-weight-regular: 400;
     --font-weight-light: 300;
     --font-family-primary: "Rubik", "Asap", "DejaVu Sans", "Verdana", "sans‑serif";
-    --font-family-secondary: "Work Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
+    --font-family-secondary: "Fira Sans Condensed", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
     --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
     /* ----------
     SET FULL SIZE PAGE ALWAYS
