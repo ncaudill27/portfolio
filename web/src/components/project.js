@@ -32,7 +32,7 @@ function Project({ _rawBody, _rawExcerpt, title, mainImage, relatedProjects, sta
         </ImageWrapper>
         <CopyWrapper>
           <Title>{title}</Title>
-          <BlockContent blocks={_rawExcerpt} style={{fontSize: 18}}/>
+          <BlockContent blocks={_rawExcerpt} />
           <BlockContent blocks={_rawBody} />
         </CopyWrapper>
       </article>
@@ -69,12 +69,12 @@ const RootWrapper = styled.div`
     padding-left: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
     padding-right: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
     display: grid;
-    grid-template-columns: 1fr minmax(500px, 650px) 1fr;
+    grid-template-columns: 1fr minmax(500px, 65ch) 1fr;
     gap: clamp(var(--spacing-2), 1px + 5vw, var(--spacing-10));
   }
 `;
 
-const CopyWrapper = styled.div`
+export const CopyWrapper = styled.div`
   @media (max-width: 700px) {
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
