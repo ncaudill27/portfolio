@@ -43,7 +43,7 @@ const Form = ({
           onChange={handleChange(setMessage)}
         />
       </Label>
-      <StyledButton disabled={loading}>Submit</StyledButton>
+      <StyledButton disabled={loading}>Send message</StyledButton>
     </StyledForm>
   );
 };

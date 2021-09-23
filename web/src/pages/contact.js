@@ -10,7 +10,7 @@ import Form from "../containers/form";
 const ContactPage = () => {
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <SEO title="Contact Me" />
       <Wrapper width={510}>
         <MainHeader>Contact</MainHeader>
         <Form />

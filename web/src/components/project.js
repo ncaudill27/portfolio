@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
-import Heading from "./typography/headingPrimary";
+import Title from "./typography/headingPrimary";
 // UI COMPONENTS
 import Header from "./headerSide";
 import BlockContent from "./block-content";
@@ -32,7 +32,7 @@ function Project({ _rawBody, _rawExcerpt, title, mainImage, relatedProjects, sta
         </ImageWrapper>
         <CopyWrapper>
           <Title>{title}</Title>
-          <BlockContent blocks={_rawExcerpt} />
+          <BlockContent blocks={_rawExcerpt} style={{fontSize: 18}}/>
           <BlockContent blocks={_rawBody} />
         </CopyWrapper>
       </article>
@@ -58,10 +58,6 @@ function Project({ _rawBody, _rawExcerpt, title, mainImage, relatedProjects, sta
     </RootWrapper>
   );
 }
-
-const Title = styled(Heading)`
-  margin-bottom: var(--spacing-1);
-`;
 
 const RootWrapper = styled.div`
   padding-bottom: var(--spacing-10);

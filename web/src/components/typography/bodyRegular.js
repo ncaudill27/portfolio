@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Project from "../project";
 
 export default styled.p`
   font-family: var(--font-family-secondary);

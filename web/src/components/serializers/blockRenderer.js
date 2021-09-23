@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import PrimaryHeading from "../typography/headingPrimary";
 import SecondaryHeading from "../typography/headingSecondary";
