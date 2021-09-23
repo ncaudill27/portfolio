@@ -8,9 +8,6 @@ const Form = ({
   email,
   message,
   loading,
-  response,
-  emailError,
-  serverError,
   honeypot,
   setName,
   setEmail,
@@ -82,8 +79,7 @@ const StyledButton = styled.button`
   font-family: var(--font-family-primary);
   text-transform: uppercase;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--color-primary-muted);
     cursor: pointer;
   }

@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Toast = ({ response, error, setResponse }) => {
-  toast(response, { type: !error ? "success" : "error", onClose: () => setResponse("") });
+const Toast = ({ response, error, reset }) => {
+  toast(response, { type: !error ? "success" : "error", onClose: () => reset() });
 
   return <StyledToast position="top-center" error={error} />;
 };
@@ -17,6 +17,7 @@ const StyledToast = styled(ToastContainer).attrs({})`
 
   .Toastify__toast-body {
     font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-light);
   }
 
   .Toastify__progress-bar {

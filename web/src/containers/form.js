@@ -14,6 +14,12 @@ const Form = props => {
   const [serverError, setServerError] = useState(false);
   const [honeypot, setHoneypot] = useState("");
 
+  const clearError = () => {
+    setResponse("");
+    setEmailError(false);
+    setServerError(false);
+  }
+
   const resetState = () => {
     setName("");
     setEmail("");
@@ -93,7 +99,9 @@ const Form = props => {
 
   return (
     <>
-      {!!response && <Toast response={response} error={emailError || serverError} setResponse={setResponse} />}
+      {!!response && (
+        <Toast response={response} error={emailError || serverError} reset={clearError} />
+      )}
       <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />
     </>
   );
