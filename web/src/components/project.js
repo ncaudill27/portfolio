@@ -32,7 +32,6 @@ function Project({ _rawBody, _rawExcerpt, title, mainImage, relatedProjects, sta
         </ImageWrapper>
         <CopyWrapper>
           <Title>{title}</Title>
-          <BlockContent blocks={_rawExcerpt} />
           <BlockContent blocks={_rawBody} />
         </CopyWrapper>
       </article>

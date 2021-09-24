@@ -50,6 +50,11 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-0);
+
+  @media (max-width: 543px) {
+    padding-left: var(--spacing-1);
+    padding-right: var(--spacing-1);
+  }
 `;
 
 const Honeypot = styled(Label)`

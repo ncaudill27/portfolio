@@ -29,7 +29,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: "Fira Sans Condensed",
+              family: "Open Sans",
               variants: ["300", "400", "500", "600", "700"]
             },
             {

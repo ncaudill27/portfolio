@@ -12,7 +12,7 @@ const Links = ({ list }) => (
 );
 
 const StyledLink = styled.a`
-  color: var(--color-primary-muted);
+  color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
 
@@ -20,6 +20,7 @@ const StyledLink = styled.a`
   box-shadow: 0px 2px 0px var(--color-primary);
 
   @media (min-width: 700px) {
+    color: var(--color-primary-muted);
     box-shadow: 0px 0px 0px var(--color-primary);
 
     &:hover {

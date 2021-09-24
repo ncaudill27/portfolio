@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
-  color: var(--color-primary-muted);
+  color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
 
@@ -39,6 +39,8 @@ const StyledLink = styled(Link)`
   }
 
   @media (min-width: 700px) {
+    color: var(--color-primary);
+    
     & > span {
       box-shadow: 0px 0px 0px var(--color-primary);
     }

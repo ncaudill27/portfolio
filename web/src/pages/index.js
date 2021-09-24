@@ -5,6 +5,7 @@ import useRefDimensions from "../hooks/useRefDimensions";
 
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
+import Strong from "../components/typography/strong"
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -46,26 +47,28 @@ const IndexPage = ({ data, errors }) => {
         <IntroWrapper width={510}>
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
           <MainBody style={{ "--width": width + "px" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras placerat lectus justo,
-            porta rutrum arcu gravida quis. Ut at iaculis erat. Maecenas sagittis nibh sem, at
-            pellentesque dolor condimentum eu. Nam varius quam in hendrerit lacinia. Curabitur id
-            imperdiet sapien. Nam metus arcu, elementum a ante quis, dignissim tincidunt dolor.
-            Nulla egestas, magna eget ultricies tempus, sem tellus accumsan felis, vitae rutrum
-            turpis turpis id nunc. Etiam fermentum non odio ut laoreet. Nam mollis quam a tortor
-            lobortis hendrerit. Nunc venenatis pulvinar euismod. Integer pharetra libero nec erat
-            aliquet ultrices. Donec mattis nibh vel nibh eleifend ornare.
+            Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a student. For the time
+            being, my goal is to provide the end-user with such an enjoyable experience&#8212;yes, that
+            means accessibility &amp; inclusion&#8212;clients have no choice but to love me. In the long run,
+            my objective is not just to grow but to <Strong>grow with</Strong> and help lift those looking to get
+            into code.
+          </MainBody>
+          <MainBody style={{ "--width": width + "px" }}>
+            Currently, my favorite technology to work with is React. Building with Gatsby
+            alongside Sanity.io &amp; Netlify Functions allows me to create
+            insanely fast &amp; secure websites. Honestly, sometimes it is too much fun.
           </MainBody>
           <IconWrapper justify="center" gap={0}>
             <a href="https://github.com/ncaudill27">
-              <VisuallyHidden>Github profile</VisuallyHidden>
+              <VisuallyHidden>Go to Github profile</VisuallyHidden>
               <Github />
             </a>
             <a href="https://twitter.com/pixel8dChappie">
-              <VisuallyHidden>Twitter profile</VisuallyHidden>
+              <VisuallyHidden>Go to Twitter profile</VisuallyHidden>
               <Twitter />
             </a>
             <a href="https://www.linkedin.com/in/nelson-caudill/">
-              <VisuallyHidden>LinkedIn profile</VisuallyHidden>
+              <VisuallyHidden>Go to LinkedIn profile</VisuallyHidden>
               <Linkedin />
             </a>
             <Link href="/contact/">

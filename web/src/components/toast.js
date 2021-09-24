@@ -17,7 +17,6 @@ const StyledToast = styled(ToastContainer).attrs({})`
 
   .Toastify__toast-body {
     font-family: var(--font-family-secondary);
-    font-weight: var(--font-weight-light);
   }
 
   .Toastify__progress-bar {
