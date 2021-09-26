@@ -5,9 +5,7 @@ import { getGatsbyImageData } from "gatsby-source-sanity";
 import clientConfig from "../../../client-config";
 
 export function Figure({ node }) {
-  if (!node.asset) {
-    return null;
-  }
+  if (!node.asset) return null;
 
   const imageData = getGatsbyImageData(node.asset, { maxWidth: 675 }, clientConfig.sanity);
 
@@ -19,6 +17,9 @@ export function Figure({ node }) {
 }
 
 const RootWrapper = styled.figure`
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
+
   @media (max-width: 700px) {
     margin-left: calc(var(--spacing-1) * -1);
     margin-right: calc(var(--spacing-1) * -1);

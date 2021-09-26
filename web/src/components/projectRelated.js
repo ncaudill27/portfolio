@@ -39,7 +39,7 @@ const StyledLink = styled(Link)`
   }
 
   @media (min-width: 700px) {
-    color: var(--color-primary);
+    color: var(--color-primary-muted);
     
     & > span {
       box-shadow: 0px 0px 0px var(--color-primary);

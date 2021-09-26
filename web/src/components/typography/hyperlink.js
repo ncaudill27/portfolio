@@ -6,8 +6,10 @@ export default styled.a`
   transition: box-shadow 100ms ease 0s;
   box-shadow: 0px 2px 0px var(--color-primary);
 
+  will-change: box-shadow;
+
   @media (min-width: 700px) {
-    box-shadow: 0px 0px 0px var(--color-primary);
+    box-shadow: 0px 0px 0px var(--color-background);
 
     &:hover {
       cursor: pointer;
