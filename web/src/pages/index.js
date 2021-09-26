@@ -48,7 +48,7 @@ const IndexPage = ({ data, errors }) => {
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
           <MainBody style={{ "--width": width + "px" }}>
             Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a student. For the time
-            being, my goal is to provide the end-user with such an enjoyable experience&#8212;yes, that
+            being, my goal is to provide the end-user with such an enjoyable experience&#8212;<em>yes</em>, that
             means accessibility &amp; inclusion&#8212;clients have no choice but to love me. In the long run,
             my objective is not just to grow but to <Strong>grow with</Strong> and help lift those looking to get
             into code.

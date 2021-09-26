@@ -24,7 +24,7 @@ function ProjectPreview(props) {
       </ImageWrapper>
       <ContentWrapper>
         <Flex gap={1}>
-          <StackWrapper justify="space-between" stack>
+          <StackWrapper gap={0} stack>
             <TechStack list={props.stack} iconOnly />
           </StackWrapper>
           <div>
@@ -66,28 +66,14 @@ const ImageWrapper = styled.div`
 `;
 
 const StackWrapper = styled(Flex)`
-  padding-top: var(--spacing-0);
-
-  @media (min-width: 723px) {
-    padding-top: var(--spacing-1);
-  }
+  padding-top: var(--spacing-1);
 `;
 
 const ContentWrapper = styled.div`
-  transition: padding 100ms ease-in-out;
-  padding-right: var(--spacing-3);
-  padding-bottom: var(--spacing-1);
-
-  ${RootWrapper}:hover & {
-    padding: var(--spacing-1);
-    padding-top: 0;
-  }
-
-  @media (max-width: 723px) {
-    padding-top: var(--spacing-1);
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
     padding-bottom: var(--spacing-4);
+  @media (max-width: 723px) {
   }
 `;
 export default ProjectPreview;

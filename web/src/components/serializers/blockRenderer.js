@@ -17,6 +17,7 @@ export function BlockRenderer(props) {
       return <TertiaryHeading as="h4" {...props} />;
 
     default:
+      console.log(props.node);
       return <Body>{props.children}</Body>;
   }
 }
