@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export default styled.h2`
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-0);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
+  line-height: 1.05;
   /* ----------
     FONT SIZE VARIABLES
   ---------- */
@@ -11,15 +14,4 @@ export default styled.h2`
   --type-fontsize-max: 3em; /* 48px */
   --type-fontsize-value: 0.91em + 2.55vw;
   font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
-  /* ----------
-    LINE HEIGHT VARIABLES
-  ---------- */
-  --type-lineheight-min: 1.391304347826;
-  --type-lineheight-max: 1.422222222222;
-  --type-lineheight-value: 1.22em + 3.9vw;
-  line-height: clamp(
-    var(--type-lineheight-min),
-    var(--type-lineheight-value),
-    var(--type-lineheight-max)
-  );
 `;

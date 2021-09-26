@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default styled.h1`
+  padding-bottom: var(--spacing-0);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
   color: var(--color-text);
