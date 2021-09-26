@@ -18,7 +18,7 @@ const RelatedProjects = ({ list }) => (
               .url()}
             alt={project.mainImage.alt}
           />
-          <span>{project.title}</span>
+          <StyledTitle>{project.title}</StyledTitle>
         </StyledLink>
       </li>
     ))}
@@ -33,24 +33,29 @@ const StyledLink = styled(Link)`
   font-weight: var(--font-weight-bold);
   text-decoration: none;
 
-  & > span {
-    box-shadow: 0px 2px 0px var(--color-primary);
-    transition: box-shadow 100ms ease 0s;
-  }
-
   @media (min-width: 700px) {
     color: var(--color-primary-muted);
-    
-    & > span {
-      box-shadow: 0px 0px 0px var(--color-primary);
-    }
 
-    &:hover > span {
+    &:hover {
       cursor: pointer;
       color: var(--color-primary);
-      box-shadow: 0px 2px 0px var(--color-primary);
     }
   }
 `;
+
+const StyledTitle = styled.span`
+  color: inherit;
+  display: inline;
+  box-shadow: 0px 2px 0px var(--color-primary);
+
+  @media (min-width: 700px) {
+    box-shadow: 0px 0px 0px var(--color-primary);
+    transition: box-shadow 100ms ease 0s;
+
+    ${StyledLink}:hover & {
+      box-shadow: 0px 2px 0px var(--color-primary);
+    }
+  }
+`
 
 export default RelatedProjects;
