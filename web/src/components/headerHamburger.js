@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+import styled from 'styled-components';
 import { Cross as Hamburger } from "hamburger-react";
 import {
   Menu,
@@ -9,6 +11,7 @@ import {
   MenuPopover,
   MenuLink
 } from "@reach/menu-button";
+import VisuallyHidden from "@reach/visually-hidden";
 import { useSpring, animated } from "react-spring";
 
 import "@reach/menu-button/styles.css";
@@ -19,20 +22,32 @@ const HamburgerMenu = () => {
 
   return (
     <Menu>
-      <MenuButton>
+      <StyledButton>
+        <VisuallyHidden>
+          Navigation Menu
+        </VisuallyHidden>
         <Hamburger
-          label="Show menu"
-          rounded
+          label="Menu Button"
           toggle={toggleOpen}
           toggled={isOpen}
         />
-      </MenuButton>
+      </StyledButton>
       <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuLink to="view">View</MenuLink>
+        <MenuLink as={Link} to="/home/">Home</MenuLink>
+        <MenuLink as={Link} to="/projects/">Projects</MenuLink>
+        <MenuLink as={Link} to="/blog/">Blog</MenuLink>
       </MenuList>
     </Menu>
   );
 };
+
+const StyledButton = styled(MenuButton)`
+  position: fixed;
+  top: var(--spacing-0);
+  left: var(--spacing-0);
+
+  background-color: var(--color-background-alt);
+  border: none;
+`;
 
 export default HamburgerMenu
