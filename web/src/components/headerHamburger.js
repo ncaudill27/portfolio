@@ -33,7 +33,7 @@ const HamburgerMenu = () => {
             "--width": isOpen ? "100%" : "",
             "--height": isOpen ? "100%" : ""
           }}
-          onClick={close}
+          onClick={close} 
         >
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
@@ -45,7 +45,7 @@ const HamburgerMenu = () => {
             render={data => {
               return data?.projects?.edges.map(({ node }) => {
                 return (
-                  <SubMenuLink key={node.title} to={node.slug.current}>
+                  <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
                     {node.title}
                   </SubMenuLink>
                 );
