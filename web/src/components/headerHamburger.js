@@ -57,16 +57,19 @@ const ExteriorButton = styled.button`
   background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
   border: none;
-  border-radius: 2px;
+  border-bottom-right-radius: 2px;
   z-index: 1;
 `;
 
 const StyledModal = styled(Dialog)`
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background: none;
+  padding: 0;
+  margin: 0;
 `;
 
 const ButtonBackground = styled.button`
@@ -75,6 +78,8 @@ const ButtonBackground = styled.button`
   left: 0;
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
 
   background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
@@ -83,8 +88,25 @@ const ButtonBackground = styled.button`
 
 `;
 
-const MenuList = styled.div``;
-const MenuLink = styled(Link)``;
+const MenuList = styled.nav`
+  position: fixed;
+  top: 15%;
+  left: 0;
+  width: fit-content;
+  z-index: 1;
+`;
+const MenuLink = styled(Link)`
+  display: block;
+  text-decoration: none;
+  padding: var(--spacing-1) var(--spacing-3);
+
+  color: var(--color-text);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-black);
+  font-size: 1.75em; //23px
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+`;
 
 
 export default HamburgerMenu;
