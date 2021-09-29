@@ -112,6 +112,7 @@ const MenuList = styled.nav`
   width: fit-content;
   z-index: 1;
 `;
+
 const MenuLink = styled(Link)`
   display: block;
   text-decoration: none;
@@ -127,6 +128,7 @@ const MenuLink = styled(Link)`
 
 const SubMenuLink = styled(MenuLink)`
   padding-left: var(--spacing-7);
+  font-size: 1.4375em; //23px
 `;
 
 const projectsQuery = graphql`
