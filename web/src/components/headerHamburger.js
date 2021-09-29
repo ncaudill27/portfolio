@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
 import Dialog from "@reach/dialog";
+import Portal from "@reach/portal";
 import VisuallyHidden from "@reach/visually-hidden";
 import { useSpring, animated } from "react-spring";
 import "@reach/dialog/styles.css";
@@ -14,20 +15,22 @@ const HamburgerMenu = () => {
 
   return (
     <RootWrapper>
-      <ExteriorButton onClick={toggleOpen}>
-        <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
-        <Hamburger label={isOpen ? "Close menu" : "Open menu"} />
-      </ExteriorButton>
+      <Portal>
+        <ExteriorButton onClick={toggleOpen}>
+          <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
+          <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
+        </ExteriorButton>
+      </Portal>
       <StyledModal isOpen={isOpen} onDismiss={close} aria-label="TODO">
-        <StyledButton
+        <ButtonBackground
           style={{
             "--width": isOpen ? "100%" : "",
             "--height": isOpen ? "100%" : ""
           }}
+          onClick={close}
         >
-          <Hamburger label={isOpen ? "Close menu" : "Open menu"} />
           <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
-        </StyledButton>
+        </ButtonBackground>
         <MenuList>
           <MenuLink to="/home/">Home</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
@@ -50,7 +53,7 @@ const ExteriorButton = styled.button`
   position: fixed;
   top: 0;
   left: 0;
-  
+
   background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
   border: none;
@@ -59,20 +62,29 @@ const ExteriorButton = styled.button`
 `;
 
 const StyledModal = styled(Dialog)`
-  position: fixed
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 `;
 
-const StyledButton = styled.button`
+const ButtonBackground = styled.button`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
   background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
   border: none;
   border-radius: 2px;
 
-  z-index: 1;
 `;
 
+const MenuList = styled.div``;
 const MenuLink = styled(Link)``;
 
-const MenuList = styled.div``;
 
 export default HamburgerMenu;
