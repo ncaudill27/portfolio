@@ -66,7 +66,6 @@ const StyledInput = styled.input`
   padding: 2px var(--spacing-0);
   background-color: var(--color-background-alt);
   border: 1px solid hsl(183, 38%, 93%);
-  outline-color: var(--color-text);
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
