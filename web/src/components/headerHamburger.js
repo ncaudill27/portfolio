@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
 import Dialog from "@reach/dialog";
@@ -17,11 +17,11 @@ const HamburgerMenu = () => {
     <RootWrapper>
       <Portal>
         <ExteriorButton onClick={toggleOpen}>
-          <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
+          <VisuallyHidden>Toggle navigation menu</VisuallyHidden>
           <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
       </Portal>
-      <StyledModal isOpen={isOpen} onDismiss={close} aria-label="TODO">
+      <StyledModal isOpen={isOpen} onDismiss={close} aria-label="Site navigation">
         <ButtonBackground
           style={{
             "--width": isOpen ? "100%" : "",
@@ -29,11 +29,23 @@ const HamburgerMenu = () => {
           }}
           onClick={close}
         >
-          <VisuallyHidden>Toggle Navigation Menu</VisuallyHidden>
+          <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
         <MenuList>
           <MenuLink to="/home/">Home</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
+          <StaticQuery
+            query={projectsQuery}
+            render={data => {
+              return(
+                data?.projects?.edges.map(({node}) => {
+                  return(
+                    <SubMenuLink key={node.title} to={node.slug.current}>{node.title}</SubMenuLink>
+                  )
+                })
+                )
+            }}
+          />
           <MenuLink to="/blog/">Blog</MenuLink>
         </MenuList>
       </StyledModal>
@@ -108,5 +120,23 @@ const MenuLink = styled(Link)`
   color: var(--color-text);
 `;
 
+const SubMenuLink = styled(MenuLink)`
+  padding-left: var(--spacing-7);
+`;
+
+const projectsQuery = graphql`
+  query ProjectsQuery {
+    projects: allSanitySampleProject {
+      edges {
+        node {
+          slug {
+            current
+          }
+          title
+        }
+      }
+    }
+  }
+`
 
 export default HamburgerMenu;
