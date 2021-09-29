@@ -14,7 +14,7 @@ const HamburgerMenu = () => {
   const close = () => setIsOpen(false);
 
   return (
-    <RootWrapper>
+    <>
       <Portal>
         <ExteriorButton
           onClick={toggleOpen}
@@ -55,17 +55,9 @@ const HamburgerMenu = () => {
           <MenuLink to="/blog/">Blog</MenuLink>
         </MenuList>
       </StyledModal>
-    </RootWrapper>
+    </>
   );
 };
-
-const RootWrapper = styled.div`
-  isolation: isolate;
-
-  @media (min-width: 700px) {
-    display: none;
-  }
-`;
 
 const ExteriorButton = styled.button`
   position: fixed;
@@ -77,6 +69,10 @@ const ExteriorButton = styled.button`
   border: none;
   border-bottom-right-radius: 2px;
   z-index: 1;
+
+  @media (min-width: 700px) {
+    display: none;
+  }
 `;
 
 const StyledModal = styled(Dialog)`
@@ -102,7 +98,6 @@ const ButtonBackground = styled.button`
   background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
   border: none;
-  border-radius: 2px;
 `;
 
 const MenuList = styled.nav`
