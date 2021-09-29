@@ -40,13 +40,16 @@ function ProjectPreview(props) {
 const RootWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
-  transform: scale(0.98);
-  transition: transform 100ms ease-in-out;
 
-  &:hover {
-    transform: scale(1);
-    background-color: var(--color-text-transparent);
-    border-radius: 2px;
+  @media (min-width: 724px) {
+    transform: scale(0.98);
+    transition: transform 100ms ease-in-out;
+
+    &:hover {
+      transform: scale(1);
+      background-color: var(--color-text-transparent);
+      border-radius: 2px;
+    }
   }
 `;
 
