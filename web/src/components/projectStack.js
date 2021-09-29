@@ -8,7 +8,7 @@ import ProjectPreview from "./project-preview";
 const Stack = ({ list, iconOnly }) => (
   <>
     {list.map(({ title, logo }) => (
-      <TechWrapper>
+      <TechWrapper key={title}>
         <StyledIcon src={imageUrlFor(buildImageObj(logo)).url()} alt={logo} />
         {!iconOnly && title}
       </TechWrapper>

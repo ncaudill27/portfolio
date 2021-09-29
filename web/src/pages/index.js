@@ -71,7 +71,7 @@ const IndexPage = ({ data, errors }) => {
               <VisuallyHidden>Go to LinkedIn profile</VisuallyHidden>
               <Linkedin />
             </a>
-            <Link href="/contact/">
+            <Link to="/contact/">
               <VisuallyHidden>Send Nelson an email</VisuallyHidden>
               <Mail />
             </Link>

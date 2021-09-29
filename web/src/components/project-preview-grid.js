@@ -9,7 +9,7 @@ function ProjectPreviewGrid(props) {
     <RootWrapper width={1400}>
       <Grid>
         {props.nodes.map(node => (
-          <ProjectPreview {...node} />
+          <ProjectPreview key={node.id}  {...node} />
         ))}
       </Grid>
     </RootWrapper>
