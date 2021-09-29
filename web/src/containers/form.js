@@ -66,7 +66,8 @@ const Form = props => {
     await setLoading(false);
 
     if (error) {
-      setResponse("Oh no! It looks like service is down. Try again soon.");
+      setServerError(true);
+      setResponse("Oh no! It looks like something went wrong. Try again soon.");
     }
 
     if (data) {
