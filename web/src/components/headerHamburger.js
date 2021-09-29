@@ -16,7 +16,13 @@ const HamburgerMenu = () => {
   return (
     <RootWrapper>
       <Portal>
-        <ExteriorButton onClick={toggleOpen}>
+        <ExteriorButton
+          onClick={toggleOpen}
+          style={{
+            "--background-color": isOpen ? "none" : "hsl(183deg, 58%, 95%, 0.85)",
+            "--blur": isOpen ? "none" : "blur(5px)"
+          }}
+        >
           <VisuallyHidden>Toggle navigation menu</VisuallyHidden>
           <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
@@ -32,18 +38,18 @@ const HamburgerMenu = () => {
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
         <MenuList>
-          <MenuLink to="/home/">Home</MenuLink>
+          <MenuLink to="/">Home</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
           <StaticQuery
             query={projectsQuery}
             render={data => {
-              return(
-                data?.projects?.edges.map(({node}) => {
-                  return(
-                    <SubMenuLink key={node.title} to={node.slug.current}>{node.title}</SubMenuLink>
-                  )
-                })
-                )
+              return data?.projects?.edges.map(({ node }) => {
+                return (
+                  <SubMenuLink key={node.title} to={node.slug.current}>
+                    {node.title}
+                  </SubMenuLink>
+                );
+              });
             }}
           />
           <MenuLink to="/blog/">Blog</MenuLink>
@@ -66,8 +72,8 @@ const ExteriorButton = styled.button`
   top: 0;
   left: 0;
 
-  background-color: hsl(183deg, 58%, 95%, 0.85);
-  backdrop-filter: blur(5px);
+  background-color: var(--background-color);
+  backdrop-filter: var(--blur);
   border: none;
   border-bottom-right-radius: 2px;
   z-index: 1;
@@ -97,7 +103,6 @@ const ButtonBackground = styled.button`
   backdrop-filter: blur(5px);
   border: none;
   border-radius: 2px;
-
 `;
 
 const MenuList = styled.nav`
@@ -137,6 +142,6 @@ const projectsQuery = graphql`
       }
     }
   }
-`
+`;
 
 export default HamburgerMenu;
