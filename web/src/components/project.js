@@ -6,6 +6,7 @@ import { imageUrlFor } from "../lib/image-url";
 import Title from "./typography/headingPrimary";
 // UI COMPONENTS
 import Header from "./headerSide";
+import Hamburger from "./headerHamburger";
 import BlockContent from "./block-content";
 import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
@@ -16,6 +17,7 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
   return (
     <RootWrapper>
       <Header />
+      <Hamburger />
       <article>
         <ImageWrapper>
           <img
