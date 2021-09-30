@@ -13,6 +13,8 @@ const HamburgerMenu = () => {
   const toggleOpen = () => setIsOpen(prev => !prev);
   const close = () => setIsOpen(false);
 
+  const styles = useSpring({ opacity: isOpen ? 1 : 0, transform: isOpen ? "translateX(0)" : "translateX(-100%)", delay: 100 });
+
   return (
     <>
       <Portal>
@@ -33,11 +35,11 @@ const HamburgerMenu = () => {
             "--width": isOpen ? "100%" : "",
             "--height": isOpen ? "100%" : ""
           }}
-          onClick={close} 
+          onClick={close}
         >
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
-        <MenuList>
+        <MenuList as={animated.div} style={styles}>
           <MenuLink to="/">Home</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
           <StaticQuery
