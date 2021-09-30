@@ -1,19 +1,94 @@
 import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { Link, StaticQuery, graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
 import Dialog from "@reach/dialog";
 import Portal from "@reach/portal";
 import VisuallyHidden from "@reach/visually-hidden";
-import { useSpring, animated } from "react-spring";
+import { useTransition, useSpring, useChain, animated, useSpringRef } from "@react-spring/web";
 import "@reach/dialog/styles.css";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const data = useStaticQuery(projectsQuery);
+
   const toggleOpen = () => setIsOpen(prev => !prev);
   const close = () => setIsOpen(false);
 
-  const styles = useSpring({ opacity: isOpen ? 1 : 0, transform: isOpen ? "translateX(0)" : "translateX(-100%)", delay: 100 });
+  const springApi = useSpringRef();
+  const styles = useSpring({
+    ref: springApi,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  });
+
+  const transitionApi = useSpringRef();
+  const transition = useTransition(
+    isOpen
+      ? [
+          <MenuLink to="/">Home</MenuLink>,
+          <MenuLink to="/projects/">Projects</MenuLink>,
+          <StaticQuery
+            query={projectsQuery}
+            render={data => {
+              const subTransitionApi = useSpringRef();
+              const subTransition = useTransition(isOpen ? data?.projects?.edges : [], {
+                ref: subTransitionApi,
+                trail: 400 / 6,
+                from: { transform: "translateX(-100%)" },
+                enter: { transform: "translateX(0)" },
+                leave: { transform: "translateX(-100%)" }
+              });
+              useChain(isOpen ? [springApi, subTransitionApi] : [subTransitionApi, springApi], [
+                0,
+                isOpen ? 0.1 : 0.6
+              ]);
+              
+              return (
+                subTransition((style, {node}) => {
+                  console.log(node);
+                  return (
+                    <SubMenuLink style={{...style}} as={animated.div} key={node.title} to={`/project/${node.slug.current}/`}>
+                      {node.title}
+                    </SubMenuLink>
+                  )
+                })
+              )
+            }}
+          />,
+          <MenuLink to="/blog/">Blog</MenuLink>
+        ]
+      : [],
+    {
+      ref: transitionApi,
+      trail: 400 / 6,
+      from: { transform: "translateX(-100%)" },
+      enter: { transform: "translateX(0)" },
+      leave: { transform: "translateX(-100%)" }
+    }
+  );
+
+  useChain(isOpen ? [springApi, transitionApi] : [transitionApi, springApi], [
+    0,
+    isOpen ? 0.1 : 0.6
+  ]);
+
+  // React.useEffect(() => {
+  //   if (!isClosing) {
+  //     return;
+  //   }
+  //   const timeoutId = window.setTimeout(() => {
+  //     setIsClosing(false);
+  //     setIsOpen(false);
+  //   }, 150);
+  //   return () => {
+  //     window.clearTimeout(timeoutId);
+  //   };
+  // }, [isClosing]);
+
+  // const triggerClosing = () => {
+  //   setIsClosing(true);
+  // }
 
   return (
     <>
@@ -39,22 +114,10 @@ const HamburgerMenu = () => {
         >
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
-        <MenuList as={animated.nav} style={styles}>
-          <MenuLink to="/">Home</MenuLink>
-          <MenuLink to="/projects/">Projects</MenuLink>
-          <StaticQuery
-            query={projectsQuery}
-            render={data => {
-              return data?.projects?.edges.map(({ node }) => {
-                return (
-                  <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
-                    {node.title}
-                  </SubMenuLink>
-                );
-              });
-            }}
-          />
-          <MenuLink to="/blog/">Blog</MenuLink>
+        <MenuList as={animated.nav} style={{ ...styles, ...transition }}>
+          {transition((style, item) => (
+            <animated.div style={{ ...style }}>{item}</animated.div>
+          ))}
         </MenuList>
       </StyledModal>
     </>
