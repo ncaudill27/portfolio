@@ -5,7 +5,14 @@ import { Cross as Hamburger } from "hamburger-react";
 import Dialog from "@reach/dialog";
 import Portal from "@reach/portal";
 import VisuallyHidden from "@reach/visually-hidden";
-import { useTransition, useSpring, useChain, animated, useSpringRef } from "@react-spring/web";
+import {
+  useTransition,
+  useSpring,
+  useChain,
+  animated,
+  useSpringRef,
+  config
+} from "@react-spring/web";
 import "@reach/dialog/styles.css";
 
 const HamburgerMenu = () => {
@@ -42,15 +49,16 @@ const HamburgerMenu = () => {
     {
       ref: transitionApi,
       trail: 400 / 6,
-      from: { transform: "translateX(-100%)" },
-      enter: { transform: "translateX(0)" },
-      leave: { transform: "translateX(-100%)" }
+      from: { transform: "translateX(-100%)", opacity: 0 },
+      enter: { transform: "translateX(0)", opacity: 1 },
+      leave: { transform: "translateX(-100%)", opacity: 0 },
+      config: config.slow
     }
   );
 
   useChain(isOpen ? [springApi, transitionApi] : [transitionApi, springApi], [
     0,
-    isOpen ? 0.1 : 0.6
+    isOpen ? 0.1 : 0.1
   ]);
 
   return (
