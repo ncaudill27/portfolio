@@ -28,34 +28,14 @@ const HamburgerMenu = () => {
       ? [
           <MenuLink to="/">Home</MenuLink>,
           <MenuLink to="/projects/">Projects</MenuLink>,
-          <StaticQuery
-            query={projectsQuery}
-            render={data => {
-              const subTransitionApi = useSpringRef();
-              const subTransition = useTransition(isOpen ? data?.projects?.edges : [], {
-                ref: subTransitionApi,
-                trail: 400 / 6,
-                from: { transform: "translateX(-100%)" },
-                enter: { transform: "translateX(0)" },
-                leave: { transform: "translateX(-100%)" }
-              });
-              useChain(isOpen ? [springApi, subTransitionApi] : [subTransitionApi, springApi], [
-                0,
-                isOpen ? 0.1 : 0.6
-              ]);
-              
-              return (
-                subTransition((style, {node}) => {
-                  console.log(node);
-                  return (
-                    <SubMenuLink style={{...style}} as={animated.div} key={node.title} to={`/project/${node.slug.current}/`}>
-                      {node.title}
-                    </SubMenuLink>
-                  )
-                })
-              )
-            }}
-          />,
+          ///spread array so that useTransition has individual elements to wrap
+          ...[
+            ...data?.projects?.edges.map(({ node }) => (
+              <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
+                {node.title}
+              </SubMenuLink>
+            ))
+          ],
           <MenuLink to="/blog/">Blog</MenuLink>
         ]
       : [],
@@ -72,23 +52,6 @@ const HamburgerMenu = () => {
     0,
     isOpen ? 0.1 : 0.6
   ]);
-
-  // React.useEffect(() => {
-  //   if (!isClosing) {
-  //     return;
-  //   }
-  //   const timeoutId = window.setTimeout(() => {
-  //     setIsClosing(false);
-  //     setIsOpen(false);
-  //   }, 150);
-  //   return () => {
-  //     window.clearTimeout(timeoutId);
-  //   };
-  // }, [isClosing]);
-
-  // const triggerClosing = () => {
-  //   setIsClosing(true);
-  // }
 
   return (
     <>
