@@ -3,54 +3,64 @@ import React from "react";
 import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
-import BlockContent from "./block-content";
+import { useSpring, animated } from "react-spring";
 
+import BlockContent from "./block-content";
 import Title from "./typography/headingSecondary";
 import Flex from "./flex";
 import TechStack from "./projectStack";
 
 function ProjectPreview(props) {
+  const [isHover, setIsHover] = React.useState(false);
+  const hover = () => setIsHover(true);
+  const unHover = () => setIsHover(false);
+
+  const styles = useSpring({
+    transform: isHover ? `scale(1.015)` : `scale(1)`,
+    backgroundColor: isHover ? "var(--color-text-transparent)" : "var(--color-background)",
+    config: {
+      tension: 150,
+      friction: 10
+    }
+  });
+
   return (
-    <RootWrapper to={`/project/${props.slug.current}`}>
-      <ImageWrapper>
-        <img
-          src={imageUrlFor(buildImageObj(props.mainImage))
-            .width(600)
-            .height(Math.floor((9 / 16) * 600))
-            .url()}
-          alt={props.mainImage.alt}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </ImageWrapper>
-      <ContentWrapper>
-        <Flex gap={1}>
-          <StackWrapper gap={0} stack>
-            <TechStack list={props.stack} iconOnly />
-          </StackWrapper>
-          <div>
-            <Title>{props.title}</Title>
-            <BlockContent blocks={props._rawExcerpt} />
-          </div>
-        </Flex>
-      </ContentWrapper>
+    <RootWrapper
+      as={Link}
+      to={`/project/${props.slug.current}`}
+      onMouseEnter={hover}
+      onMouseLeave={unHover}
+    >
+      <animated.div style={styles}>
+        <ImageWrapper>
+          <img
+            src={imageUrlFor(buildImageObj(props.mainImage))
+              .width(600)
+              .height(Math.floor((9 / 16) * 600))
+              .url()}
+            alt={props.mainImage.alt}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </ImageWrapper>
+        <ContentWrapper>
+          <Flex gap={1}>
+            <StackWrapper gap={0} stack>
+              <TechStack list={props.stack} iconOnly />
+            </StackWrapper>
+            <div>
+              <Title>{props.title}</Title>
+              <BlockContent blocks={props._rawExcerpt} />
+            </div>
+          </Flex>
+        </ContentWrapper>
+      </animated.div>
     </RootWrapper>
   );
 }
 
-const RootWrapper = styled(Link)`
+const RootWrapper = styled.div`
   text-decoration: none;
   color: inherit;
-
-  @media (min-width: 724px) {
-    transform: scale(0.98);
-    transition: transform 100ms ease-in-out;
-
-    &:hover {
-      transform: scale(1);
-      background-color: var(--color-text-transparent);
-      border-radius: 2px;
-    }
-  }
 `;
 
 const ImageWrapper = styled.div`
@@ -73,10 +83,8 @@ const StackWrapper = styled(Flex)`
 `;
 
 const ContentWrapper = styled.div`
-    padding-left: var(--spacing-1);
-    padding-right: var(--spacing-1);
-    padding-bottom: var(--spacing-4);
-  @media (max-width: 723px) {
-  }
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-bottom: var(--spacing-4);
 `;
 export default ProjectPreview;

@@ -39,7 +39,7 @@ const HamburgerMenu = () => {
         >
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
-        <MenuList as={animated.div} style={styles}>
+        <MenuList as={animated.nav} style={styles}>
           <MenuLink to="/">Home</MenuLink>
           <MenuLink to="/projects/">Projects</MenuLink>
           <StaticQuery
