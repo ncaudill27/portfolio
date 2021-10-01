@@ -19,7 +19,7 @@ const HamburgerMenu = () => {
 
   const transitions = useTransition(isOpen, {
     from: { opacity: 0 },
-    enter: { opacity: 1, backdropFilter: "blur(5px)" },
+    enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: config.slow
   });
@@ -100,6 +100,8 @@ const StyledModal = styled(animated(DialogOverlay))`
   background: none;
   padding: 0;
   margin: 0;
+  
+  backdrop-filter: blur(5px);
 `;
 
 const ButtonBackground = styled.button`
