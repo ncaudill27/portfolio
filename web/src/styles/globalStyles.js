@@ -44,11 +44,6 @@ export default createGlobalStyle`
     --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
     --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
     /* ----------
-    SET FULL SIZE PAGE ALWAYS
-    ---------- */
-    min-height: 100vh;
-    height: 100vh;
-    /* ----------
     RESPONSIVE MARGIN FOR INDEX/404/BLOG/CONTACT
     ---------- */
     --margin-top-min: var(--spacing-1);

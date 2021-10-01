@@ -16,21 +16,23 @@ import {
 import "@reach/dialog/styles.css";
 
 const HamburgerMenu = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
   const data = useStaticQuery(projectsQuery);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const toggleOpen = () => setIsOpen(prev => !prev);
   const close = () => setIsOpen(false);
 
   const springApi = useSpringRef();
-  const styles = useSpring({
+  const containerStyles = useSpring({
     ref: springApi,
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1, backdropFilter: 'blur(5px)' },
+    reset: () => !isOpen,
+    config: config.slow
   });
 
   const transitionApi = useSpringRef();
-  const transition = useTransition(
+  const linkTransition = useTransition(
     isOpen
       ? [
           <MenuLink to="/">Home</MenuLink>,
@@ -43,7 +45,8 @@ const HamburgerMenu = () => {
               </SubMenuLink>
             ))
           ],
-          <MenuLink to="/blog/">Blog</MenuLink>
+          <MenuLink to="/blog/">Blog</MenuLink>,
+          <MenuLink to="/contact/">Contact</MenuLink>
         ]
       : [],
     {
@@ -52,6 +55,7 @@ const HamburgerMenu = () => {
       from: { transform: "translateX(-100%)", opacity: 0 },
       enter: { transform: "translateX(0)", opacity: 1 },
       leave: { transform: "translateX(-100%)", opacity: 0 },
+      reset: () => !isOpen,
       config: config.slow
     }
   );
@@ -75,7 +79,7 @@ const HamburgerMenu = () => {
           <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
       </Portal>
-      <StyledModal isOpen={isOpen} onDismiss={close} aria-label="Site navigation">
+      <StyledModal style={{ ...containerStyles }} isOpen={isOpen} onDismiss={close} aria-label="Site navigation">
         <ButtonBackground
           style={{
             "--width": isOpen ? "100%" : "",
@@ -85,8 +89,8 @@ const HamburgerMenu = () => {
         >
           <VisuallyHidden>Close navigation menu</VisuallyHidden>
         </ButtonBackground>
-        <MenuList as={animated.nav} style={{ ...styles, ...transition }}>
-          {transition((style, item) => (
+        <MenuList>
+          {linkTransition((style, item) => (
             <animated.div style={{ ...style }}>{item}</animated.div>
           ))}
         </MenuList>
@@ -111,7 +115,7 @@ const ExteriorButton = styled.button`
   }
 `;
 
-const StyledModal = styled(Dialog)`
+const StyledModal = styled(animated(Dialog))`
   position: relative;
   top: 0;
   left: 0;
@@ -132,7 +136,6 @@ const ButtonBackground = styled.button`
   margin: 0;
 
   background-color: hsl(183deg, 58%, 95%, 0.85);
-  backdrop-filter: blur(5px);
   border: none;
 `;
 
