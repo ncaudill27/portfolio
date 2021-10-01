@@ -2,7 +2,7 @@ import React from "react";
 import { Link, StaticQuery, graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Cross as Hamburger } from "hamburger-react";
-import Dialog from "@reach/dialog";
+import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import Portal from "@reach/portal";
 import VisuallyHidden from "@reach/visually-hidden";
 import {
@@ -15,6 +15,8 @@ import {
 } from "@react-spring/web";
 import "@reach/dialog/styles.css";
 
+import Trail from "./trail";
+
 const HamburgerMenu = () => {
   const data = useStaticQuery(projectsQuery);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,29 +28,35 @@ const HamburgerMenu = () => {
   const containerStyles = useSpring({
     ref: springApi,
     from: { opacity: 0 },
-    to: { opacity: 1, backdropFilter: 'blur(5px)' },
+    to: { opacity: 1, backdropFilter: "blur(5px)" },
     reset: () => !isOpen,
+    config: config.molasses
+  });
+
+  const transitions = useTransition(isOpen, {
+    from: { opacity: 0 },
+    enter: { opacity: 1, backdropFilter: "blur(5px)" },
+    leave: { opacity: 0 },
     config: config.slow
+    // reset: () => !isOpen
   });
 
   const transitionApi = useSpringRef();
   const linkTransition = useTransition(
-    isOpen
-      ? [
-          <MenuLink to="/">Home</MenuLink>,
-          <MenuLink to="/projects/">Projects</MenuLink>,
-          ///spread array so that useTransition has individual elements to wrap
-          ...[
-            ...data?.projects?.edges.map(({ node }) => (
-              <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
-                {node.title}
-              </SubMenuLink>
-            ))
-          ],
-          <MenuLink to="/blog/">Blog</MenuLink>,
-          <MenuLink to="/contact/">Contact</MenuLink>
-        ]
-      : [],
+    [
+      <MenuLink to="/">Home</MenuLink>,
+      <MenuLink to="/projects/">Projects</MenuLink>,
+      ///spread array so that useTransition has individual elements to wrap
+      ...[
+        ...data?.projects?.edges.map(({ node }) => (
+          <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
+            {node.title}
+          </SubMenuLink>
+        ))
+      ],
+      <MenuLink to="/blog/">Blog</MenuLink>,
+      <MenuLink to="/contact/">Contact</MenuLink>
+    ],
     {
       ref: transitionApi,
       trail: 400 / 6,
@@ -56,7 +64,7 @@ const HamburgerMenu = () => {
       enter: { transform: "translateX(0)", opacity: 1 },
       leave: { transform: "translateX(-100%)", opacity: 0 },
       reset: () => !isOpen,
-      config: config.slow
+      config: config.default
     }
   );
 
@@ -79,22 +87,32 @@ const HamburgerMenu = () => {
           <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
       </Portal>
-      <StyledModal style={{ ...containerStyles }} isOpen={isOpen} onDismiss={close} aria-label="Site navigation">
-        <ButtonBackground
-          style={{
-            "--width": isOpen ? "100%" : "",
-            "--height": isOpen ? "100%" : ""
-          }}
-          onClick={close}
-        >
-          <VisuallyHidden>Close navigation menu</VisuallyHidden>
-        </ButtonBackground>
-        <MenuList>
-          {linkTransition((style, item) => (
-            <animated.div style={{ ...style }}>{item}</animated.div>
-          ))}
-        </MenuList>
-      </StyledModal>
+          {transitions(
+            (styles, item) =>
+              item && (
+                <StyledModal
+                style={{ ...styles }}
+                aria-label="Site navigation"
+              >
+                <animated.div as={DialogContent}>
+                <ButtonBackground onClick={close}>
+                  <VisuallyHidden>Close navigation menu</VisuallyHidden>
+                </ButtonBackground>
+                <Trail>
+                  <MenuLink to="/">Home</MenuLink>
+                  <MenuLink to="/projects/">Projects</MenuLink>
+                  {data?.projects?.edges.map(({ node }) => (
+                    <SubMenuLink key={node.title} to={`/project/${node.slug.current}/`}>
+                      {node.title}
+                    </SubMenuLink>
+                  ))}
+                  <MenuLink to="/blog/">Blog</MenuLink>
+                  <MenuLink to="/contact/">Contact</MenuLink>
+                </Trail>
+                </animated.div>
+              </StyledModal>
+              )
+          )}
     </>
   );
 };
@@ -115,8 +133,8 @@ const ExteriorButton = styled.button`
   }
 `;
 
-const StyledModal = styled(animated(Dialog))`
-  position: relative;
+const StyledModal = styled(animated(DialogOverlay))`
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
