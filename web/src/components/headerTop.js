@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Link from "./headerLink";
 
-const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
+const Header = () => {
   return (
     <StyledHeader>
       <StyledNav>

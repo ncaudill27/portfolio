@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Layout from "../components/layout";
+import Layout from "../containers/layout";
 import SEO from "../components/seo";
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";

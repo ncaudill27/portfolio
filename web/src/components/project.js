@@ -5,6 +5,7 @@ import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Title from "./typography/headingPrimary";
 // UI COMPONENTS
+import Layout from "../containers/layout";
 import Header from "./headerSide";
 import Hamburger from "./headerHamburger";
 import BlockContent from "./block-content";
@@ -15,48 +16,50 @@ import Links from "./projectLinks";
 
 function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
-    <RootWrapper>
-      <Header />
-      <Hamburger />
-      <article>
-        <ImageWrapper>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(650)
-              .height(300)
-              // .fit('fill')
-              .url()}
-            alt={mainImage.alt}
-            style={{
-              marginBottom: "var(--spacing-1)"
-            }}
-          />
-        </ImageWrapper>
-        <CopyWrapper>
-          <Title>{title}</Title>
-          <BlockContent blocks={_rawBody} />
-        </CopyWrapper>
-      </article>
-      <AsideWrapper>
-        <StickyWrapper>
-          {links.length > 0 && (
-            <AsideCategory title="Project Links">
-              <Links list={links} />
-            </AsideCategory>
-          )}
-          {stack.length > 0 && (
-            <AsideCategory title="Stack">
-              <Stack list={stack} />
-            </AsideCategory>
-          )}
-          {relatedProjects.length > 0 && (
-            <AsideCategory title="Related Projects">
-              <RelatedProjects list={relatedProjects} />
-            </AsideCategory>
-          )}
-        </StickyWrapper>
-      </AsideWrapper>
-    </RootWrapper>
+    <Layout>
+      <RootWrapper>
+        <Header />
+        <Hamburger />
+        <article>
+          <ImageWrapper>
+            <img
+              src={imageUrlFor(buildImageObj(mainImage))
+                .width(650)
+                .height(300)
+                // .fit('fill')
+                .url()}
+              alt={mainImage.alt}
+              style={{
+                marginBottom: "var(--spacing-1)"
+              }}
+            />
+          </ImageWrapper>
+          <CopyWrapper>
+            <Title>{title}</Title>
+            <BlockContent blocks={_rawBody} />
+          </CopyWrapper>
+        </article>
+        <AsideWrapper>
+          <StickyWrapper>
+            {links.length > 0 && (
+              <AsideCategory title="Project Links">
+                <Links list={links} />
+              </AsideCategory>
+            )}
+            {stack.length > 0 && (
+              <AsideCategory title="Stack">
+                <Stack list={stack} />
+              </AsideCategory>
+            )}
+            {relatedProjects.length > 0 && (
+              <AsideCategory title="Related Projects">
+                <RelatedProjects list={relatedProjects} />
+              </AsideCategory>
+            )}
+          </StickyWrapper>
+        </AsideWrapper>
+      </RootWrapper>
+    </Layout>
   );
 }
 

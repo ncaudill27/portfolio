@@ -2,10 +2,10 @@ import React from "react";
 import Header from "./headerTop";
 import GlobalStyles from "../styles/globalStyles";
 
-const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle, aside }) => (
+const Layout = ({ children, aside }) => (
   <>
     <GlobalStyles />
-    <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
+    <Header />
     <main>{children}</main>
     <aside>{aside}</aside>
   </>

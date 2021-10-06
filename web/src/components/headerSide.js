@@ -4,7 +4,7 @@ import Link from "./headerLink";
 
 import Flex from "./flex";
 
-const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
+const Header = () => (
   <StyledHeader>
     <StyledNav>
       <Flex as="ul" role="list" justify="center" align="flex-end" gap={0} stack>
