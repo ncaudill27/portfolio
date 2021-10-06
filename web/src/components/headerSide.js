@@ -9,9 +9,6 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => (
     <StyledNav>
       <Flex as="ul" role="list" justify="center" align="flex-end" gap={0} stack>
         <li>
-          {/* <Link to="/">
-            <LogoPlaceholder />
-          </Link> */}
           <Link to="/">Home</Link>
         </li>
         <li>
@@ -37,13 +34,6 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
   position: sticky;
   top: var(--spacing-4);
-`;
-
-const LogoPlaceholder = styled.div`
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: var(--color-text);
 `;
 
 export default Header;

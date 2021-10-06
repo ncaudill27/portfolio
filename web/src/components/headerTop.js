@@ -12,9 +12,6 @@ const Header = ({ siteTitle, onHideNav, onShowNav, showNav }) => {
             <Link to="/projects/">Projects</Link>
           </li>
           <li>
-            {/* <Link to="/">
-              <LogoPlaceholder />
-            </Link> */}
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -42,13 +39,6 @@ const StyledList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: var(--spacing-0);
-`;
-
-const LogoPlaceholder = styled.div`
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: var(--color-text);
 `;
 
 export default Header;
