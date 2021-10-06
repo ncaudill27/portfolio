@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { graphql, Link } from "gatsby";
 import useRefDimensions from "../hooks/useRefDimensions";
+import { useSpring, animated, config } from "react-spring";
 
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
@@ -18,10 +19,16 @@ import Linkedin from "../components/images/iconLinkedin";
 import Mail from "../components/images/iconMail";
 
 const IndexPage = ({ data }) => {
+  const site = data?.site;
+
   const titleEl = React.useRef();
   const { width } = useRefDimensions(titleEl);
 
-  const site = data?.site;
+  const styles = useSpring({
+    from: { opacity: 0, transform: 'translateY(10px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: config.slow
+  });
 
   return (
     <Layout
@@ -32,7 +39,7 @@ const IndexPage = ({ data }) => {
       }}
     >
       <main>
-        <IntroWrapper width={510}>
+        <IntroWrapper style={styles} width={510}>
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
           <MainBody style={{ "--width": width + "px" }}>
             Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a
@@ -90,7 +97,7 @@ const MainBody = styled(Body)`
   transition: width 150ms ease-in-out;
 `;
 
-const IntroWrapper = styled(MaxWidthWrapper)`
+const IntroWrapper = styled(animated(MaxWidthWrapper))`
   margin-top: var(--responsive-margin-top);
 
   padding: 0 var(--spacing-1);
