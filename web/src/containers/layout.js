@@ -2,22 +2,21 @@ import React, { useState } from "react";
 import Layout from "../components/layout";
 
 function LayoutContainer(props) {
-  const [currentPath, setCurrentPath] = useState('');
-  const [headerPosition, setHeaderPosition] = useState('top');
+  const [headerPosition, setHeaderPosition] = useState("top");
 
   React.useEffect(() => {
     if (typeof window !== undefined) {
-      setCurrentPath((window.location.href))
+      const currentPath = window.location.href;
+      const regex = new RegExp("/project/*");
+      const isProject = regex.test(currentPath);
+
+      setHeaderPosition(isProject ? "side" : "top");
     }
-  }, [currentPath]);
+  }, [headerPosition]);
 
-  const regex = new RegExp('/project/*');
-  const isProject = regex.test(currentPath)
+  console.log(headerPosition);
 
-
-  console.log(currentPath);
-
-  return <Layout {...props} />;
+  return <Layout {...props} headerPosition={headerPosition} />;
 }
 
 export default LayoutContainer;
