@@ -5,7 +5,7 @@ import useRefDimensions from "../hooks/useRefDimensions";
 
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
-import Strong from "../components/typography/strong"
+import Strong from "../components/typography/strong";
 
 import VisuallyHidden from "@reach/visually-hidden";
 
@@ -21,24 +21,30 @@ const IndexPage = ({ data }) => {
   const titleEl = React.useRef();
   const { width } = useRefDimensions(titleEl);
 
-  const site = data?.site
+  const site = data?.site;
 
   return (
-    <Layout title={site.title} description={site.description} keywords={site.keywords}>
+    <Layout
+      seo={{
+        title: site.title,
+        description: site.description,
+        keywords: site.keywords
+      }}
+    >
       <main>
         <IntroWrapper width={510}>
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
           <MainBody style={{ "--width": width + "px" }}>
-            Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a student. For the time
-            being, my goal is to provide the end-user with such an enjoyable experience&#8212;<em>yes</em>, that
-            means accessibility &amp; inclusion&#8212;clients have no choice but to love me. In the long run,
-            my objective is not just to grow but to <Strong>grow with</Strong> and help lift those looking to get
-            into code.
+            Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a
+            student. For the time being, my goal is to provide the end-user with such an enjoyable
+            experience&#8212;<em>yes</em>, that means accessibility &amp; inclusion&#8212;clients
+            have no choice but to love me. In the long run, my objective is not just to grow but to 
+            <Strong>grow with</Strong> and help lift those looking to get into code.
           </MainBody>
           <MainBody style={{ "--width": width + "px" }}>
             Currently, my favorite technology to work with is React. Building with Gatsby
-            alongside Sanity.io &amp; Netlify Functions allows me to create
-            insanely fast &amp; secure websites. Honestly, sometimes it is too much fun.
+            alongside Sanity.io &amp; Netlify Functions allows me to create insanely fast &amp;
+            secure websites. Honestly, sometimes it is too much fun.
           </MainBody>
           <IconWrapper justify="center" gap={0}>
             <a href="https://github.com/ncaudill27">

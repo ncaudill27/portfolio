@@ -8,9 +8,9 @@ function SEO({ description, lang, meta, keywords, title }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || (data.site && data.site.description) || "";
-        const siteTitle = (data.site && data.site.title) || "";
         const siteAuthor = "Nelson Caudill";
+        const siteTitle = data?.site?.title || "";
+        const metaDescription = description || data?.site?.description || "";
         return (
           <Helmet
             htmlAttributes={{ lang }}

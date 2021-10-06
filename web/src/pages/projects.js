@@ -19,14 +19,14 @@ const ProjectsPage = ({ data, errors }) => {
   const site = data?.site;
   const projectNodes = mapEdgesToNodes(data?.projects);
 
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
-
   return (
-    <Layout title={site.title} description={site.description} keywords={site.keywords}>
+    <Layout
+      seo={{
+        title: site.title,
+        description: site.description,
+        keywords: site.keywords
+      }}
+    >
       <Header />
       <ProjectPreviewGrid nodes={projectNodes} />
     </Layout>
