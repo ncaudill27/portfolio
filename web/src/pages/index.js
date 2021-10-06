@@ -7,12 +7,9 @@ import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong"
 
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
 import VisuallyHidden from "@reach/visually-hidden";
 
 import Layout from "../containers/layout";
-import Header from "../components/headerTop";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 import Github from "../components/images/iconGithub";
@@ -20,29 +17,14 @@ import Twitter from "../components/images/iconTwitter";
 import Linkedin from "../components/images/iconLinkedin";
 import Mail from "../components/images/iconMail";
 
-const IndexPage = ({ data, errors }) => {
+const IndexPage = ({ data }) => {
   const titleEl = React.useRef();
   const { width } = useRefDimensions(titleEl);
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const site = data?.site;
-
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
+  const site = data?.site
 
   return (
-    <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+    <Layout title={site.title} description={site.description} keywords={site.keywords}>
       <main>
         <IntroWrapper width={510}>
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
@@ -78,7 +60,6 @@ const IndexPage = ({ data, errors }) => {
           </IconWrapper>
         </IntroWrapper>
       </main>
-      {/* <Footer /> */}
     </Layout>
   );
 };

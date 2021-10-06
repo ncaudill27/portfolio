@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import Layout from "../containers/layout";
-import SEO from "../components/seo";
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
 
 const BlogPage = () => {
   return (
-    <Layout>
-      <SEO title="404: Not found" />
+    <Layout title="Blog">
       <Wrapper>
         <MainHeader>COMING SOON</MainHeader>
         <Body>I'm just as excited as you are about putting content back out! Check back soon!</Body>

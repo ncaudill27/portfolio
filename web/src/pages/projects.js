@@ -3,8 +3,6 @@ import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-
 import Header from "../components/headerTop";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import Layout from "../containers/layout";
@@ -28,8 +26,7 @@ const ProjectsPage = ({ data, errors }) => {
   }
 
   return (
-    <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+    <Layout title={site.title} description={site.description} keywords={site.keywords}>
       <Header />
       <ProjectPreviewGrid nodes={projectNodes} />
     </Layout>

@@ -2,15 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import Layout from "../containers/layout";
-import SEO from "../components/seo";
 import Heading from "../components/typography/headingPrimary";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Form from "../containers/form";
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <SEO title="Contact Me" />
+    <Layout title="Contact Me">
       <Wrapper width={510}>
         <MainHeader>Contact</MainHeader>
         <Form />

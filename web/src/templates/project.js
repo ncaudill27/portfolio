@@ -20,19 +20,6 @@ export const query = graphql`
 const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
   return (
     <>
-      {errors && <SEO title="GraphQL Error" />}
-      {project && (
-        <SEO
-          title={project.title || "Untitled"}
-          description={project?._rawExcerpt?.find(Boolean)?.children?.find(Boolean).text}
-        />
-      )}
-
-      {errors && (
-        <div>
-          <GraphQLErrorList errors={errors} />
-        </div>
-      )}
       <MaxWidthWrapper width={2000}>
         <ImageWrapper>
           <img
