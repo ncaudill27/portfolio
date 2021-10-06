@@ -7,6 +7,7 @@ import SEO from "../components/seo";
 
 import Header from "../components/headerTop";
 import ProjectPreviewGrid from "../components/project-preview-grid";
+import Layout from "../containers/layout";
 
 const ProjectsPage = ({ data, errors }) => {
   if (errors) {
@@ -27,11 +28,11 @@ const ProjectsPage = ({ data, errors }) => {
   }
 
   return (
-    <main>
+    <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Header />
       <ProjectPreviewGrid nodes={projectNodes} />
-    </main>
+    </Layout>
   );
 };
 

@@ -1,20 +1,14 @@
 import React from "react";
-import styled from 'styled-components';
 import TopHeader from "./headerTop";
-import SideHeader from "./headerSide";
 
 import GlobalStyles from "../styles/globalStyles";
 
-const Layout = ({ headerPosition, children, aside, ...props }) => (
-  <RootWrapper {...props}>
+const Layout = ({ headerPosition, children }) => (
+  <>
     <GlobalStyles />
-    {headerPosition === "top" ? <TopHeader /> : <SideHeader />}
+    {headerPosition === "top" && <TopHeader />}
     <main>{children}</main>
-    <aside>{aside}</aside>
-  </RootWrapper>
+  </>
 );
 
-const RootWrapper = styled.div`
-  
-`;
 export default Layout;

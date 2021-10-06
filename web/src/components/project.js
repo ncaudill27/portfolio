@@ -16,8 +16,9 @@ import Links from "./projectLinks";
 
 function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
-    <Layout as={RootWrapper}>
+    <Layout>
       <RootWrapper>
+        <Header />
         <Hamburger />
         <article>
           <ImageWrapper>
@@ -38,6 +39,25 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
             <BlockContent blocks={_rawBody} />
           </CopyWrapper>
         </article>
+        <AsideWrapper>
+          <StickyWrapper>
+            {links.length > 0 && (
+              <AsideCategory title="Project Links">
+                <Links list={links} />
+              </AsideCategory>
+            )}
+            {stack.length > 0 && (
+              <AsideCategory title="Stack">
+                <Stack list={stack} />
+              </AsideCategory>
+            )}
+            {relatedProjects.length > 0 && (
+              <AsideCategory title="Related Projects">
+                <RelatedProjects list={relatedProjects} />
+              </AsideCategory>
+            )}
+          </StickyWrapper>
+        </AsideWrapper>
       </RootWrapper>
     </Layout>
   );
