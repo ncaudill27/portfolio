@@ -12,6 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.2",
     "@reach/dialog": "^0.16.0",
     "@reach/menu-button": "^0.16.1",
     "@reach/portal": "^0.16.0",
