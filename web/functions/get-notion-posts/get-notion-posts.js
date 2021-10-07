@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client } = require("@notionhq/client");
+const { Client, APIErrorCode } = require("@notionhq/client");
 const { NOTION_TOKEN, NOTION_DB_ID } = process.env;
 
 const notion = new Client({
@@ -25,10 +25,12 @@ const handler = async event => {
     const response = await notion.databases.query({
       database_id: NOTION_DB_ID
     });
+    const pages = await response.results.map(post => getPage(post.id))
+    console.log(pages);
 
     return {
       statusCode: 200,
-      body: JSON.stringify(response, null, 1)
+      body: JSON.stringify({ message: 'Got it'})
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
