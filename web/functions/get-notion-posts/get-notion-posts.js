@@ -6,10 +6,9 @@ const notion = new Client({
   auth: NOTION_TOKEN
 });
 
-const today = new Date().toISOString().slice(0, 10)
+const today = new Date().toISOString().slice(0, 10);
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const handler = async event => {
-
   const getDatabase = async () => {
     const response = await notion.databases.query({
       database_id: NOTION_DB_ID,
@@ -28,11 +27,18 @@ const handler = async event => {
             }
           }
         ]
-      }
+      },
+      sorts: [
+        {
+          property: "Date",
+          direction: "ascending"
+        }
+      ],
+      page_size: 5
     });
     return response.results;
   };
-  
+
   const getPage = async pageId => {
     return await notion.pages.retrieve({ page_id: pageId });
   };

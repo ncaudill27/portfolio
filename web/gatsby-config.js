@@ -4,9 +4,10 @@ require("dotenv").config({
 });
 
 const clientConfig = require("./client-config");
-const token = process.env.SANITY_READ_TOKEN;
 
-const isProd = process.env.NODE_ENV === "production";
+const { SANITY_READ_TOKEN, NODE_ENV, NOTION_TOKEN, NOTION_DB_ID } = process.env;
+
+const isProd = NODE_ENV === "production";
 
 module.exports = {
   plugins: [
@@ -18,9 +19,18 @@ module.exports = {
       resolve: "gatsby-source-sanity",
       options: {
         ...clientConfig.sanity,
-        token,
+        token: SANITY_READ_TOKEN,
         watchMode: !isProd,
-        overlayDrafts: !isProd && token
+        overlayDrafts: !isProd && SANITY_READ_TOKEN
+      }
+    },
+    {
+      resolve: `gatsby-source-notion-api`,
+      options: {
+        token: NOTION_TOKEN,
+        databaseId: NOTION_DB_ID,
+        propsToFrontmatter: true,
+        lowerTitleLevel: true
       }
     },
     {
