@@ -7,7 +7,7 @@ function LayoutContainer(props) {
   React.useEffect(() => {
     if (typeof window !== undefined) {
       const currentPath = window.location.href;
-      const regex = new RegExp(/\/project\/*/);
+      const regex = new RegExp(/\/project\/*/); //TODO fix regex, missing "." before "*"
       const isProject = regex.test(currentPath);
 
       setHeaderPosition(isProject ? "side" : "top");

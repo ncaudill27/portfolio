@@ -58,3 +58,22 @@ export const SanityProject = graphql`
     }
   }
 `;
+
+export const NotionPost = graphql`
+  fragment NotionPost on Notion {
+    title
+    json
+    properties {
+      tags: Tags {
+        value {
+          name
+        }
+      }
+      date: Date {
+        value {
+          start
+        }
+      }
+    }
+  }
+`;

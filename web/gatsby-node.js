@@ -71,11 +71,12 @@ async function createPostPages(graphql, { createPage }) {
     const id = node.id;
     const slug = node.properties.slug.value.string;
     const path = `/posts/${slug}`;
+    const date = node.properties.date.value.start
 
     createPage({
       path,
       component: require.resolve("./src/templates/post.js"),
-      context: { id }
+      context: { id, date }
     });
   });
 }
