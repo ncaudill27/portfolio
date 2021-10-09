@@ -41,20 +41,22 @@ async function createProjectPages(graphql, actions) {
 
 async function createPostPages(graphql, { createPage }) {
   const result = await graphql(`
-    allNotion(filter: {properties: {Active: {value: {eq: true}}}}) {
-      edges {
-        node {
-          id
-          title
-          properties {
-            slug {
-              value {
-                string
+    {
+      allNotion(filter: { properties: { Active: { value: { eq: true } } } }) {
+        edges {
+          node {
+            id
+            title
+            properties {
+              slug {
+                value {
+                  string
+                }
               }
-            }
-            date: Date {
-              value {
-                start
+              date: Date {
+                value {
+                  start
+                }
               }
             }
           }
@@ -63,7 +65,7 @@ async function createPostPages(graphql, { createPage }) {
     }
   `);
 
-  const postEdges = result?.data?.allNotion?.edges || [];
+  const postEdges = (result.data.allNotion || {}).edges || [];
 
   postEdges.forEach(({ node }) => {
     const id = node.id;
