@@ -60,20 +60,19 @@ export const SanityProject = graphql`
 `;
 
 export const NotionPost = graphql`
-  fragment NotionPost on Notion {
-    title
-    json
-    properties {
-      tags: Tags {
-        value {
-          name
+  fragment NotionPost on MarkdownRemark {
+    frontmatter {
+      brief: Brief
+      hero: Hero {
+        file {
+          url
         }
       }
-      date: Date {
-        value {
-          start
-        }
+      title
+      tags: Tags {
+        name
       }
     }
+    htmlAst
   }
 `;

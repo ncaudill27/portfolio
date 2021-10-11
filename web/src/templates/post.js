@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+
 
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Layout from "../containers/layout";
@@ -10,7 +9,7 @@ import Post from "../components/post";
 
 export const query = graphql`
   query PostTemplateQuery($id: String!) {
-    post: notion(id: { eq: $id }) {
+    post: markdownRemark(id: { eq: $id }) {
       ...NotionPost
     }
   }

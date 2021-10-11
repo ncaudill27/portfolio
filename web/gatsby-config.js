@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-sanity",
       options: {
