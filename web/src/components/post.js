@@ -6,7 +6,7 @@ import Title from "./typography/headingPrimary";
 
 const Post = ({ frontmatter: { title, brief, hero, tags }, htmlAst }) => {
   const image = getImage(hero[0].file.url);
-
+  console.log(image);
   return (
     <div>
       <img src={hero[0].file.url} />
