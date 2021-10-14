@@ -61,23 +61,24 @@ export const SanityProject = graphql`
 
 export const NotionPost = graphql`
   fragment NotionPost on MarkdownRemark {
+    htmlAst
     frontmatter {
       title
-      Date {
+      date: Date {
         start
       }
-      Hero {
+      hero: Hero {
         file {
           url
         }
       }
-      Tags {
+      tags: Tags {
         name
       }
       slug {
         string
       }
-      Brief
+      brief: Brief
     }
   }
 `;

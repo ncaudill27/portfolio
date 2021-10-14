@@ -10,9 +10,11 @@ import Body from "../components/typography/bodyRegular";
 
 const BlogPage = ({ data, errors }) => {
   console.log(data.posts);
-  const postNodes = mapEdgesToNodes(data?.posts).filter(({ frontmatter }) =>
-    console.log(frontmatter)
+  const postNodes = mapEdgesToNodes(data?.posts).filter(
+    ({ frontmatter }) => !isFuture(frontmatter.date.start)
   );
+  
+  console.log(postNodes);
 
   return (
     <Layout title="Blog">
