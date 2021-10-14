@@ -27,7 +27,7 @@ function ProjectPreview(props) {
   return (
     <RootWrapper
       as={Link}
-      to={`/project/${props.slug.current}`}
+      to={`/projects/${props.slug.current}`}
       onMouseEnter={hover}
       onMouseLeave={unHover}
     >
