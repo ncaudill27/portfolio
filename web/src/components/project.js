@@ -4,11 +4,11 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Title from "./typography/headingPrimary";
+import Header from "./headerSide";
+import BlockContent from "./block-content";
 // UI COMPONENTS
 import Layout from "../containers/layout";
-import Header from "./headerSide";
 import Hamburger from "./headerHamburger";
-import BlockContent from "./block-content";
 import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";

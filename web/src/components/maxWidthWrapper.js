@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const MaxWidthWrapper = ({ children, width, ...props }) => (
+const MaxWidthWrapper = ({ children, width, unit = "px", ...props }) => (
   <Wrapper
     style={{
-      "--max-width": width + "px"
+      "--max-width": width + unit
     }}
     {...props}
   >

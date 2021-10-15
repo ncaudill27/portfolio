@@ -27,7 +27,6 @@ const ProjectsPage = ({ data, errors }) => {
         keywords: site.keywords
       }}
     >
-      <Header />
       <ProjectPreviewGrid nodes={projectNodes} />
     </Layout>
   );

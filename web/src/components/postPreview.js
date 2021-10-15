@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PreviewSpringLink from "./previewSpringLink";
 import Title from "./typography/headingSecondary";
 import Body from "./typography/bodyRegular";
-import ProjectTagList from "./projectTagList";
+import PostTagList from "./postTagList";
 
 function PostPreview({ frontmatter }) {
   const {
@@ -24,7 +24,7 @@ function PostPreview({ frontmatter }) {
       </ImageWrapper>
       <ContentWrapper>
         <Title>{title}</Title>
-        <ProjectTagList list={tags} />
+        <PostTagList list={tags} />
         <Brief>{brief}</Brief>
       </ContentWrapper>
     </PreviewSpringLink>

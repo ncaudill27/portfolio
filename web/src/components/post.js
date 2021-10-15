@@ -1,16 +1,42 @@
 import React from "react";
 import styled from "styled-components";
+import { format } from "date-fns";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Title from "./typography/headingPrimary";
+import BodySmall from "./typography/bodySmall";
 
-const Post = ({ frontmatter: { title, brief, hero, tags }, htmlAst }) => {
+import MaxWidthWrapper from "./maxWidthWrapper";
+import Flex from "./flex";
+import PostTagList from "./postTagList";
+
+const Post = ({
+  frontmatter: {
+    title,
+    hero,
+    date: { start: date },
+    tags
+  },
+  htmlAst
+}) => {
   return (
-    <div>
-      <img src={hero[0].file.url} />
+    <RootWrapper width={65} unit="ch">
+      <HeadingWrapper justify="space-between" align="baseline">
+        <PostTagList list={tags} />
+        <BodySmall>{format(date, 'MMMM d, YYYY')}</BodySmall>
+      </HeadingWrapper>
       <Title>{title}</Title>
-    </div>
+      <img src={hero[0].file.url} />
+    </RootWrapper>
   );
 };
+
+const RootWrapper = styled(MaxWidthWrapper)`
+  margin-top: calc(var(--responsive-margin-top) / 2);
+`;
+
+const HeadingWrapper = styled(Flex)`
+  padding-bottom: calc(var(--responsive-margin-top) / 2);
+`;
 
 export default Post;
