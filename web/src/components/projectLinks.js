@@ -16,7 +16,7 @@ const StyledLink = styled.a`
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   line-height: 1.05;
-  
+
   transition: box-shadow 100ms ease 0s;
   box-shadow: 0px 2px 0px var(--color-primary);
 

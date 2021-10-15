@@ -25,8 +25,8 @@ const IndexPage = ({ data }) => {
   const { width } = useRefDimensions(titleEl);
 
   const styles = useSpring({
-    from: { opacity: 0, transform: 'translateY(10px)' },
-    to: { opacity: 1, transform: 'translateY(0)' },
+    from: { opacity: 0, transform: "translateY(10px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
     config: config.slow
   });
 

@@ -14,9 +14,7 @@ const ProjectTagList = ({ list }) => (
   </Flex>
 );
 
-const Tag = styled.div`
-  
-`;
+const Tag = styled.div``;
 
 const Name = styled(Body)`
   font-size: 0.75em; // 12px

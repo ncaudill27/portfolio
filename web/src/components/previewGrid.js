@@ -3,12 +3,10 @@ import styled from "styled-components";
 
 import MaxWidthWrapper from "./maxWidthWrapper";
 
-function PreviewGrid({children}) {
+function PreviewGrid({ children }) {
   return (
     <RootWrapper width={1400}>
-      <Grid>
-        {children}
-      </Grid>
+      <Grid>{children}</Grid>
     </RootWrapper>
   );
 }

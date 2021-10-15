@@ -1,16 +1,12 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import { emDasher } from '../../lib/string-utils';
+import { emDasher } from "../../lib/string-utils";
 
 import { CopyWrapper } from "../project";
 
-const Body = ({children, ...props}) => {
-  return (
-    <StyledBody {...props}>
-      {React.Children.map(children, emDasher)}
-    </StyledBody>
-  )
-}
+const Body = ({ children, ...props }) => {
+  return <StyledBody {...props}>{React.Children.map(children, emDasher)}</StyledBody>;
+};
 
 const StyledBody = styled.p`
   font-family: var(--font-family-secondary);
@@ -28,4 +24,4 @@ const StyledBody = styled.p`
   }
 `;
 
-export default Body
+export default Body;

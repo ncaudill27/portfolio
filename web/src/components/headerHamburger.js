@@ -100,7 +100,7 @@ const StyledModal = styled(animated(DialogOverlay))`
   background: none;
   padding: 0;
   margin: 0;
-  
+
   backdrop-filter: blur(5px);
 `;
 

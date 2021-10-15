@@ -56,6 +56,6 @@ const StyledTitle = styled.span`
       box-shadow: 0px 2px 0px var(--color-primary);
     }
   }
-`
+`;
 
 export default RelatedProjects;

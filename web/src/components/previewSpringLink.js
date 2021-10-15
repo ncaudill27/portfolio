@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 
-function PreviewSpringLink({to, children}) {
+function PreviewSpringLink({ to, children }) {
   const [isHover, setIsHover] = React.useState(false);
   const hover = () => setIsHover(true);
   const unHover = () => setIsHover(false);
@@ -18,15 +18,8 @@ function PreviewSpringLink({to, children}) {
   });
 
   return (
-    <RootWrapper
-      as={Link}
-      to={to}
-      onMouseEnter={hover}
-      onMouseLeave={unHover}
-    >
-      <animated.div style={styles}>
-        {children}
-      </animated.div>
+    <RootWrapper as={Link} to={to} onMouseEnter={hover} onMouseLeave={unHover}>
+      <animated.div style={styles}>{children}</animated.div>
     </RootWrapper>
   );
 }

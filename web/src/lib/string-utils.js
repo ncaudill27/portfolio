@@ -5,9 +5,9 @@ export function ucfirst(str) {
 export function emDasher(node) {
   const emRegex = /--/g;
 
-  if (typeof node === 'string') {
+  if (typeof node === "string") {
     return node.replaceAll(emRegex, "&#8212;");
   } else {
-    return node
+    return node;
   }
 }

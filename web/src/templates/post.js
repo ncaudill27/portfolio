@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 
-
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Layout from "../containers/layout";
 import Post from "../components/post";

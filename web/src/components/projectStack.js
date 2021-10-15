@@ -21,7 +21,7 @@ const TechWrapper = styled.li`
   gap: var(--spacing-1);
   align-items: center;
   line-height: 1.05;
-  
+
   color: var(--color-text);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);

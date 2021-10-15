@@ -6,7 +6,7 @@ import Title from "./typography/headingSecondary";
 import Body from "./typography/bodyRegular";
 import ProjectTagList from "./projectTagList";
 
-function PostPreview({ frontmatter, htmlAst }) {
+function PostPreview({ frontmatter }) {
   const {
     title,
     brief,
@@ -16,7 +16,7 @@ function PostPreview({ frontmatter, htmlAst }) {
   } = frontmatter;
 
   const image = hero[0].file.url;
-  console.log(image);
+
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
       <ImageWrapper>
