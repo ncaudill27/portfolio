@@ -4,7 +4,7 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
 import PreviewSpringLink from "./previewSpringLink";
-import BlockContent from "./block-content";
+import BlockContent from "./blockContent";
 import Title from "./typography/headingSecondary";
 import Flex from "./flex";
 import TechStack from "./projectStack";
