@@ -14,12 +14,13 @@ function PostPreview({ frontmatter, htmlAst }) {
     tags,
     slug: { string: slug }
   } = frontmatter;
-  
-  const image = hero[0].file.url
+
+  const image = hero[0].file.url;
   console.log(image);
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
       <ImageWrapper>
+        <Image src={image} />
       </ImageWrapper>
       <ContentWrapper>
         <Title>{title}</Title>
@@ -34,15 +35,18 @@ const ImageWrapper = styled.div`
   position: relative;
   padding-bottom: 66.666%;
   background: #eee;
+  overflow: hidden;
+`;
 
-  & img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    object-fit: cover;
-  }
+const Image = styled.img`
+  position: absolute;
+  width: 722px;
+  height: 477px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
 `;
 
 const ContentWrapper = styled.div`
