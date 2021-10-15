@@ -3,22 +3,28 @@ import styled from "styled-components";
 
 import PreviewSpringLink from "./previewSpringLink";
 import Title from "./typography/headingSecondary";
-import Flex from "./flex";
 import Body from "./typography/bodyRegular";
+import ProjectTagList from "./projectTagList";
 
 function PostPreview({ frontmatter, htmlAst }) {
   const {
     title,
     brief,
     hero,
+    tags,
     slug: { string: slug }
   } = frontmatter;
-  console.log(title, brief, hero, slug);
+  
+  const image = hero[0].file.url
+  console.log(image);
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
+      <ImageWrapper>
+      </ImageWrapper>
       <ContentWrapper>
         <Title>{title}</Title>
-        <Body>{brief}</Body>
+        <ProjectTagList list={tags} />
+        <Brief>{brief}</Brief>
       </ContentWrapper>
     </PreviewSpringLink>
   );
@@ -39,14 +45,14 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const StackWrapper = styled(Flex)`
-  padding-top: var(--spacing-1);
-`;
-
 const ContentWrapper = styled.div`
   padding-left: var(--spacing-1);
   padding-right: var(--spacing-1);
   padding-bottom: var(--spacing-4);
+`;
+
+const Brief = styled(Body)`
+  padding-top: var(--spacing-0);
 `;
 
 export default PostPreview;
