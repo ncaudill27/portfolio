@@ -19,8 +19,7 @@ const BlogPage = ({ data, errors }) => {
   return (
     <Layout title="Blog">
       <Wrapper>
-        <MainHeader>COMING SOON</MainHeader>
-        <Body>I'm just as excited as you are about putting content back out! Check back soon!</Body>
+        
       </Wrapper>
     </Layout>
   );

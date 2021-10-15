@@ -4,7 +4,7 @@ import { mapEdgesToNodes } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import Header from "../components/headerTop";
-import ProjectPreviewGrid from "../components/project-preview-grid";
+import ProjectPreviewGrid from "../components/projectPreviewGrid";
 import Layout from "../containers/layout";
 
 const ProjectsPage = ({ data, errors }) => {

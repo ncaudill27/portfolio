@@ -15,7 +15,7 @@ export const query = graphql`
   }
 `;
 
-const ProjectTemplate = ({ data: { post }, errors }) => {
+const PostTemplate = ({ data: { post }, errors }) => {
   return (
     <Layout>
       <MaxWidthWrapper width={2000}>
@@ -41,4 +41,4 @@ const ImageWrapper = styled.div`
   }
 `;
 
-export default ProjectTemplate;
+export default PostTemplate;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import ProjectPreview from "./project-preview";
+import ProjectPreview from "./projectPreview";
 
 const Stack = ({ list, iconOnly }) => (
   <>

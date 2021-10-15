@@ -2,15 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import MaxWidthWrapper from "./maxWidthWrapper";
-import ProjectPreview from "./project-preview";
 
-function ProjectPreviewGrid(props) {
+function PreviewGrid({children}) {
   return (
     <RootWrapper width={1400}>
       <Grid>
-        {props.nodes.map(node => (
-          <ProjectPreview key={node.id}  {...node} />
-        ))}
+        {children}
       </Grid>
     </RootWrapper>
   );
@@ -35,9 +32,4 @@ const Grid = styled.div`
   }
 `;
 
-ProjectPreviewGrid.defaultProps = {
-  title: "",
-  nodes: []
-};
-
-export default ProjectPreviewGrid;
+export default PreviewGrid;
