@@ -9,6 +9,7 @@ import BodySmall from "./typography/bodySmall";
 import MaxWidthWrapper from "./maxWidthWrapper";
 import Flex from "./flex";
 import PostTagList from "./postTagList";
+import BlockRenderer from "./blockNotion";
 
 const Post = ({
   frontmatter: {
@@ -27,6 +28,7 @@ const Post = ({
       </HeadingWrapper>
       <Title>{title}</Title>
       <img src={hero[0].file.url} />
+      <BlockRenderer blocks={htmlAst} />
     </RootWrapper>
   );
 };

@@ -1,24 +1,6 @@
-import { format, isFuture } from "date-fns";
-
-export function cn(...args) {
-  return args.filter(Boolean).join(" ");
-}
-
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
   return data.edges.map(edge => edge.node);
-}
-
-export function filterOutDocsWithoutSlugs({ slug }) {
-  return (slug || {}).current;
-}
-
-export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
-  return !isFuture(publishedAt);
-}
-
-export function getBlogUrl(publishedAt, slug) {
-  return `/blog/${format(publishedAt, "YYYY/MM")}/${slug.current || slug}/`;
 }
 
 export function buildImageObj(source) {
@@ -30,4 +12,28 @@ export function buildImageObj(source) {
   if (source.hotspot) imageObj.hotspot = source.hotspot;
 
   return imageObj;
+}
+
+export function blockBuilder(blocks) {
+  // console.log("Type: ", blocks.type);
+  // console.log("Element: ", obj.tagName);
+  // console.log("Properties: ", obj.properties);
+
+  if (blocks.children) {
+    let properties = {};
+    blocks.children.map(node => {
+      if (node.type === "text") {
+        console.log("\tWith text: " + node.value);
+        return;
+      }
+      console.log("This will be a", node.tagName);
+      if (node.properties && Object.values(node.properties).length > 0) {
+        for (const property in node.properties) {
+          properties[property] = node.properties[property];
+        }
+        console.log("With properties:", properties);
+      }
+      blockBuilder(node);
+    });
+  }
 }
