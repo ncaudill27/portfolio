@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { validateEmail } from "../lib/emailValidation";
+import { validateEmail } from "../lib/string-utils";
 
 import StyledForm from "../components/form";
 import Toast from "../components/toast";

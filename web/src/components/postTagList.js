@@ -7,7 +7,7 @@ import Body from "./typography/bodySmall";
 const PostTagList = ({ list }) => (
   <Flex gap={0}>
     {list.map(({ name }) => (
-      <Tag>
+      <Tag key={name}>
         <Body>{name}</Body>
       </Tag>
     ))}
