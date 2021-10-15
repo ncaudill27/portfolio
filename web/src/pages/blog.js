@@ -7,6 +7,8 @@ import { mapEdgesToNodes } from "../lib/helpers";
 import Layout from "../containers/layout";
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
+import PostPreviewGrid from "../components/postPreviewGrid";
+import PostPreview from "../components/postPreview";
 
 const BlogPage = ({ data, errors }) => {
   console.log(data.posts);
@@ -19,7 +21,7 @@ const BlogPage = ({ data, errors }) => {
   return (
     <Layout title="Blog">
       <Wrapper>
-        
+        <PostPreviewGrid nodes={postNodes} />
       </Wrapper>
     </Layout>
   );
