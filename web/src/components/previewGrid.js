@@ -14,10 +14,7 @@ function PreviewGrid({children}) {
 }
 
 const RootWrapper = styled(MaxWidthWrapper)`
-  --margin-top-min: var(--spacing-1);
-  --margin-top-max: var(--spacing-12);
-  --margin-top-value: 30px + 3.83vw;
-  margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
+  margin-top: var(--responsive-margin-top);
 `;
 
 const Grid = styled.div`

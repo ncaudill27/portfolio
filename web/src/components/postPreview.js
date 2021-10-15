@@ -4,13 +4,21 @@ import styled from "styled-components";
 import PreviewSpringLink from "./previewSpringLink";
 import Title from "./typography/headingSecondary";
 import Flex from "./flex";
+import Body from "./typography/bodyRegular";
 
-function PostPreview(props) {
-  console.log(props);
+function PostPreview({ frontmatter, htmlAst }) {
+  const {
+    title,
+    brief,
+    hero,
+    slug: { string: slug }
+  } = frontmatter;
+  console.log(title, brief, hero, slug);
   return (
-    <PreviewSpringLink to={`/posts/${props.slug}`}>
+    <PreviewSpringLink to={`/posts/${slug}`}>
       <ContentWrapper>
-        <Title></Title>
+        <Title>{title}</Title>
+        <Body>{brief}</Body>
       </ContentWrapper>
     </PreviewSpringLink>
   );

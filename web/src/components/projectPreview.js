@@ -59,6 +59,7 @@ const StackWrapper = styled(Flex)`
 const ContentWrapper = styled.div`
   padding-left: var(--spacing-1);
   padding-right: var(--spacing-1);
-  padding-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-4); 
 `;
+
 export default ProjectPreview;

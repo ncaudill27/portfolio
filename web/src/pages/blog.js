@@ -6,32 +6,22 @@ import { mapEdgesToNodes } from "../lib/helpers";
 
 import Layout from "../containers/layout";
 import Heading from "../components/typography/headingPrimary";
-import Body from "../components/typography/bodyRegular";
 import PostPreviewGrid from "../components/postPreviewGrid";
-import PostPreview from "../components/postPreview";
 
 const BlogPage = ({ data, errors }) => {
   console.log(data.posts);
   const postNodes = mapEdgesToNodes(data?.posts).filter(
     ({ frontmatter }) => !isFuture(frontmatter.date.start)
   );
-  
+
   console.log(postNodes);
 
   return (
     <Layout title="Blog">
-      <Wrapper>
-        <PostPreviewGrid nodes={postNodes} />
-      </Wrapper>
+      <PostPreviewGrid nodes={postNodes} />
     </Layout>
   );
 };
-
-const Wrapper = styled.div`
-  margin-top: var(--responsive-margin-top);
-
-  text-align: center;
-`;
 
 const MainHeader = styled(Heading)`
   width: fit-content;
