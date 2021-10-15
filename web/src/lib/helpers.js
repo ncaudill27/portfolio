@@ -1,10 +1,10 @@
 import React from "react";
 import { slugify } from "./string-utils";
 
-import PrimaryHeading from "../typography/headingPrimary";
-import SecondaryHeading from "../typography/headingSecondary";
-import TertiaryHeading from "../typography/headingTertiary";
-import Body from "../typography/bodyRegular";
+import PrimaryHeading from "../components/typography/headingPrimary";
+import SecondaryHeading from "../components/typography/headingSecondary";
+import TertiaryHeading from "../components/typography/headingTertiary";
+import Body from "../components/typography/bodyRegular";
 
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
@@ -37,12 +37,7 @@ export function blockBuilder(blocks) {
       console.log("This will be a", node.tagName);
 
       if (node.tagName.slice(0, 1) === "h") {
-        let id = slugify(node.children[0].value);
-        properties.id = id;
-
-        React.createElement(node.tagName, properties, node.children[0].value);
-
-        console.log("With properties: ", properties);
+        notionHeaderRenderer(node, properties);
       }
 
       if (node.properties && Object.values(node.properties).length > 0) {
@@ -57,38 +52,44 @@ export function blockBuilder(blocks) {
 }
 
 function notionHeaderRenderer(node, props) {
-  const { HeaderTag, headerProps } = headerSwitch(node);
-  
   let id = slugify(node.children[0].value);
+  const { HeaderTag, headerProps } = headerSwitch(node, id);
 
+  const reactEl = React.createElement(
+    HeaderTag,
+    headerProps,
+    node.children[0].value
+  );
 
-  React.createElement(node.tagName, properties, node.children[0].value);
-
-  console.log("With properties: ", properties);
+  console.log("Header element: ", reactEl);
+  return reactEl;
 }
 
-function headerSwitch({ tagName }) {
+function headerSwitch({ tagName }, id) {
   switch (tagName) {
     case "h2":
       return {
         HeaderTag: PrimaryHeading,
-        headerProps: Object.assign({}, headerProps, {
+        headerProps: {
+          id,
           as: "h2"
-        })
+        }
       };
     case "h3":
       return {
         HeaderTag: SecondaryHeading,
-        headerProps: Object.assign({}, headerProps, {
+        headerProps: {
+          id,
           as: "h3"
-        })
+        }
       };
     case "h4":
       return {
         HeaderTag: TertiaryHeading,
-        headerProps: Object.assign({}, headerProps, {
+        headerProps: {
+          id,
           as: "h4"
-        })
+        }
       };
 
     default:
