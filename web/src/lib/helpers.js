@@ -23,12 +23,13 @@ export function buildImageObj(source) {
 }
 
 export function blockBuilder(obj) {
+  let blocks = []
   // console.log("Type: ", obj.type);
   // console.log("Element: ", obj.tagName);
   // console.log("Properties: ", obj.properties);
 
   if (obj.children) {
-    obj.children.map(node => {
+    blocks = obj.children.map(node => {
       if (node.type === "text") {
         return
       }
@@ -41,11 +42,17 @@ export function blockBuilder(obj) {
       }
 
       const { ElementTag, elementProps } = Factory(node, properties);
-      const reactEl = React.createElement(ElementTag, elementProps, node.children);
-      console.log(reactEl);
-      return reactEl;
+      if (!!ElementTag && !!elementProps) {
+        if (node.children[0] && node.children[0].type === "text") {
+          return React.createElement(ElementTag, elementProps, node.children.map(node => node.value).join(" "))
+        } else {
+          return React.createElement(ElementTag, elementProps, node.children);
+        }
+      }
     });
   }
+
+  return blocks.filter(Boolean)
 }
 
 function Factory(node, props) {
@@ -121,6 +128,9 @@ function Factory(node, props) {
       };
 
     default:
-      return null;
+      return {
+        ElementTag: null,
+        elementProps: null
+      };
   }
 }
