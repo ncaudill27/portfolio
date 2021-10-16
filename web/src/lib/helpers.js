@@ -22,77 +22,105 @@ export function buildImageObj(source) {
   return imageObj;
 }
 
-export function blockBuilder(blocks) {
-  // console.log("Type: ", blocks.type);
+export function blockBuilder(obj) {
+  // console.log("Type: ", obj.type);
   // console.log("Element: ", obj.tagName);
   // console.log("Properties: ", obj.properties);
 
-  if (blocks.children) {
-    let properties = {};
-    blocks.children.map(node => {
+  if (obj.children) {
+    obj.children.map(node => {
       if (node.type === "text") {
-        console.log("\tWith text: " + node.value);
-        return;
-      }
-      console.log("This will be a", node.tagName);
-
-      if (node.tagName.slice(0, 1) === "h") {
-        notionHeaderRenderer(node, properties);
+        return
       }
 
+      let properties = {};
       if (node.properties && Object.values(node.properties).length > 0) {
         for (const property in node.properties) {
           properties[property] = node.properties[property];
         }
-        console.log("With properties:", properties);
       }
-      blockBuilder(node);
+
+      const { ElementTag, elementProps } = Factory(node, properties);
+      const reactEl = React.createElement(ElementTag, elementProps, node.children);
+      console.log(reactEl);
+      return reactEl;
     });
   }
 }
 
-function notionHeaderRenderer(node, props) {
-  let id = slugify(node.children[0].value);
-  const { HeaderTag, headerProps } = headerSwitch(node, id);
+function Factory(node, props) {
+  let children = []
 
-  const reactEl = React.createElement(
-    HeaderTag,
-    headerProps,
-    node.children[0].value
-  );
+  if (node.type === "text") {
+    console.log("Hit nested text");
+    return
+  }
 
-  console.log("Header element: ", reactEl);
-  return reactEl;
-}
+  if (node.children) {
+    node.children.map(node => {
+      if (node.type === "text") {
+        if (node.value !== "\n") console.log(node.value);
+        return
+      }
+      let properties = {};
+      if (node.properties && Object.values(node.properties).length > 0) {
+        for (const property in node.properties) {
+          properties[property] = node.properties[property];
+        }
+      }
 
-function headerSwitch({ tagName }, id) {
-  switch (tagName) {
+      const { ElementTag, elementProps } = Factory(node, properties);
+      const reactEl = React.createElement(ElementTag, elementProps, node.children);
+      console.log(reactEl);
+      return reactEl;
+    })
+  }
+  
+  if (node.tagName.slice(0, 1) === "h") {
+    let id = slugify(node.children[0].value);
+    props = { ...props, id };
+  }
+  switch (node.tagName) {
     case "h2":
       return {
-        HeaderTag: PrimaryHeading,
-        headerProps: {
-          id,
+        ElementTag: PrimaryHeading,
+        elementProps: {
+          ...props,
           as: "h2"
         }
       };
     case "h3":
       return {
-        HeaderTag: SecondaryHeading,
-        headerProps: {
-          id,
+        ElementTag: SecondaryHeading,
+        elementProps: {
+          ...props,
           as: "h3"
         }
       };
     case "h4":
       return {
-        HeaderTag: TertiaryHeading,
-        headerProps: {
-          id,
+        ElementTag: TertiaryHeading,
+        elementProps: {
+          ...props,
           as: "h4"
+        }
+      };
+    case "p":
+      return {
+        ElementTag: Body,
+        elementProps: {
+          ...props
+        }
+      };
+    case "div":
+      return {
+        ElementTag: "div",
+        elementProps: {
+          ...props
         }
       };
 
     default:
-      break;
+      return null;
   }
 }

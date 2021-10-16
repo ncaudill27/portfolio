@@ -14,8 +14,6 @@ function LayoutContainer(props) {
     }
   }, [headerPosition]);
 
-  console.log(props.children);
-
   return <Layout {...props} headerPosition={headerPosition} />;
 }
 
