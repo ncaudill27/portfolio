@@ -1,11 +1,3 @@
-import React from "react";
-import { slugify } from "./string-utils";
-
-import PrimaryHeading from "../components/typography/headingPrimary";
-import SecondaryHeading from "../components/typography/headingSecondary";
-import TertiaryHeading from "../components/typography/headingTertiary";
-import Body from "../components/typography/bodyRegular";
-
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
   return data.edges.map(edge => edge.node);
@@ -55,8 +47,7 @@ export function blockBuilder(obj) {
   return blocks.filter(Boolean)
 }
 
-function Factory(node, props) {
-  let children = []
+function Factory({ blocks }) {
 
   if (node.type === "text") {
     console.log("Hit nested text");
@@ -64,12 +55,15 @@ function Factory(node, props) {
   }
 
   if (node.children) {
+    let properties = {};
+
     node.children.map(node => {
       if (node.type === "text") {
-        if (node.value !== "\n") console.log(node.value);
+        if (node.value !== "\n") {
+          children = node.value
+        }
         return
       }
-      let properties = {};
       if (node.properties && Object.values(node.properties).length > 0) {
         for (const property in node.properties) {
           properties[property] = node.properties[property];
@@ -89,48 +83,14 @@ function Factory(node, props) {
   }
   switch (node.tagName) {
     case "h2":
-      return {
-        ElementTag: PrimaryHeading,
-        elementProps: {
-          ...props,
-          as: "h2"
-        }
-      };
+      return <PrimaryHeading as="h2" {...props} />
     case "h3":
-      return {
-        ElementTag: SecondaryHeading,
-        elementProps: {
-          ...props,
-          as: "h3"
-        }
-      };
+      return <SecondaryHeading as="h3" {...props} />
     case "h4":
-      return {
-        ElementTag: TertiaryHeading,
-        elementProps: {
-          ...props,
-          as: "h4"
-        }
-      };
-    case "p":
-      return {
-        ElementTag: Body,
-        elementProps: {
-          ...props
-        }
-      };
-    case "div":
-      return {
-        ElementTag: "div",
-        elementProps: {
-          ...props
-        }
-      };
+      return <TertiaryHeading as="h4" {...props} />
 
     default:
-      return {
-        ElementTag: null,
-        elementProps: null
-      };
+      const TagName = node.tageName
+      return <TagName {...props} />
   }
 }

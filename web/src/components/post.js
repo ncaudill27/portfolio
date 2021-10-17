@@ -41,4 +41,6 @@ const HeadingWrapper = styled(Flex)`
   padding-bottom: calc(var(--responsive-margin-top) / 2);
 `;
 
+console.log(Post);
+
 export default Post;
