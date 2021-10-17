@@ -34,6 +34,8 @@ function FactoryContainer({ blocks }) {
   return (
     <>
       {blocks.map(node => {
+        if (node.type === "text") return;
+
         let children;
         let properties;
 
@@ -47,19 +49,18 @@ function FactoryContainer({ blocks }) {
 
         if (allChildrenAreTextNodes(node)) {
           children = exposeAllTextNodes(node.children);
-          return <Factory {...{ ...node, ...properties, children }} />;
-        }
+          const factoryObj = {
+            tagName: node.tagName,
+            spreadable: {
+              ...properties,
+              children
+            },
+            type: node.type === "text" ? node.type : null
+          };
 
-
-        console.log(children);
-
-        if (node.children) {
-          let children = [];
-          let properties = {};
-
-          node.children.map(child => {
-
-          });
+          return <Factory {...factoryObj} />;
+        } else {
+          return <FactoryContainer blocks={node.children} />;
         }
       })}
     </>
