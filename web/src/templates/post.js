@@ -16,7 +16,11 @@ export const query = graphql`
 
 const PostTemplate = ({ data: { post }, errors }) => {
   return (
-    <Layout>
+    <Layout
+      seo={{
+        title: post.frontmatter.title
+      }}
+    >
       <MaxWidthWrapper width={2000}>
         <Post {...post} />
       </MaxWidthWrapper>

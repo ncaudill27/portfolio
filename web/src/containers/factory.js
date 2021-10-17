@@ -1,54 +1,69 @@
 import React from "react";
-import { slugify } from "./string-utils";
+import Factory from "../components/factory";
+import { slugify } from "../lib/string-utils";
 
-function Factory({ blocks }) {
-  if (node.type === "text") {
-    console.log("Hit nested text");
-    return;
-  }
+function FactoryContainer({ blocks }) {
+  const allChildrenAreTextNodes = ({ children = [] }) => {
+    return children.every(child => child.type === "text");
+  };
 
-  if (node.children) {
-    let children
-    let properties = {};
-
-    node.children.map(node => {
+  const exposeAllTextNodes = (children = []) => {
+    return children.map(node => {
       if (node.type === "text") {
         if (node.value !== "\n") {
-          children = node.value;
+          return node.value;
         }
-        return;
+      } else {
+        return node;
       }
-      if (node.properties && Object.values(node.properties).length > 0) {
-        for (const property in node.properties) {
-          properties[property] = node.properties[property];
-        }
-      }
-
-      const { ElementTag, elementProps } = Factory(node, properties);
-      const reactEl = React.createElement(ElementTag, elementProps, node.children);
-      console.log(reactEl);
-      return reactEl;
     });
-  }
+  };
 
-  if (node.tagName.slice(0, 1) === "h") {
-    let id = slugify(node.children[0].value);
-    props = { ...props, id };
-  }
-  switch (node.tagName) {
-    case "h2":
-      return <PrimaryHeading as="h2" {...props} />;
-    case "h3":
-      return <SecondaryHeading as="h3" {...props} />;
-    case "h4":
-      return <TertiaryHeading as="h4" {...props} />;
-    case "p":
-      return <Body {...props} />
+  const handleProperties = (properties = {}) => {
+    let props = {};
 
-    default: 
-      return <div>Dead end</div>
+    if (properties && Object.values(properties).length > 0) {
+      for (const property in properties) {
+        props[property] = properties[property];
+      }
+    }
 
-  }
+    return props;
+  };
+
+  return (
+    <>
+      {blocks.map(node => {
+        let children;
+        let properties;
+
+        console.log(node);
+
+        properties = handleProperties(node.properties);
+        if (node.tagName?.slice(0, 1) === "h") {
+          let id = slugify(node.children[0].value);
+          properties = { id, as: node.tagName };
+        }
+
+        if (allChildrenAreTextNodes(node)) {
+          children = exposeAllTextNodes(node.children);
+          return <Factory {...{ ...node, ...properties, children }} />;
+        }
+
+
+        console.log(children);
+
+        if (node.children) {
+          let children = [];
+          let properties = {};
+
+          node.children.map(child => {
+
+          });
+        }
+      })}
+    </>
+  );
 }
 
-export default Factory;
+export default FactoryContainer;
