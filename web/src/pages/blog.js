@@ -9,12 +9,9 @@ import Heading from "../components/typography/headingPrimary";
 import PostPreviewGrid from "../components/postPreviewGrid";
 
 const BlogPage = ({ data, errors }) => {
-  console.log(data.posts);
   const postNodes = mapEdgesToNodes(data?.posts).filter(
     ({ frontmatter }) => !isFuture(frontmatter.date.start)
   );
-
-  console.log(postNodes);
 
   return (
     <Layout title="Blog">

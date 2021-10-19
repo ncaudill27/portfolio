@@ -2,24 +2,12 @@ import React from "react";
 import Factory from "../components/factory";
 import { slugify } from "../lib/string-utils";
 
-function FactoryContainer({ blocks, parentNode }) {
-  const allChildrenAreTextNodes = ({ children = [] }) => {
+function FactoryContainer({ blocks }) {
+  const allChildrenAreTextNodes = (children = []) => {
     return children.every(child => child.type === "text");
   };
 
-  const exposeAllTextNodes = (children = []) => {
-    return children.map(node => {
-      if (node.type === "text") {
-        if (node.value !== "\n") {
-          return node.value;
-        }
-      } else {
-        return node;
-      }
-    });
-  };
-
-  const handleProperties = (properties = {}) => {
+  const handleProperties = ({ properties, tagName, children }) => {
     let props = {};
 
     if (properties && Object.values(properties).length > 0) {
@@ -28,49 +16,51 @@ function FactoryContainer({ blocks, parentNode }) {
       }
     }
 
+    // conditionally add header value as is for table of contents
+    if (tagName?.slice(0, 1) === "h") {
+      let id = slugify(children[0].value);
+      props = { id, as: tagName };
+    }
+
     return props;
+  };
+
+  const handleText = node => {
+    if (node.type === "text") {
+      if (node.value !== "\n") {
+        return node.value;
+      }
+    }
   };
 
   return (
     <>
-      {blocks.map(node => {
-        if (node.type === "text") return;
+      {blocks.map((node, nodeIndex) => {
+        if (node.type === "element") {
+          console.log(node);
+          let children = node.children.map((child, childIndex) => {
+            console.log("Child", child);
+            if (child.type === "element") {
+              return <FactoryContainer key={childIndex} blocks={child.children} />;
+            } else {
+              return <Factory tagName="text" value={child.value} />;
+            }
+          });
 
-        let children;
-        let properties;
+          let properties = handleProperties(node);
 
-        console.log(node);
-
-        properties = handleProperties(node.properties);
-        if (node.tagName?.slice(0, 1) === "h") {
-          let id = slugify(node.children[0].value);
-          properties = { id, as: node.tagName };
-        }
-
-        if (allChildrenAreTextNodes(node)) {
-          children = exposeAllTextNodes(node.children);
-          const factoryObj = {
-            tagName: node.tagName,
+          let factoryObj = {
+            tagName: node.type === "element" ? node.tagName : node.type,
             spreadable: {
               ...properties,
-              children
-            },
-            type: node.type === "text" ? node.type : null
+              children,
+              key: nodeIndex
+            }
           };
 
-          if (parentNode) {
-            const parentObj = {
-              ...factoryObj,
-              tagName: parentNode.tagName
-            }
-            return <Factory {...parentObj}>
-              <FactoryContainer blocks={children} />
-            </Factory>
-          } else {
-            return <Factory {...factoryObj} />;
-          }
+          return <Factory {...factoryObj} />;
         } else {
-          return <FactoryContainer blocks={node.children} parentNode={node} />;
+          return <Factory tagName="text" value={node.value} />;
         }
       })}
     </>

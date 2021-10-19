@@ -28,7 +28,7 @@ const Post = ({
       </HeadingWrapper>
       <Title>{title}</Title>
       <img src={hero[0].file.url} />
-      <Factory blocks={htmlAst.children} />
+      <Factory blocks={htmlAst} />
     </RootWrapper>
   );
 };

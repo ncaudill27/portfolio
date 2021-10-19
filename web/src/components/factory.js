@@ -6,11 +6,7 @@ import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
 
-const Factory = ({ tagName, spreadable, type }) => {
-  if (type === "text") {
-    return;
-  }
-
+const Factory = ({ tagName, spreadable, value }) => {
   switch (tagName) {
     case "h2":
       return <PrimaryHeading {...spreadable} />;
@@ -28,11 +24,16 @@ const Factory = ({ tagName, spreadable, type }) => {
       return <em {...spreadable} />;
     case "strong":
       return <Strong {...spreadable} />;
+    case "code":
+      return <code {...spreadable} />;
     case "div":
       return <div {...spreadable} />;
+    case "text":
+      if (value === "\n") return "";
+      return value;
 
     default:
-      return <div>Dead end</div>;
+      return <div>Try again</div>;
   }
 };
 
