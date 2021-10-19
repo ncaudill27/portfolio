@@ -2,7 +2,7 @@ import React from "react";
 import Factory from "../components/factory";
 import { slugify } from "../lib/string-utils";
 
-function FactoryContainer({ blocks }) {
+function FactoryContainer({ blocks, parentNode }) {
   const allChildrenAreTextNodes = ({ children = [] }) => {
     return children.every(child => child.type === "text");
   };
@@ -58,9 +58,19 @@ function FactoryContainer({ blocks }) {
             type: node.type === "text" ? node.type : null
           };
 
-          return <Factory {...factoryObj} />;
+          if (parentNode) {
+            const parentObj = {
+              ...factoryObj,
+              tagName: parentNode.tagName
+            }
+            return <Factory {...parentObj}>
+              <FactoryContainer blocks={children} />
+            </Factory>
+          } else {
+            return <Factory {...factoryObj} />;
+          }
         } else {
-          return <FactoryContainer blocks={node.children} />;
+          return <FactoryContainer blocks={node.children} parentNode={node} />;
         }
       })}
     </>
