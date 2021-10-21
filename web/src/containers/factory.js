@@ -7,6 +7,18 @@ function FactoryContainer({ blocks }) {
     return children.every(child => child.type === "text");
   };
 
+  const exposeAllTextNodes = (children = []) => {
+    return children.map(node => {
+      if (node.type === "text") {
+        if (node.value !== "\n") {
+          return node.value;
+        }
+      } else {
+        return node;
+      }
+    });
+  };
+
   const handleProperties = ({ properties, tagName, children }) => {
     let props = {};
 
@@ -25,21 +37,40 @@ function FactoryContainer({ blocks }) {
     return props;
   };
 
+  const handleElement = blocks => {
+    console.log("Block", blocks);
+    return blocks.children.map((node, nodeIndex) => {
+      if (node.type === "text") return "";
+      console.log(node);
+      let children = node.children.map((child, childIndex) => {
+        return <FactoryContainer key={childIndex} blocks={child} />;
+      });
+      console.log(children);
+      let properties = handleProperties(node);
+      let factoryObj = {
+        tagName: node.tagName,
+        spreadable: {
+          ...properties,
+          children,
+          key: nodeIndex
+        }
+      };
+      let el = <Factory {...factoryObj} />;
+      console.log("El", el);
+
+      return <Factory {...factoryObj} />;
+    });
+  };
+
   const handleText = node => {
-    if (node.type === "text") {
-      if (node.value !== "\n") {
-        return node.value;
-      }
+    if (node.value !== "\n") {
+      return node.value;
+    } else {
+      return "";
     }
   };
 
-  return (
-    <>
-      {
-        
-      }
-    </>
-  );
+  return <>{blocks.type === "text" ? handleText(blocks) : handleElement(blocks)}</>;
 }
 
 export default FactoryContainer;

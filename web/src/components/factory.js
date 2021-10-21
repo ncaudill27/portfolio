@@ -6,7 +6,7 @@ import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
 
-const Factory = ({ tagName, spreadable, value }) => {
+const Factory = ({ tagName, spreadable }) => {
   switch (tagName) {
     case "h2":
       return <PrimaryHeading {...spreadable} />;
@@ -22,6 +22,8 @@ const Factory = ({ tagName, spreadable, value }) => {
       return <li {...spreadable} />;
     case "em":
       return <em {...spreadable} />;
+    case "u":
+      return <span style={{ textDecoration: "underline" }} {...spreadable} />;
     case "strong":
       return <Strong {...spreadable} />;
     case "code":
