@@ -98,7 +98,7 @@ const MainBody = styled(Body)`
 `;
 
 const IntroWrapper = styled(animated(MaxWidthWrapper))`
-  margin-top: var(--responsive-margin-top);
+  margin-top: var(--responsive-top-spacing-0);
 
   padding: 0 var(--spacing-1);
 `;

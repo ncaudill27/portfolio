@@ -35,9 +35,34 @@ function FactoryContainer({ blocks }) {
 
   return (
     <>
-      {
-        
-      }
+      {blocks.map((node, nodeIndex) => {
+        if (node.type === "element") {
+          console.log(node);
+          let children = node.children.map((child, childIndex) => {
+            console.log("Child", child);
+            if (child.type === "element") {
+              return <FactoryContainer key={childIndex} blocks={child.children} />;
+            } else {
+              return <Factory tagName="text" value={child.value} />;
+            }
+          });
+
+          let properties = handleProperties(node);
+
+          let factoryObj = {
+            tagName: node.type === "element" ? node.tagName : node.type,
+            spreadable: {
+              ...properties,
+              children,
+              key: nodeIndex
+            }
+          };
+
+          return <Factory {...factoryObj} />;
+        } else {
+          return <Factory tagName="text" value={node.value} />;
+        }
+      })}
     </>
   );
 }

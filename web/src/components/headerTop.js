@@ -24,7 +24,7 @@ const Header = () => {
 };
 
 const StyledHeader = styled.header`
-  margin-top: 40px;
+  margin-top: var(--responsive-top-spacing-2);
   text-align: center;
 `;
 

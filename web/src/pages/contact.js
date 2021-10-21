@@ -18,7 +18,7 @@ const ContactPage = () => {
 };
 
 const Wrapper = styled(MaxWidthWrapper)`
-  margin-top: var(--responsive-margin-top);
+  margin-top: var(--responsive-top-spacing-0);
 
   text-align: center;
 `;

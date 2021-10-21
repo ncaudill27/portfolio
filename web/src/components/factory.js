@@ -28,9 +28,6 @@ const Factory = ({ tagName, spreadable, value }) => {
       return <code {...spreadable} />;
     case "div":
       return <div {...spreadable} />;
-    case "text":
-      if (value === "\n") return "";
-      return value;
 
     default:
       return <div>Try again</div>;

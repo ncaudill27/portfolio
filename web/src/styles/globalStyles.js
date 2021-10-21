@@ -50,8 +50,11 @@ export default createGlobalStyle`
     --margin-top-min: var(--spacing-1);
     --margin-top-max: 120px;
     --margin-top-value: 4px + 7.83vw;
-    --responsive-margin-top: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
-
+    --responsive-top-spacing-0: clamp(var(--margin-top-min), var(--margin-top-max), var(--margin-top-value));
+    --responsive-top-spacing-1: calc(var(--responsive-top-spacing-0) / 2);
+    --responsive-top-spacing-2: calc(var(--responsive-top-spacing-0) / 3);
+    --responsive-top-spacing-3: calc(var(--responsive-top-spacing-0) / 4);
+    
     --toastify-icon-color-success: var(--color-primary);
   }
   /* ----------

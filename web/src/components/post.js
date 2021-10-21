@@ -24,7 +24,7 @@ const Post = ({
     <RootWrapper width={65} unit="ch">
       <HeadingWrapper justify="space-between" align="baseline">
         <PostTagList list={tags} />
-        <BodySmall>{format(date, 'MMMM d, YYYY')}</BodySmall>
+        <BodySmall>{format(date, "MMMM d, YYYY")}</BodySmall>
       </HeadingWrapper>
       <Title>{title}</Title>
       <img src={hero[0].file.url} />
@@ -34,11 +34,11 @@ const Post = ({
 };
 
 const RootWrapper = styled(MaxWidthWrapper)`
-  margin-top: calc(var(--responsive-margin-top) / 2);
+  margin-top: var(--responsive-top-spacing-1);
 `;
 
 const HeadingWrapper = styled(Flex)`
-  padding-bottom: calc(var(--responsive-margin-top) / 2);
+  padding-bottom: var(--responsive-top-spacing-2);
 `;
 
 export default Post;

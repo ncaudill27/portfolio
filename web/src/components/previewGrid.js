@@ -12,7 +12,7 @@ function PreviewGrid({ children }) {
 }
 
 const RootWrapper = styled(MaxWidthWrapper)`
-  margin-top: var(--responsive-margin-top);
+  margin-top: var(--responsive-top-spacing-0);
 `;
 
 const Grid = styled.div`
