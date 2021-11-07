@@ -33,7 +33,7 @@ const StyledHeader = styled.header`
 
 const StyledNav = styled.nav`
   position: sticky;
-  top: var(--spacing-4);
+  top: calc(var(--spacing-4) - 4px);  // make up for padding of navLinks
 `;
 
 export default Header;

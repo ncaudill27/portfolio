@@ -13,7 +13,7 @@ const AsideWrapper = styled.aside`
 
 const StickyWrapper = styled.div`
   position: sticky;
-  top: var(--spacing-3);
+  top: var(--spacing-4);
 
   display: flex;
   flex-direction: column;
