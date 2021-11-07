@@ -17,11 +17,6 @@ const StyledBody = styled.p`
   & + & {
     padding-top: var(--spacing-1);
   }
-
-  ${CopyWrapper} &:first-child {
-    font-size: 1.125em; // 20px
-    font-weight: var(--font-weight-medium);
-  }
 `;
 
 export default Body;

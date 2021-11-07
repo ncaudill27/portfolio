@@ -6,6 +6,7 @@ import { imageUrlFor } from "../lib/image-url";
 import Title from "./typography/headingPrimary";
 import Header from "./headerSide";
 import BlockContent from "./blockContent";
+import Body from "./typography/bodyRegular";
 // UI COMPONENTS
 import Layout from "../containers/layout";
 import TripleColumnLayout from "./layoutTripleColumn";
@@ -65,6 +66,12 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
 }
 
 export const CopyWrapper = styled.div`
+
+& > div > p:nth-child(1) {
+    font-size: 1.125em; // 20px
+    font-weight: var(--font-weight-medium);
+  }
+
   @media (max-width: 700px) {
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
