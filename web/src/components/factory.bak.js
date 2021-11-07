@@ -5,25 +5,8 @@ import SecondaryHeading from "../components/typography/headingSecondary";
 import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
-import FactoryContainer from "../containers/factory";
 
-const Factory = ({ type, value, children, properties, tagName, handleProperties }) => {
-  if (type === "text") {
-    tagName = "text";
-  } else if (type === "root") {
-    tagName = "root";
-  }
-
-  if (type !== "text") {
-    properties = handleProperties(properties, tagName, children);
-    children = children.map(child => <FactoryContainer blocks={child} />);
-  }
-
-  const spreadable = {
-    children,
-    ...properties
-  };
-
+const Factory = ({ tagName, spreadable }) => {
   switch (tagName) {
     case "h2":
       return <PrimaryHeading {...spreadable} />;
@@ -47,14 +30,9 @@ const Factory = ({ type, value, children, properties, tagName, handleProperties 
       return <code {...spreadable} />;
     case "div":
       return <div {...spreadable} />;
-    case "text":
-      return <>{value}</>;
-
-    case "root":
-      return <>{children}</>;
 
     default:
-      return <>Try again</>;
+      return <div>Try again</div>;
   }
 };
 
