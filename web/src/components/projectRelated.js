@@ -9,7 +9,7 @@ const RelatedProjects = ({ list }) => (
   <>
     {list.map(project => (
       <li key={`related_${project._id}`}>
-        <StyledLink to={`/project/${project.slug.current}`}>
+        <StyledLink to={`/projects/${project.slug.current}`}>
           <img
             src={imageUrlFor(buildImageObj(project.mainImage))
               .width(30)
