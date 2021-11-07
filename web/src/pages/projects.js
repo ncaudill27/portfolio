@@ -3,14 +3,13 @@ import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
 
 import GraphQLErrorList from "../components/graphql-error-list";
-import Header from "../components/headerTop";
 import ProjectPreviewGrid from "../components/projectPreviewGrid";
 import Layout from "../containers/layout";
 
 const ProjectsPage = ({ data, errors }) => {
   if (errors) {
     return (
-      <Layout>
+      <Layout seo={{ title: "GraphQL Error" }}>
         <GraphQLErrorList errors={errors} />
       </Layout>
     );
@@ -22,7 +21,7 @@ const ProjectsPage = ({ data, errors }) => {
   return (
     <Layout
       seo={{
-        title: site.title,
+        title: "Projects",
         description: site.description,
         keywords: site.keywords
       }}

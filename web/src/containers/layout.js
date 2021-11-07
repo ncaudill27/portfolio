@@ -7,10 +7,12 @@ function LayoutContainer(props) {
   React.useEffect(() => {
     if (typeof window !== undefined) {
       const currentPath = window.location.href;
-      const regex = new RegExp(/\/projects\/[a-z0-9]+(-[a-z0-9]+)*/);
-      const isProject = regex.test(currentPath);
+      const projectsRegex = new RegExp(/\/projects\/[a-z0-9]+(-[a-z0-9]+)*/);
+      const postsRegex = new RegExp(/\/posts\/[a-z0-9]+(-[a-z0-9]+)*/);
+      const isProject = projectsRegex.test(currentPath);
+      const isPost = postsRegex.test(currentPath);
 
-      setHeaderPosition(isProject ? "side" : "top");
+      setHeaderPosition(isProject || isPost ? "side" : "top");
     }
   }, [headerPosition]);
 

@@ -14,7 +14,7 @@ const BlogPage = ({ data, errors }) => {
   );
 
   return (
-    <Layout title="Blog">
+    <Layout seo={{title: "Blog"}}>
       <PostPreviewGrid nodes={postNodes} />
     </Layout>
   );

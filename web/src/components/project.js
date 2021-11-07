@@ -16,7 +16,7 @@ import Links from "./projectLinks";
 
 function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
-    <Layout>
+    <Layout seo={{ title: title }}>
       <RootWrapper>
         <Header />
         <Hamburger />
