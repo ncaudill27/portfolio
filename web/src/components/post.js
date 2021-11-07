@@ -6,10 +6,13 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Title from "./typography/headingPrimary";
 import BodySmall from "./typography/bodySmall";
 
-import MaxWidthWrapper from "./maxWidthWrapper";
+import TripleColumnLayout from "./layoutTripleColumn";
+import Header from "./headerSide";
+import Hamburger from "./headerHamburger";
 import Flex from "./flex";
 import PostTagList from "./postTagList";
 import Factory from "../containers/factory";
+import Aside from "./aside";
 
 const Post = ({
   frontmatter: {
@@ -21,21 +24,22 @@ const Post = ({
   htmlAst
 }) => {
   return (
-    <RootWrapper width={65} unit="ch">
-      <HeadingWrapper justify="space-between" align="baseline">
-        <PostTagList list={tags} />
+    <TripleColumnLayout>
+      <Header />
+      <Hamburger />
+      <main>
+        <HeadingWrapper justify="space-between" align="baseline"></HeadingWrapper>
+        <Title>{title}</Title>
+        <img src={hero[0].file.url} />
+        <Factory blocks={htmlAst} />
+      </main>
+      <Aside>
         <BodySmall>{format(date, "MMMM d, YYYY")}</BodySmall>
-      </HeadingWrapper>
-      <Title>{title}</Title>
-      <img src={hero[0].file.url} />
-      <Factory blocks={htmlAst} />
-    </RootWrapper>
+        <PostTagList list={tags} />
+      </Aside>
+    </TripleColumnLayout>
   );
 };
-
-const RootWrapper = styled(MaxWidthWrapper)`
-  margin-top: var(--responsive-top-spacing-1);
-`;
 
 const HeadingWrapper = styled(Flex)`
   padding-bottom: var(--responsive-top-spacing-2);

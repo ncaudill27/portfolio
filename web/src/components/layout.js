@@ -11,7 +11,7 @@ const Layout = ({ headerPosition, children, seo }) => (
     <GlobalStyles />
     <SEO {...seo} />
     {headerPosition === "top" && <TopHeader />}
-    <main>{children}</main>
+    {children}
   </>
 );
 
