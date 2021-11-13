@@ -41,6 +41,10 @@ const Post = ({
   );
 };
 
+const PostLayout = styled(TripleColumnLayout)`
+  
+`;
+
 const HeadingWrapper = styled(Flex)`
   padding-bottom: var(--responsive-top-spacing-2);
 `;

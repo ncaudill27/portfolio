@@ -36,7 +36,7 @@ const Factory = ({ type, value, children, properties, tagName, handleProperties 
     case "ul":
       return <ul {...spreadable} />;
     case "li":
-      return <li {...spreadable} />;
+      return <Body as="li" {...spreadable} />;
     case "em":
       return <em {...spreadable} />;
     case "u":

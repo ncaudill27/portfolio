@@ -1,4 +1,4 @@
 import React from "react";
-import Li from "../typography/listItem";
+import Body from "../typography/bodyRegular";
 
-export const ListItem = props => <Li {...props} />;
+export const ListItem = props => <Body as="li" {...props} />;
