@@ -7,6 +7,9 @@ import { mapEdgesToNodes } from "../lib/helpers";
 import Layout from "../containers/layout";
 import Heading from "../components/typography/headingPrimary";
 import PostPreviewGrid from "../components/postPreviewGrid";
+import MaxWidthWrapper from "../components/maxWidthWrapper";
+import Flex from "../components/flex";
+import PostPreview from "../components/postPreview";
 
 const BlogPage = ({ data, errors }) => {
   const postNodes = mapEdgesToNodes(data?.posts).filter(
@@ -14,8 +17,14 @@ const BlogPage = ({ data, errors }) => {
   );
 
   return (
-    <Layout seo={{title: "Blog"}}>
-      <PostPreviewGrid nodes={postNodes} />
+    <Layout seo={{ title: "Blog" }}>
+      <MaxWidthWrapper width={800}>
+        <Flex gap={3} stack>
+          {postNodes.map(node => (
+            <PostPreview key={node.id} {...node} />
+          ))}
+        </Flex>
+      </MaxWidthWrapper>
     </Layout>
   );
 };

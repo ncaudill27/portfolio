@@ -1,8 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export default styled.h2`
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-0);
+  ${props =>
+    !props.noPadding &&
+    css`
+      padding-top: var(--spacing-1);
+      padding-bottom: var(--spacing-0);
+    `};
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
