@@ -10,8 +10,11 @@ const StyledBody = styled.p`
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
-  font-size: 1em; // 18px
 
+  --type-fontsize-min: 1.125em; // 18px
+  --type-fontsize-max: 1.4375em; // 23px
+  --type-fontsize-value: 1.02em + 0.41vw;
+  font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
   & + & {
     padding-top: var(--spacing-1);
   }
