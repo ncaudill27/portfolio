@@ -21,7 +21,9 @@ const RootWrapper = styled.figure`
   margin-bottom: var(--spacing-1);
 
   @media (max-width: 915px) {
-    margin-left: calc(var(--spacing-1) * -1);
-    margin-right: calc(var(--spacing-1) * -1);
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
   }
 `;

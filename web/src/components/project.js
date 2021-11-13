@@ -17,6 +17,7 @@ import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";
 import Links from "./projectLinks";
+import MaxWidthWrapper from "./maxWidthWrapper";
 
 function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
   return (
@@ -38,7 +39,7 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
               }}
             />
           </ImageWrapper>
-          <CopyWrapper>
+          <CopyWrapper width={690}>
             <Title>{title}</Title>
             <BlockContent blocks={_rawBody} />
           </CopyWrapper>
@@ -65,7 +66,7 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
   );
 }
 
-export const CopyWrapper = styled.div`
+export const CopyWrapper = styled(MaxWidthWrapper)`
   // lead paragraph
   & > div > p:nth-child(1) {
     font-size: ${22 / 16}rem;

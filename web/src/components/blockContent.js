@@ -3,8 +3,12 @@ import React from "react";
 import clientConfig from "../../client-config";
 import serializers from "./serializers";
 
+import MaxWidthWrapper from "./maxWidthWrapper";
+
 const BlockContent = ({ blocks }) => (
-  <BaseBlockContent blocks={blocks} serializers={serializers} {...clientConfig.sanity} />
+  <MaxWidthWrapper width={690}>
+    <BaseBlockContent blocks={blocks} serializers={serializers} {...clientConfig.sanity} />
+  </MaxWidthWrapper>
 );
 
 export default BlockContent;
