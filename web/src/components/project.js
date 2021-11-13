@@ -44,21 +44,21 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
           </CopyWrapper>
         </main>
         <Aside>
-            {links.length > 0 && (
-              <AsideCategory title="Project Links">
-                <Links list={links} />
-              </AsideCategory>
-            )}
-            {stack.length > 0 && (
-              <AsideCategory title="Stack">
-                <Stack list={stack} />
-              </AsideCategory>
-            )}
-            {relatedProjects.length > 0 && (
-              <AsideCategory title="Related Projects">
-                <RelatedProjects list={relatedProjects} />
-              </AsideCategory>
-            )}
+          {links.length > 0 && (
+            <AsideCategory title="Project Links">
+              <Links list={links} />
+            </AsideCategory>
+          )}
+          {stack.length > 0 && (
+            <AsideCategory title="Stack">
+              <Stack list={stack} />
+            </AsideCategory>
+          )}
+          {relatedProjects.length > 0 && (
+            <AsideCategory title="Related Projects">
+              <RelatedProjects list={relatedProjects} />
+            </AsideCategory>
+          )}
         </Aside>
       </TripleColumnLayout>
     </Layout>
@@ -66,9 +66,8 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
 }
 
 export const CopyWrapper = styled.div`
-
-& > div > p:nth-child(1) {
-    font-size: 1.125em; // 20px
+  & > div > p:nth-child(1) {
+    font-size: ${22 / 16}rem;
     font-weight: var(--font-weight-medium);
   }
 
