@@ -20,37 +20,51 @@ function PostPreview({ frontmatter }) {
 
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
-      <Flex>
-      <ImageWrapper>
-        <Image src={image} />
-      </ImageWrapper>
-      <ContentWrapper>
-        <Title noPadding>{title}</Title>
-        <PostTagList list={tags} />
-        <Brief>{brief}</Brief>
-      </ContentWrapper>
-      </Flex>
+      <RootWrapper>
+        <ImageWrapper>
+          <Image src={image} />
+        </ImageWrapper>
+        <ContentWrapper>
+          <Title noPadding>{title}</Title>
+          <PostTagList list={tags} />
+          <Brief>{brief}</Brief>
+        </ContentWrapper>
+      </RootWrapper>
     </PreviewSpringLink>
   );
 }
 
+const RootWrapper = styled(Flex)`
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
+`;
+
 const ImageWrapper = styled.div`
   position: relative;
-  width: 300px;
-  min-width: 300px;
+  padding-bottom: 66.666%;
   background: #eee;
   overflow: hidden;
+
+  @media (min-width: 640px) {
+    padding-bottom: 0;
+    width: 300px;
+    min-width: 300px;
+  }
 `;
 
 const Image = styled.img`
   position: absolute;
-  width: 422px;
-  height: 100%;
+  
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   object-fit: cover;
+
+  @media (max-width: 640px) {
+    /* flex-direction: column; */
+  }
 `;
 
 const ContentWrapper = styled.div`
