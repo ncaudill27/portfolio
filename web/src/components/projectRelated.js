@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
   font-weight: var(--font-weight-bold);
   text-decoration: none;
 
-  @media (min-width: 700px) {
+  @media (min-width: 915px) {
     color: var(--color-primary-muted);
 
     &:hover {
@@ -48,7 +48,7 @@ const StyledTitle = styled.span`
   display: inline;
   box-shadow: 0px 2px 0px var(--color-primary);
 
-  @media (min-width: 700px) {
+  @media (min-width: 915px) {
     box-shadow: 0px 0px 0px var(--color-primary);
     transition: box-shadow 100ms ease 0s;
 

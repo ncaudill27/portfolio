@@ -20,7 +20,7 @@ const RootWrapper = styled.figure`
   margin-top: var(--spacing-1);
   margin-bottom: var(--spacing-1);
 
-  @media (max-width: 700px) {
+  @media (max-width: 915px) {
     margin-left: calc(var(--spacing-1) * -1);
     margin-right: calc(var(--spacing-1) * -1);
   }

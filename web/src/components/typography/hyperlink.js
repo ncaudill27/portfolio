@@ -9,7 +9,7 @@ export default styled.a`
 
   will-change: box-shadow;
 
-  @media (min-width: 700px) {
+  @media (min-width: 915px) {
     box-shadow: 0px 0px 0px var(--color-background);
 
     &:hover {

@@ -66,12 +66,13 @@ function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) 
 }
 
 export const CopyWrapper = styled.div`
+  // lead paragraph
   & > div > p:nth-child(1) {
     font-size: ${22 / 16}rem;
     font-weight: var(--font-weight-medium);
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 915px) {
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
   }
@@ -84,7 +85,7 @@ const ImageWrapper = styled.div`
     margin-right: auto;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 915px) {
     display: none;
   }
 `;

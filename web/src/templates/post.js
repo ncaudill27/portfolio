@@ -39,7 +39,7 @@ const ImageWrapper = styled.div`
     margin-right: auto;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 915px) {
     display: none;
   }
 `;
