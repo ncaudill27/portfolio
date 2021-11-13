@@ -5,7 +5,6 @@ import { isFuture } from "date-fns";
 import { mapEdgesToNodes } from "../lib/helpers";
 
 import Layout from "../containers/layout";
-import Heading from "../components/typography/headingPrimary";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 import PostPreview from "../components/postPreview";

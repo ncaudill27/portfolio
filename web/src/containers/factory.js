@@ -15,7 +15,7 @@ function FactoryContainer({ blocks }) {
     // conditionally add header value as is for table of contents
     if (tagName?.slice(0, 1) === "h") {
       console.log("Header", children);
-      let id = slugify(children[0].value);
+      let id = children.length > 0 ? slugify(children[0].value) : null;
       props = { id, as: tagName };
     }
 
