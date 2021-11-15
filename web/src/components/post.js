@@ -23,6 +23,7 @@ const Post = ({
   },
   htmlAst
 }) => {
+  console.log(htmlAst);
   return (
     <TripleColumnLayout>
       <Header />

@@ -5,6 +5,7 @@ import SecondaryHeading from "../components/typography/headingSecondary";
 import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
+import Link from "../components/typography/hyperlink";
 import FactoryContainer from "../containers/factory";
 
 const Factory = ({ type, value, children, properties, tagName, handleProperties }) => {
@@ -37,6 +38,8 @@ const Factory = ({ type, value, children, properties, tagName, handleProperties 
       return <ul {...spreadable} />;
     case "li":
       return <Body as="li" {...spreadable} />;
+    case "a":
+      return <Link {...spreadable} />;
     case "em":
       return <em {...spreadable} />;
     case "u":
