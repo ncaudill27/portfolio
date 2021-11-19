@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { slugify } from "../lib/string-utils";
-
 import FactoryContainer from "../containers/factory";
 
 const useNotionElement = blocks => {
