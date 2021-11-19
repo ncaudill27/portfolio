@@ -6,50 +6,35 @@ import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
 import Link from "../components/typography/hyperlink";
-import FactoryContainer from "../containers/factory";
 
-const Factory = ({ type, value, children, properties, tagName, handleProperties }) => {
-  if (type === "text") {
-    tagName = "text";
-  } else if (type === "root") {
-    tagName = "root";
-  }
-
-  if (type !== "text") {
-    properties = handleProperties(properties, tagName, children);
-    children = children.map(child => <FactoryContainer blocks={child} />);
-  }
-
-  const spreadable = {
-    children,
-    ...properties
-  };
+const Factory = props => {
+  const { value, children, tagName } = props;
 
   switch (tagName) {
     case "h2":
-      return <PrimaryHeading {...spreadable} />;
+      return <PrimaryHeading {...props} />;
     case "h3":
-      return <SecondaryHeading {...spreadable} />;
+      return <SecondaryHeading {...props} />;
     case "h4":
-      return <TertiaryHeading {...spreadable} />;
+      return <TertiaryHeading {...props} />;
     case "p":
-      return <Body {...spreadable} />;
+      return <Body {...props} />;
     case "ul":
-      return <ul {...spreadable} />;
+      return <ul {...props} />;
     case "li":
-      return <Body as="li" {...spreadable} />;
+      return <Body as="li" {...props} />;
     case "a":
-      return <Link {...spreadable} />;
+      return <Link {...props} />;
     case "em":
-      return <em {...spreadable} />;
+      return <em {...props} />;
     case "u":
-      return <span style={{ textDecoration: "underline" }} {...spreadable} />;
+      return <span style={{ textDecoration: "underline" }} {...props} />;
     case "strong":
-      return <Strong {...spreadable} />;
+      return <Strong {...props} />;
     case "code":
-      return <code {...spreadable} />;
+      return <code {...props} />;
     case "div":
-      return <div {...spreadable} />;
+      return <div {...props} />;
     case "text":
       return <>{value}</>;
 

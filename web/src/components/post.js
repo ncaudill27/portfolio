@@ -23,17 +23,16 @@ const Post = ({
   },
   htmlAst
 }) => {
-  console.log(htmlAst);
   return (
     <TripleColumnLayout>
       <Header />
       <Hamburger />
-      <main>
+      <article>
         <HeadingWrapper justify="space-between" align="baseline"></HeadingWrapper>
         <Title>{title}</Title>
         <img src={hero[0].file.url} />
         <Factory blocks={htmlAst} />
-      </main>
+      </article>
       <Aside>
         <BodySmall>{format(date, "MMMM d, YYYY")}</BodySmall>
         <PostTagList list={tags} />
