@@ -12,7 +12,7 @@ const useNotionElement = blocks => {
     tagName = getTag(blocks);
 
     if (blocks.type !== "text") {
-      children = blocks.children.map(child => <FactoryContainer blocks={child} />);
+      children = generateChildren(blocks);
     }
 
     setElement({
@@ -45,7 +45,11 @@ const useNotionElement = blocks => {
     return !!tagName ? tagName : type;
   };
 
-  return element
+  const generateChildren = ({ children }) => {
+    return children.map(child => <FactoryContainer blocks={child} />);
+  };
+
+  return element;
 };
 
-export default useNotionElement
+export default useNotionElement;
