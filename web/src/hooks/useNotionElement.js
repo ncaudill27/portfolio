@@ -22,7 +22,7 @@ const useNotionElement = blocks => {
       tagName,
       children
     });
-  }, [blocks]);
+  }, []);
 
   const handleProperties = ({ properties = {}, tagName = "", children }) => {
     let props = {};

@@ -51,7 +51,7 @@ const ImageWrapper = styled.div`
     margin-right: auto;
   }
 
-  @media (max-width: 915px) {
+  @media (max-width: 914px) {
     display: none;
   }
 `;

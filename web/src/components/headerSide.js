@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   padding-top: var(--spacing-2);
   color: var(--color-text);
 
-  @media (max-width: 915px) {
+  @media (max-width: 914px) {
     display: none;
   }
 `;
