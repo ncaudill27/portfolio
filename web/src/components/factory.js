@@ -23,7 +23,12 @@ const Factory = ({ blocks }) => {
     case "h3":
       return <SecondaryHeading {...element} />;
     case "h4":
-      return <TertiaryHeading {...element} />;
+      return (
+        <TertiaryHeading
+          style={{ paddingTop: "var(--spacing-1)", paddingBottom: "var(--spacing-0)" }}
+          {...element}
+        />
+      );
     case "p":
       return <Body {...element} />;
     case "ul":
