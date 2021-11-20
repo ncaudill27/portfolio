@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { slugify } from "../lib/string-utils";
-import FactoryContainer from "../containers/factory";
+import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
   const [element, setElement] = useState({});
@@ -46,7 +46,7 @@ const useNotionElement = blocks => {
   };
 
   const generateChildren = ({ children }) => {
-    return children.map(child => <FactoryContainer blocks={child} />);
+    return children.map(child => <Factory blocks={child} />);
   };
 
   return element;
