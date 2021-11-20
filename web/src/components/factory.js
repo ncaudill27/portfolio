@@ -7,6 +7,7 @@ import TertiaryHeading from "../components/typography/headingTertiary";
 import Body from "../components/typography/bodyRegular";
 import Strong from "../components/typography/strong";
 import Link from "../components/typography/hyperlink";
+import Code from "../components/typography/code";
 
 const Factory = ({ blocks }) => {
   const element = useNotionElement(blocks);
@@ -38,7 +39,7 @@ const Factory = ({ blocks }) => {
     case "strong":
       return <Strong {...element} />;
     case "code":
-      return <code {...element} />;
+      return <Code {...element} />;
     case "div":
       return <div {...element} />;
     case "text":

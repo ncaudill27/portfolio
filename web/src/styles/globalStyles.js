@@ -23,7 +23,9 @@ export default createGlobalStyle`
     ---------- */
     --color-text: hsl(183deg, 18%, 25%);//#252525
     --color-text-alt: hsl(183deg, 18%, 40%);
-    --color-text-transparent: hsla(183deg, 18%, 25%, 0.1);//#252525
+    --color-text-transparent: hsl(183deg, 28%, 88%);//#D8E8E9 color based on color text at 0.1 alpha
+    --color-text-transparent-2: hsl(183deg, 21%, 85%);//#D0DFE0 color based on color text at 0.15 alpha
+    --color-text-transparent-3: hsl(184deg, 18%, 81%);//#C6D6D7 color based on color text at 0.2 alpha
     --color-background: hsl(183deg, 58%, 95%);//#ebf9fa
     --color-background-alt: hsl(0, 0%, 97%);
     --color-primary: hsl(213deg, 100%, 43%);
