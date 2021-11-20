@@ -11,6 +11,9 @@ import Link from "../components/typography/hyperlink";
 const Factory = ({ blocks }) => {
   const element = useNotionElement(blocks);
   const { value, children, tagName } = element;
+  if (Object.keys(element).length === 0) return "";
+  delete element.tagName;
+  delete element.type;
 
   switch (tagName) {
     case "h2":

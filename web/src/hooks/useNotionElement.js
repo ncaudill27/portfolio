@@ -3,6 +3,7 @@ import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
+  
   const [element, setElement] = useState({});
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const useNotionElement = blocks => {
       tagName,
       children
     });
-  }, []);
+  }, [blocks]);
 
   const handleProperties = ({ properties = {}, tagName = "", children }) => {
     let props = {};
@@ -46,7 +47,7 @@ const useNotionElement = blocks => {
   };
 
   const generateChildren = ({ children }) => {
-    return children.map(child => <Factory blocks={child} />);
+    return children.map((child, idx) => <Factory key={idx} blocks={child} />);
   };
 
   return element;

@@ -61,6 +61,7 @@ export const SanityProject = graphql`
 
 export const NotionPost = graphql`
   fragment NotionPost on MarkdownRemark {
+    id
     htmlAst
     frontmatter {
       title
