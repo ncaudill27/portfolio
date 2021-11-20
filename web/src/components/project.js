@@ -73,7 +73,7 @@ export const CopyWrapper = styled(MaxWidthWrapper)`
     font-weight: var(--font-weight-medium);
   }
 
-  @media (max-width: 915px) {
+  @media (max-width: 914px) {
     padding-left: var(--spacing-1);
     padding-right: var(--spacing-1);
   }

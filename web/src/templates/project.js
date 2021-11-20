@@ -20,22 +20,20 @@ export const query = graphql`
 const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
   return (
     <>
-      <MaxWidthWrapper width={2000}>
-        <ImageWrapper>
-          <img
-            src={imageUrlFor(buildImageObj(project.mainImage))
-              .width(1500)
-              .height(300)
-              .fit("crop")
-              .url()}
-            alt={project.mainImage.alt}
-            style={{
-              marginBottom: "var(--spacing-1)"
-            }}
-          />
-        </ImageWrapper>
-        <Project {...project} />
-      </MaxWidthWrapper>
+      <ImageWrapper>
+        <img
+          src={imageUrlFor(buildImageObj(project.mainImage))
+            .width(1500)
+            .height(300)
+            .fit("crop")
+            .url()}
+          alt={project.mainImage.alt}
+          style={{
+            marginBottom: "var(--spacing-1)"
+          }}
+        />
+      </ImageWrapper>
+      <Project {...project} />
     </>
   );
 };
