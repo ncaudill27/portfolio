@@ -45,7 +45,7 @@ export default createGlobalStyle`
     --font-weight-light: 300;
     --font-family-primary: "Rubik", "Asap", "DejaVu Sans", "Verdana", "sans‑serif";
     --font-family-secondary: "Open Sans", "Segoe UI", "Apple SD Gothic Neo", "Lucida Grande", "Lucida Sans Unicode", "sans‑serif";
-    --font-family-code: "Oxygen Mono", "Fira Mono", "monospace";
+    --font-family-code: "Source Code Pro", "Fira Mono", "monospace";
     /* ----------
     RESPONSIVE MARGIN FOR INDEX/404/BLOG/CONTACT
     ---------- */

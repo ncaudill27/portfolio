@@ -22,6 +22,7 @@ const PostTemplate = ({ data: { post }, errors }) => {
       }}
     >
       <MaxWidthWrapper width={2000}>
+      
         <Post {...post} />
       </MaxWidthWrapper>
     </Layout>

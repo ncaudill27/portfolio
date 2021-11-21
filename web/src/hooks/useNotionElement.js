@@ -18,7 +18,7 @@ const useNotionElement = blocks => {
 
     setElement({
       ...blocks,
-      properties,
+      ...properties,
       tagName,
       children
     });

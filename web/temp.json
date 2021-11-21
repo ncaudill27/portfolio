@@ -1,0 +1,34 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Recently I came upon an interesting problem. I wanted to create my blog using "
+        },
+        {
+          "type": "element",
+          "tagName": "a",
+          "properties": {
+            "href": "https://www.notion.so/product"
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "Notion"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " as the CMS."
+        }
+      ]
+    },
+    ...
+  ]
+}

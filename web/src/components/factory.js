@@ -1,21 +1,24 @@
 import React from "react";
 import useNotionElement from "../hooks/useNotionElement";
 
-import PrimaryHeading from "../components/typography/headingPrimary";
-import SecondaryHeading from "../components/typography/headingSecondary";
-import TertiaryHeading from "../components/typography/headingTertiary";
-import Body from "../components/typography/bodyRegular";
-import Strong from "../components/typography/strong";
-import Link from "../components/typography/hyperlink";
-import Code from "../components/typography/code";
+import PrimaryHeading from "./typography/headingPrimary";
+import SecondaryHeading from "./typography/headingSecondary";
+import TertiaryHeading from "./typography/headingTertiary";
+import Body from "./typography/bodyRegular";
+import Strong from "./typography/strong";
+import Link from "./typography/hyperlink";
+import Code from "./typography/code";
+import CodeBlock from "./codeBlock";
 
 const Factory = ({ blocks }) => {
+  console.log(blocks);
   const element = useNotionElement(blocks);
   const { value, children, tagName } = element;
 
-  if (Object.keys(element).length === 0) return "";
+  // Delete properties that shouldn't be spread into element as attributes
   delete element.tagName;
   delete element.type;
+  delete element.value;
 
   switch (tagName) {
     case "h2":
@@ -49,6 +52,8 @@ const Factory = ({ blocks }) => {
       return <div {...element} />;
     case "text":
       return <>{value}</>;
+    case "codeblock":
+      return <CodeBlock {...element} />;
 
     case "root":
       return <>{children}</>;
