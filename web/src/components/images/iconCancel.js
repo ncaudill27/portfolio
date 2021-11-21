@@ -8,7 +8,6 @@ const Cancel = props => (
     x="0px"
     y="0px"
     viewBox="0 0 512.001 512.001"
-    style={{ width: 20, height: 20 }}
     {...props}
   >
     <g>

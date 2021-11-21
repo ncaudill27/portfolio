@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { Dialog } from "@reach/dialog";
+import VisuallyHidden from "@reach/visually-hidden";
+import Cancel from "./images/iconCancel";
+import Heading from "./typography/headingSecondary";
 
 const CARBON = {
   json:
@@ -12,8 +15,7 @@ const CARBON = {
     "https://carbon.now.sh/embed?bg=rgba%28235%2C249%2C250%2C1%29&t=panda-syntax&wt=sharp&l=jsx&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Source+Code+Pro&fs=18px&lh=133%25&si=false&es=2x&wm=false&code=const%2520Factory%2520%253D%2520%28%257B%2520blocks%2520%257D%29%2520%253D%253E%2520%257B%250A%2520%2520console.log%28blocks%29%253B%250A%2520%2520const%2520element%2520%253D%2520useNotionElement%28blocks%29%253B%250A%2520%2520const%2520%257B%2520value%252C%2520children%252C%2520tagName%2520%257D%2520%253D%2520element%253B%250A%250A%2520%2520delete%2520element.tagName%253B%250A%2520%2520delete%2520element.type%253B%250A%250A%2520%2520switch%2520%28tagName%29%2520%257B%250A%2520%2520%2520%2520case%2520%2522h2%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CPrimaryHeading%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522h3%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CSecondaryHeading%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522h4%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%28%250A%2520%2520%2520%2520%2520%2520%2520%2520%253CTertiaryHeading%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520style%253D%257B%257B%2520paddingTop%253A%2520%2522var%28--spacing-1%29%2522%252C%2520paddingBottom%253A%2520%2522var%28--spacing-0%29%2522%2520%257D%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%257B...element%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%253E%250A%2520%2520%2520%2520%2520%2520%29%253B%250A%2520%2520%2520%2520case%2520%2522p%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CBody%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522ul%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253Cul%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522li%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CBody%2520as%253D%2522li%2522%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522a%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CLink%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522em%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253Cem%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522u%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253Cspan%2520style%253D%257B%257B%2520textDecoration%253A%2520%2522underline%2522%2520%257D%257D%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522strong%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CStrong%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522code%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253CCode%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522div%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253Cdiv%2520%257B...element%257D%2520%252F%253E%253B%250A%2520%2520%2520%2520case%2520%2522text%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253C%253E%257Bvalue%257D%253C%252F%253E%253B%250A%250A%2520%2520%2520%2520case%2520%2522root%2522%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253C%253E%257Bchildren%257D%253C%252F%253E%253B%250A%250A%2520%2520%2520%2520default%253A%250A%2520%2520%2520%2520%2520%2520return%2520%253C%253ETry%2520again%253C%252F%253E%253B%250A%2520%2520%257D%250A%257D%253B"
 };
 
-const CodeBlock = props => {
-  console.log('codeblock', props);
+const CodeBlock = ({ src, name }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggleOpen = () => setIsOpen(prev => !prev);
@@ -23,16 +25,21 @@ const CodeBlock = props => {
     <>
       <button onClick={toggleOpen}>Show code</button>
       <StyledModal isOpen={isOpen} onDismiss={close}>
-          <button onClick={close}>close</button>
-          <StyledCarbonFrame src={CARBON[props.src]} sandbox="allow-scripts allow-same-origin" />
+        <CloseButton onClick={close}>
+          <VisuallyHidden>Close {name}</VisuallyHidden>
+          <Cancel />
+        </CloseButton>
+        <Heading>{name}</Heading>
+        <StyledCarbonFrame src={CARBON[src]} sandbox="allow-scripts allow-same-origin" />
       </StyledModal>
     </>
   );
 };
 
 const StyledCarbonFrame = styled.iframe`
+  flex-grow: 1;
+
   width: 100%;
-  height: 100%;
   border: 0;
   border-radius: 2px;
   transform: scale(1);
@@ -46,10 +53,33 @@ const StyledModal = styled(Dialog)`
   width: 100vw;
   height: 100vh;
   background: none;
-  padding: 0;
+  padding-top: var(--spacing-7);
+  padding-left: var(--spacing-1);
+  padding-right: var(--spacing-1);
+  padding-bottom: var(--spacing-3);
   margin: 0;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  
+  background-color: hsl(183deg, 58%, 95%, 0.85);
   backdrop-filter: blur(5px);
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: var(--spacing-7);
+  right: var(--spacing-1);
+
+  height: 45px;
+  width: 45px;
+  padding: var(--spacing-0);
+
+  background-color: transparent;
+  border: none;
+  border-bottom-right-radius: 2px;
+  z-index: 1;
 `;
 
 export default CodeBlock;
