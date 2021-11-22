@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Dialog } from "@reach/dialog";
+import { DialogOverlay, DialogContent } from "@reach/dialog";
 import VisuallyHidden from "@reach/visually-hidden";
 import Cancel from "./images/iconCancel";
 import Heading from "./typography/headingSecondary";
@@ -36,31 +36,20 @@ const CodeBlock = ({ snippet, name }) => {
     <>
       <button onClick={toggleOpen}>Show code</button>
       <StyledModal isOpen={isOpen} onDismiss={close}>
-        <CloseButton onClick={close}>
-          <VisuallyHidden>Close {name}</VisuallyHidden>
-          <Cancel />
-        </CloseButton>
-        <Heading>{name}</Heading>
-        <StyledCarbonFrame
-          src={src}
-          sandbox="allow-scripts allow-same-origin"
-        />
+        <StyledModalContent style={{ "--max-width": maxWidth }}>
+          <CloseButton onClick={close}>
+            <VisuallyHidden>Close {name}</VisuallyHidden>
+            <Cancel />
+          </CloseButton>
+          <Heading>{name}</Heading>
+          <StyledCarbonFrame src={src} sandbox="allow-scripts allow-same-origin" />
+        </StyledModalContent>
       </StyledModal>
     </>
   );
 };
 
-const StyledCarbonFrame = styled.iframe`
-  flex-grow: 1;
-
-  width: 100%;
-  border: 0;
-  border-radius: 5px;
-  transform: scale(1);
-  overflow: hidden;
-`;
-
-const StyledModal = styled(Dialog)`
+const StyledModal = styled(DialogOverlay)`
   position: fixed;
   top: 0;
   left: 0;
@@ -73,12 +62,32 @@ const StyledModal = styled(Dialog)`
   padding-bottom: var(--spacing-3);
   margin: 0;
 
+  background-color: hsl(183deg, 58%, 95%, 0.85);
+  backdrop-filter: blur(5px);
+`;
+
+const StyledModalContent = styled(DialogContent)`
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  max-width: var(--max-width);
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  background-color: hsl(183deg, 58%, 95%, 0.85);
-  backdrop-filter: blur(5px);
+  background: inherit;
+`;
+
+const StyledCarbonFrame = styled.iframe`
+  flex-grow: 1;
+
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  transform: scale(1);
+  overflow: hidden;
 `;
 
 const CloseButton = styled.button`
