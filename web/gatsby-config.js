@@ -48,7 +48,7 @@ module.exports = {
               variants: ["500", "700", "900"]
             },
             {
-              family: "Oxygen Mono",
+              family: "Source Code Pro",
               variants: ["400"]
             }
           ]
