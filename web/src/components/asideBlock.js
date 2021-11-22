@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 import Heading from "./typography/headingTertiary";
 
-const Aside = ({ children, ...props }) => {
+const Aside = ({ title, children, ...props }) => {
   return (
     <RootWrapper {...props}>
-      <Title noMargin>Quick note</Title>
+      <Title noMargin>{title}</Title>
       {children}
     </RootWrapper>
   );

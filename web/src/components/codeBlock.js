@@ -47,28 +47,28 @@ const CodeBlock = ({ snippet, name }) => {
   // })
 
   return (
-    <>
-      <Button variant="ghost" onClick={toggleOpen}>Open code snippet</Button>
-      {/* {transitions(
-        (styles, item) =>
-          item && ( */}
-      <StyledModal
-        // style={{ ...styles }}
-        isOpen={isOpen}
-        onDismiss={close}
-      >
-        <StyledModalContent style={{ "--max-width": maxWidth }}>
-          <CloseButton onClick={close}>
-            <VisuallyHidden>Close {name}</VisuallyHidden>
-            <Cancel />
-          </CloseButton>
-          <Heading>{name}</Heading>
-          <StyledCarbonFrame src={src} sandbox="allow-scripts allow-same-origin" />
-        </StyledModalContent>
-      </StyledModal>
-      {/* )
-      )} */}
-    </>
+    // <>
+    //   <Button variant="outline" onClick={toggleOpen}>Open code snippet</Button>
+    //   {transitions(
+    //     (styles, item) =>
+    //       item && (
+    //   <StyledModal
+    //     style={{ ...styles }}
+    //     isOpen={isOpen}
+    //     onDismiss={close}
+    //   >
+    //     <StyledModalContent style={{ "--max-width": maxWidth }}>
+    //       <CloseButton onClick={close}>
+    //         <VisuallyHidden>Close {name}</VisuallyHidden>
+    //         <Cancel />
+    //       </CloseButton>
+    //       <Heading>{name}</Heading>
+    <StyledCarbonFrame src={src} sandbox="allow-scripts allow-same-origin" />
+    //     </StyledModalContent>
+    //   </StyledModal>
+    //   )
+    //   )}
+    // </>
   );
 };
 
@@ -107,6 +107,7 @@ const StyledCarbonFrame = styled.iframe`
   flex-grow: 1;
 
   width: 100%;
+  height: 50vh;
   border: 0;
   border-radius: 5px;
   transform: scale(1);
