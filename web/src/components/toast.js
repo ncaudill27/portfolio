@@ -11,7 +11,7 @@ const Toast = ({ response, error, reset }) => {
 
 const StyledToast = styled(ToastContainer).attrs({})`
   .Toastify__toast {
-    background-color: var(--color-background-alt);
+    background-color: var(--color-background-io);
     box-shadow: none;
   }
 

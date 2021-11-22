@@ -27,7 +27,8 @@ export default createGlobalStyle`
     --color-text-transparent-2: hsl(183deg, 21%, 85%);//#D0DFE0 color based on color text at 0.15 alpha
     --color-text-transparent-3: hsl(184deg, 18%, 81%);//#C6D6D7 color based on color text at 0.2 alpha
     --color-background: hsl(183deg, 58%, 95%);//#ebf9fa
-    --color-background-alt: hsl(0, 0%, 97%);
+    --color-background-alt: hsl(213deg, 50%, 89%);
+    --color-background-io: hsl(0deg, 0%, 97%);
     --color-primary: hsl(213deg, 100%, 43%);
     --color-primary-muted: hsl(213deg, 66%, 63%);
     --color-primary-shade: hsl(213deg, 100%, 23%);
