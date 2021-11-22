@@ -13,7 +13,7 @@ import Hamburger from "./headerHamburger";
 import Flex from "./flex";
 import PostTagList from "./postTagList";
 import Factory from "../components/factory";
-import Aside from "./aside";
+import Aside from "./asideColumn";
 
 const Post = ({
   frontmatter: {

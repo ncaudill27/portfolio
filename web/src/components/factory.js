@@ -9,6 +9,7 @@ import Strong from "./typography/strong";
 import Link from "./typography/hyperlink";
 import Code from "./typography/code";
 import CodeBlock from "./codeBlock";
+import Aside from "./asideBlock";
 
 const Factory = ({ blocks }) => {
   console.log(blocks);
@@ -26,12 +27,7 @@ const Factory = ({ blocks }) => {
     case "h3":
       return <SecondaryHeading {...element} />;
     case "h4":
-      return (
-        <TertiaryHeading
-          style={{ paddingTop: "var(--spacing-1)", paddingBottom: "var(--spacing-0)" }}
-          {...element}
-        />
-      );
+      return <TertiaryHeading {...element} />;
     case "p":
       return <Body {...element} />;
     case "ul":
@@ -54,6 +50,8 @@ const Factory = ({ blocks }) => {
       return <>{value}</>;
     case "codeblock":
       return <CodeBlock {...element} />;
+    case "aside":
+      return <Aside {...element} />;
 
     case "root":
       return <>{children}</>;

@@ -12,7 +12,7 @@ import Layout from "../containers/layout";
 import TripleColumnLayout from "./layoutTripleColumn";
 
 import Hamburger from "./headerHamburger";
-import Aside from "./aside";
+import Aside from "./asideColumn";
 import Stack from "./projectStack";
 import AsideCategory from "./projectAsideCategory";
 import RelatedProjects from "./projectRelated";

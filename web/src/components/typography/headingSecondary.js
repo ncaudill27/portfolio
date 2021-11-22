@@ -1,11 +1,12 @@
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-export default styled.h2`
+const Heading = styled.h2`
   ${props =>
-    !props.noPadding &&
+    !props.noMargin &&
     css`
-      padding-top: var(--spacing-1);
-      padding-bottom: var(--spacing-0);
+      margin-top: var(--spacing-5);
+      margin-bottom: var(--spacing-1);
     `};
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
@@ -19,3 +20,9 @@ export default styled.h2`
   --type-fontsize-value: 0.91em + 2.55vw;
   font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
 `;
+
+Heading.propTypes = {
+  noMargin: PropTypes.bool
+};
+
+export default Heading;

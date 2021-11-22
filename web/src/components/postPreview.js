@@ -25,7 +25,7 @@ function PostPreview({ frontmatter }) {
           <Image src={image} />
         </ImageWrapper>
         <ContentWrapper>
-          <Title noPadding>{title}</Title>
+          <Title noMargin>{title}</Title>
           <PostTagList list={tags} />
           <Brief>{brief}</Brief>
         </ContentWrapper>
@@ -55,7 +55,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   position: absolute;
-  
+
   top: 0;
   left: 0;
   bottom: 0;
