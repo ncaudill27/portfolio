@@ -48,7 +48,7 @@ const CodeBlock = ({ snippet, name }) => {
 
   return (
     <>
-      <Button onClick={toggleOpen}>Open code snippet</Button>
+      <Button variant="ghost" onClick={toggleOpen}>Open code snippet</Button>
       {/* {transitions(
         (styles, item) =>
           item && ( */}
