@@ -12,7 +12,6 @@ import CodeBlock from "./codeBlock";
 import Aside from "./asideBlock";
 
 const Factory = ({ blocks }) => {
-  console.log(blocks);
   const element = useNotionElement(blocks);
   const { value, children, tagName } = element;
 
