@@ -5,6 +5,7 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import VisuallyHidden from "@reach/visually-hidden";
 import Cancel from "./images/iconCancel";
 import Heading from "./typography/headingSecondary";
+import Button from "./button";
 
 const CARBON = {
   json: {
@@ -34,7 +35,7 @@ const CodeBlock = ({ snippet, name }) => {
 
   return (
     <>
-      <button onClick={toggleOpen}>Show code</button>
+      <Button onClick={toggleOpen}>Open code snippet</Button>
       <StyledModal isOpen={isOpen} onDismiss={close}>
         <StyledModalContent style={{ "--max-width": maxWidth }}>
           <CloseButton onClick={close}>

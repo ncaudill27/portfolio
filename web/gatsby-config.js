@@ -45,7 +45,7 @@ module.exports = {
             },
             {
               family: "Rubik",
-              variants: ["500", "700", "900"]
+              variants: ["300", "400", "500", "700", "900"]
             },
             {
               family: "Source Code Pro",
