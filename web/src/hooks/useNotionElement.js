@@ -3,9 +3,6 @@ import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
-  const [element, setElement] = useState({});
-
-  useEffect(() => {
     let properties, tagName, children;
 
     tagName = getTag(blocks);
@@ -15,21 +12,17 @@ const useNotionElement = blocks => {
       children = generateChildren(blocks);
     }
 
-    setElement({
-      ...blocks,
-      ...properties,
-      tagName,
-      children
-    });
-  }, []);
-
-  return element;
+  return {
+    ...blocks,
+    ...properties,
+    tagName,
+    children
+  };
 };
 
-// if text node returns type property as tagName for Factory component use
-const getTag = ({ type, tagName }) => {
-  return !!tagName ? tagName : type;
-};
+// non-element node have no tagName
+// getTag sets the type property as tagName for Factory component use
+const getTag = ({ type, tagName }) => (!!tagName ? tagName : type);
 
 // will check if node has any existing properties or needs properties added
 // if neither of these conditions apply return empty object
@@ -49,9 +42,8 @@ const handleProperties = ({ properties = {}, tagName = "", children }) => {
 };
 
 // sends children into Factory component where the next depth of nodes will enter useNotionElement
-const generateChildren = ({ children }) => {
-  return children.map((child, idx) => <Factory key={idx} blocks={child} />);
-};
+const generateChildren = ({ children }) =>
+  children.map((child, idx) => <Factory key={idx} blocks={child} />);
 
 const isHeading = tagName => tagName.slice(0, 1) === "h";
 

@@ -56,7 +56,7 @@ const Factory = ({ blocks }) => {
       return <>{children}</>;
 
     default:
-      return <>Try again</>;
+      return "";
   }
 };
 
