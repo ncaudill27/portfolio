@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 

@@ -20,8 +20,12 @@ const RootWrapper = styled.div`
 
   background-color: var(--color-background-alt);
 
-  margin-left: calc(var(--spacing-4) * -1);
-  margin-right: calc(var(--spacing-4) * -1);
+  border-radius: 2px;
+
+  @media (min-width: 860px) {
+    margin-left: calc(var(--spacing-4) * -1);
+    margin-right: calc(var(--spacing-4) * -1);
+  }
 `;
 
 const Title = styled(Heading)`
