@@ -16,15 +16,16 @@ const RootWrapper = styled.div`
   margin-top: var(--spacing-5);
   margin-bottom: var(--spacing-7);
 
-  padding: var(--spacing-3) var(--spacing-4);
+  padding: var(--spacing-3) var(--spacing-2);
 
   background-color: var(--color-background-alt);
 
   border-radius: 2px;
 
   @media (min-width: 860px) {
-    margin-left: calc(var(--spacing-4) * -1);
-    margin-right: calc(var(--spacing-4) * -1);
+    margin-left: calc(var(--spacing-6) * -1);
+    margin-right: calc(var(--spacing-6) * -1);
+    padding: var(--spacing-3) var(--spacing-6);
   }
 `;
 
