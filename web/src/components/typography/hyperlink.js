@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { RootWrapper } from "../asideBlock";
 
 export default styled.a`
   color: var(--color-primary);
@@ -14,8 +15,21 @@ export default styled.a`
 
     &:hover {
       cursor: pointer;
-      color: var(--color-primary);
       box-shadow: 0px 2px 0px var(--color-primary);
+    }
+  }
+
+  ${RootWrapper} & {
+    color: inherit;
+    box-shadow: 0px 2px 0px;
+
+    @media (min-width: 915px) {
+      box-shadow: 0px 1px 0px;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0px 2px 0px;
+      }
     }
   }
 `;

@@ -3,9 +3,9 @@ import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
-    let properties, tagName, children;
+    let properties, children;
 
-    tagName = getTag(blocks);
+    const tagName = getTag(blocks);
 
     if (blocks.type !== "text") {
       properties = handleProperties(blocks);

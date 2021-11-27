@@ -12,7 +12,7 @@ const Aside = ({ title, children, ...props }) => {
   );
 };
 
-const RootWrapper = styled.div`
+export const RootWrapper = styled.div`
   margin-top: var(--spacing-5);
   margin-bottom: var(--spacing-7);
 
@@ -23,9 +23,9 @@ const RootWrapper = styled.div`
   border-radius: 2px;
 
   @media (min-width: 860px) {
-    margin-left: calc(var(--spacing-6) * -1);
-    margin-right: calc(var(--spacing-6) * -1);
-    padding: var(--spacing-3) var(--spacing-6);
+    margin-left: calc(var(--spacing-5) * -1);
+    margin-right: calc(var(--spacing-5) * -1);
+    padding: var(--spacing-3) var(--spacing-5);
   }
 `;
 
