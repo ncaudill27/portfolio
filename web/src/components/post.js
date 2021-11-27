@@ -22,7 +22,7 @@ const Post = ({
     date: { start: date },
     tags
   },
-  htmlAst
+  htmlAst: notionData
 }) => {
   return (
     <TripleColumnLayout>
@@ -32,7 +32,7 @@ const Post = ({
         <CopyWrapper width={690}>
           <Title>{title}</Title>
           <img src={hero[0].file.url} />
-          <Factory blocks={htmlAst} />
+          <Factory blocks={notionData} />
         </CopyWrapper>
       </article>
       <Aside>

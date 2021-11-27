@@ -6,7 +6,7 @@ import Heading from "./typography/headingTertiary";
 const Aside = ({ title, children, ...props }) => {
   return (
     <RootWrapper {...props}>
-      <Title noMargin>{title}</Title>
+      {title && <Title noMargin>{title}</Title>}
       {children}
     </RootWrapper>
   );
