@@ -3,20 +3,20 @@ import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
-    let properties, children;
+  let properties, children;
 
-    const tagName = getTag(blocks);
+  const tagName = getTag(blocks);
 
-    if (blocks.type !== "text") {
-      properties = handleProperties(blocks);
-      children = generateChildren(blocks);
-    }
+  if (blocks.type !== "text") {
+    properties = handleProperties(blocks);
+    children = generateChildren(blocks);
+  }
 
   return {
-    ...blocks,
-    ...properties,
-    tagName,
-    children
+    ...blocks, // spread all existing block properties
+    ...properties, // spread updated properties
+    tagName, // overwrite existing blocks.tagName
+    children // overwrite existing blocks.children
   };
 };
 

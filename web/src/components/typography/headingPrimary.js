@@ -4,7 +4,7 @@ export default styled.h1`
   padding-bottom: var(--spacing-0);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
-  color: var(--color-text);
+  color: var(--color-text-shade);
   line-height: 1.05;
   /* ----------
     FONT SIZE VARIABLES

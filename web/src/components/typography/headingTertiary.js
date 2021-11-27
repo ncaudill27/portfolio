@@ -12,7 +12,7 @@ const Heading = styled.h3`
   font-weight: var(--font-weight-black);
   font-size: 1.4375em; //23px
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  color: var(--color-text-shade);
   line-height: 1.05;
 `;
 

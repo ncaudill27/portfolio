@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -53,13 +53,13 @@ const OutlineButton = styled(ButtonBase)`
   &:hover {
     background-color: var(--color-background-muted);
     color: var(--color-primary-muted);
-  border: 2px solid var(--color-primary-muted);
+    border: 2px solid var(--color-primary-muted);
   }
-`
+`;
 
 const GhostButton = styled(ButtonBase)`
   background-color: transparent;
-  color: var(--color-text-alt);
+  color: var(--color-text-tint);
 
   &:hover {
     background-color: var(--color-text-transparent);
@@ -68,6 +68,6 @@ const GhostButton = styled(ButtonBase)`
 
 Button.propTypes = {
   variant: PropTypes.oneOf(["fill", "variant", "ghost"]).isRequired
-}
+};
 
 export default Button;

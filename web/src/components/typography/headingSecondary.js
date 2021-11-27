@@ -10,7 +10,7 @@ const Heading = styled.h2`
     `};
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  color: var(--color-text-shade);
   line-height: 1.05;
   /* ----------
     FONT SIZE VARIABLES
