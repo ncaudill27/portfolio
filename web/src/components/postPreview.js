@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import PreviewSpringLink from "./previewSpringLink";
-import Title from "./typography/headingSecondary";
+import Heading from "./typography/headingSecondary";
 import Body from "./typography/bodyRegular";
 import PostTagList from "./postTagList";
 import Flex from "./flex";
@@ -16,14 +16,9 @@ function PostPreview({ frontmatter }) {
     slug: { string: slug }
   } = frontmatter;
 
-  const image = hero[0].file.url;
-
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
       <RootWrapper>
-        <ImageWrapper>
-          <Image src={image} />
-        </ImageWrapper>
         <ContentWrapper>
           <Title noMargin>{title}</Title>
           <PostTagList list={tags} />
@@ -40,31 +35,8 @@ const RootWrapper = styled(Flex)`
   }
 `;
 
-const ImageWrapper = styled.div`
-  position: relative;
-  padding-bottom: 66.666%;
-  background: #eee;
-  overflow: hidden;
-
-  @media (min-width: 640px) {
-    padding-bottom: 0;
-    width: 300px;
-    min-width: 300px;
-  }
-`;
-
-const Image = styled.img`
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  object-fit: cover;
-
-  @media (max-width: 640px) {
-    /* flex-direction: column; */
-  }
+const Title = styled(Heading)`
+  margin-bottom: var(--spacing-1);
 `;
 
 const ContentWrapper = styled.div`

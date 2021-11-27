@@ -16,7 +16,7 @@ const BlogPage = ({ data, errors }) => {
 
   return (
     <Layout seo={{ title: "Blog" }}>
-      <ListWrapper width={800}>
+      <ListWrapper width={700}>
         <Flex gap={4} stack>
           {postNodes.map(node => (
             <PostPreview key={node.id} {...node} />
