@@ -25,6 +25,12 @@ const ButtonBase = styled.button`
   appearance: none;
 
   font-family: var(--font-family-primary);
+  --type-fontsize-min: ${18 / 16}rem; // 18px
+  --type-fontsize-max: ${21 / 16}rem; // 23px
+  --type-fontsize-value: 0.8rem + 0.68vw;
+  font-size: calc(
+    (clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max)) - 2px)
+  );
 
   &:hover {
     cursor: pointer;

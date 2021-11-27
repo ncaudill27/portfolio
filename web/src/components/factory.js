@@ -10,6 +10,7 @@ import Link from "./typography/hyperlink";
 import Code from "./typography/code";
 import CodeBlock from "./codeBlock";
 import Aside from "./asideBlock";
+import Expandable from "./asideExpandable";
 
 const Factory = ({ blocks }) => {
   const element = useNotionElement(blocks);
@@ -51,6 +52,8 @@ const Factory = ({ blocks }) => {
       return <CodeBlock {...element} />;
     case "aside":
       return <Aside {...element} />;
+    case "expandable":
+      return <Expandable {...element} />;
 
     case "root":
       return <>{children}</>;

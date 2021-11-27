@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { emDasher } from "../../lib/string-utils";
 
+import { RootWrapper as Aside } from "../asideBlock";
+
 const Body = ({ children, ...props }) => {
   return <StyledBody {...props}>{React.Children.map(children, emDasher)}</StyledBody>;
 };
@@ -22,6 +24,12 @@ const StyledBody = styled.p`
 
   ul &:not(:first-child) {
     padding-top: var(--spacing-0);
+  }
+
+  ${Aside} & {
+    font-size: calc(
+      (clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max)) - 2px)
+    );
   }
 `;
 

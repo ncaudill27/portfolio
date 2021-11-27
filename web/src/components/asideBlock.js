@@ -6,13 +6,13 @@ import Heading from "./typography/headingTertiary";
 const Aside = ({ title, children, ...props }) => {
   return (
     <RootWrapper {...props}>
-      {title && <Title noMargin>{title}</Title>}
+      {!!title && <Title noMargin>{title}</Title>}
       {children}
     </RootWrapper>
   );
 };
 
-export const RootWrapper = styled.div`
+export const RootWrapper = styled.aside`
   margin-top: var(--spacing-5);
   margin-bottom: var(--spacing-7);
 
@@ -21,7 +21,7 @@ export const RootWrapper = styled.div`
   background-color: var(--color-background-alt);
 
   border-radius: 2px;
-
+  
   @media (min-width: 860px) {
     margin-left: calc(var(--spacing-5) * -1);
     margin-right: calc(var(--spacing-5) * -1);
