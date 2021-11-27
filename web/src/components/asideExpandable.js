@@ -13,7 +13,9 @@ const Expandable = ({ children }) => {
     <>
       <ExpandButton
         style={{
-          "--display": !isOpen ? "flex" : "none"
+          "--visibility": !isOpen ? "visible" : "hidden",
+          "--margin": isOpen ? 0 : "var(--spacing-1)",
+          "--height": isOpen ? 0 : "fit-content"
         }}
         variant="ghost"
         onClick={open}
@@ -23,8 +25,8 @@ const Expandable = ({ children }) => {
       </ExpandButton>
       <ExpandContent
         style={{
-          "--display": isOpen ? "block" : "none",
-          "--height": isOpen ? 1000 + "px" : 0 + "px"
+          "--visibility": isOpen ? "visible" : "hidden",
+          "--height": isOpen ? "fit-content" : 0 + "px"
         }}
       >
         {children}
@@ -34,15 +36,19 @@ const Expandable = ({ children }) => {
 };
 
 const ExpandButton = styled(Button)`
-  display: var(--display);
+  height: var(--height);
+
+  display: flex;
   align-items: center;
   gap: var(--spacing-0);
 
   padding: 0;
-  margin-top: var(--spacing-1);
+  margin-top: var(--margin);
+  margin-bottom: 0;
 
   color: var(--color-text);
   background: inherit;
+  visibility: var(--visibility);
 
   &:hover {
     cursor: pointer;
@@ -51,11 +57,12 @@ const ExpandButton = styled(Button)`
 `;
 
 const ExpandContent = styled.div`
-  display: var(--display);
-  height: var(--height);
   margin-top: var(--spacing-1);
 
-  transition: height 350ms ease;
+  visibility: var(--visibility);
+  height: var(--height);
+
+  transition: all 350ms ease;
 `;
 
 export default Expandable;
