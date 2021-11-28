@@ -15,15 +15,18 @@ export const query = graphql`
 `;
 
 const PostTemplate = ({ data: { post }, errors }) => {
+  const image = post.frontmatter.hero[0].file.url;
+
   return (
     <Layout
       seo={{
         title: post.frontmatter.title
       }}
     >
-      <MaxWidthWrapper width={2000}>
-        <Post {...post} />
-      </MaxWidthWrapper>
+      <ImageWrapper>
+        <img src={image} />
+      </ImageWrapper>
+      <Post {...post} />
     </Layout>
   );
 };
@@ -32,11 +35,12 @@ const ImageWrapper = styled.div`
   width: 100%;
 
   & > img {
-    min-width: 900px;
     width: 100%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
+    object-fit: cover;
   }
 
   @media (max-width: 915px) {

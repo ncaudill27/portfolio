@@ -29,8 +29,10 @@ const Post = ({
       <Header />
       <Hamburger />
       <article>
-        <CopyWrapper width={690}>
+        <ImageWrapper>
           <img src={hero[0].file.url} />
+        </ImageWrapper>
+        <CopyWrapper width={690}>
           <Title>{title}</Title>
           <Factory blocks={notionData} />
         </CopyWrapper>
@@ -49,8 +51,23 @@ const HeadingWrapper = styled(Flex)`
   padding-bottom: var(--responsive-top-spacing-2);
 `;
 
+const ImageWrapper = styled.div`
+  width: 100%;
+  
+  & > img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+
+  }
+
+  @media (min-width: 915px) {
+    display: none;
+  }
+`;
+
 export const CopyWrapper = styled(MaxWidthWrapper)`
-  padding-top: var(--responsive-top-spacing-2);
+  margin-top: var(--spacing-2);
   // lead paragraph
   & > p:nth-child(3) {
     font-size: ${22 / 16}rem;

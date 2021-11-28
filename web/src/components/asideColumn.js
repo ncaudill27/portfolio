@@ -8,7 +8,7 @@ const Aside = ({ children }) => (
 );
 
 const AsideWrapper = styled.aside`
-  padding-top: var(--spacing-2);
+  margin-top: var(--spacing-2);
   max-width: 690px;
   margin-left: auto;
   margin-right: auto;
