@@ -15,6 +15,8 @@ export const query = graphql`
 `;
 
 const PostTemplate = ({ data: { post }, errors }) => {
+  const image = post.frontmatter.hero[0].file.url
+  console.log(image);
   return (
     <Layout
       seo={{

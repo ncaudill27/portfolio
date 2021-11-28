@@ -14,7 +14,7 @@ const Expandable = ({ children }) => {
       <ExpandButton
         style={{
           "--visibility": !isOpen ? "visible" : "hidden",
-          "--margin": isOpen ? 0 : "var(--spacing-1)",
+          "--margin-top": isOpen ? 0 : "var(--spacing-1)",
           "--height": isOpen ? 0 : "fit-content"
         }}
         variant="ghost"
@@ -26,6 +26,7 @@ const Expandable = ({ children }) => {
       <ExpandContent
         style={{
           "--visibility": isOpen ? "visible" : "hidden",
+          "--margin-top": isOpen ? "var(--spacing-1)" : 0,
           "--height": isOpen ? "fit-content" : 0 + "px"
         }}
       >
@@ -43,7 +44,7 @@ const ExpandButton = styled(Button)`
   gap: var(--spacing-0);
 
   padding: 0;
-  margin-top: var(--margin);
+  margin-top: var(--margin-top);
   margin-bottom: 0;
 
   color: var(--color-text);
@@ -57,7 +58,7 @@ const ExpandButton = styled(Button)`
 `;
 
 const ExpandContent = styled.div`
-  margin-top: var(--spacing-1);
+  margin-top: var(--margin-top);
 
   visibility: var(--visibility);
   height: var(--height);

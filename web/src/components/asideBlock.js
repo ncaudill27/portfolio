@@ -21,16 +21,19 @@ export const RootWrapper = styled.aside`
   background-color: var(--color-background-alt);
 
   border-radius: 2px;
-  
+
+  box-shadow: 5px 5px var(--color-background), 8px 8px var(--color-primary-muted);
+
   @media (min-width: 860px) {
-    margin-left: calc(var(--spacing-5) * -1);
-    margin-right: calc(var(--spacing-5) * -1);
-    padding: var(--spacing-3) var(--spacing-5);
+    margin-left: calc(var(--spacing-4) * -1);
+    margin-right: calc(var(--spacing-4) * -1);
+    padding: var(--spacing-3) var(--spacing-4);
   }
 `;
 
 const Title = styled(Heading)`
   margin-bottom: var(--spacing-1);
+  text-transform: uppercase;
 `;
 
 export default Aside;
