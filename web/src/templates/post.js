@@ -15,8 +15,6 @@ export const query = graphql`
 `;
 
 const PostTemplate = ({ data: { post }, errors }) => {
-  const image = post.frontmatter.hero[0].file.url
-  console.log(image);
   return (
     <Layout
       seo={{
@@ -24,7 +22,6 @@ const PostTemplate = ({ data: { post }, errors }) => {
       }}
     >
       <MaxWidthWrapper width={2000}>
-      
         <Post {...post} />
       </MaxWidthWrapper>
     </Layout>

@@ -35,7 +35,7 @@ const HamburgerMenu = () => {
           }}
         >
           <VisuallyHidden>Toggle navigation menu</VisuallyHidden>
-          <Hamburger label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
+          <Hamburger size={25} label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
       </Portal>
       {transitions(
@@ -79,6 +79,7 @@ const ExteriorButton = styled.button`
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0;
 
   background-color: var(--background-color);
   backdrop-filter: var(--blur);

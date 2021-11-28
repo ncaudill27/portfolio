@@ -30,8 +30,8 @@ const Post = ({
       <Hamburger />
       <article>
         <CopyWrapper width={690}>
-          <Title>{title}</Title>
           <img src={hero[0].file.url} />
+          <Title>{title}</Title>
           <Factory blocks={notionData} />
         </CopyWrapper>
       </article>
