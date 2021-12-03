@@ -3,14 +3,14 @@ import { slugify } from "../lib/string-utils";
 import Factory from "../components/factory";
 
 const useNotionElement = blocks => {
-  let properties, children;
-
-  const tagName = getTag(blocks);
+  let children;
 
   if (blocks.type !== "text") {
-    properties = handleProperties(blocks);
     children = generateChildren(blocks);
   }
+    
+  const tagName = getTag(blocks);
+  const properties = handleProperties(blocks);
 
   return {
     ...blocks, // spread all existing block properties
@@ -54,7 +54,7 @@ const handleHeading = (tagName, children) => {
 
   return {
     id,
-    as: tagName
+    // as: tagName
   };
 };
 
