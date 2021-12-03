@@ -18,20 +18,15 @@ function PreviewSpringLink({ to, children }) {
   });
 
   return (
-    <RootWrapper as={Link} to={to} onMouseEnter={hover} onMouseLeave={unHover}>
-      <ContentWrapper style={styles}>{children}</ContentWrapper>
-    </RootWrapper>
+    <StyledLink to={to} onMouseEnter={hover} onMouseLeave={unHover}>
+      <animated.div style={styles}>{children}</animated.div>
+    </StyledLink>
   );
 }
 
-const RootWrapper = styled.div`
+const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
-`;
-
-const ContentWrapper = styled(animated.div)`
-  padding: var(--spacing-3) var(--spacing-4);
-  border-radius: 2px;
 `;
 
 export default PreviewSpringLink;

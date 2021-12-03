@@ -16,12 +16,18 @@ function PostPreview({ frontmatter }) {
 
   return (
     <PreviewSpringLink to={`/posts/${slug}`}>
-      <Title noMargin>{title}</Title>
-      <PostTagList list={tags} />
-      <Brief>{brief}</Brief>
+      <ContentWrapper>
+        <Title noMargin>{title}</Title>
+        <PostTagList list={tags} />
+        <Brief>{brief}</Brief>
+      </ContentWrapper>
     </PreviewSpringLink>
   );
 }
+
+const ContentWrapper = styled.div`
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-3);
+`;
 
 const Title = styled(Heading)`
   margin-bottom: var(--spacing-1);
