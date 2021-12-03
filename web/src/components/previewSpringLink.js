@@ -19,7 +19,7 @@ function PreviewSpringLink({ to, children }) {
 
   return (
     <RootWrapper as={Link} to={to} onMouseEnter={hover} onMouseLeave={unHover}>
-      <animated.div style={styles}>{children}</animated.div>
+      <ContentWrapper style={styles}>{children}</ContentWrapper>
     </RootWrapper>
   );
 }
@@ -27,6 +27,11 @@ function PreviewSpringLink({ to, children }) {
 const RootWrapper = styled.div`
   text-decoration: none;
   color: inherit;
+`;
+
+const ContentWrapper = styled(animated.div)`
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: 2px;
 `;
 
 export default PreviewSpringLink;
