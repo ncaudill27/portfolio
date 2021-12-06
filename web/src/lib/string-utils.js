@@ -22,15 +22,10 @@ const validate = email => {
 
 const validateEmail = async email => {
   let validEmail = true;
-  let error = "";
-
-  if (!email) error = "Email cannot be empty";
-
-  if (!validate(email)) error = "Please enter a valid email";
 
   if (!email || !validate(email)) validEmail = false;
 
-  return { validEmail, error };
+  return validEmail;
 };
 
 const slugify = str => {

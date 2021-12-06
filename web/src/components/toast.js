@@ -1,12 +1,10 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { ToastContainer, toast } from "react-toastify";
+import styled from "styled-components";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Toast = ({ response, error, reset }) => {
-  toast(response, { type: !error ? "success" : "error", onClose: () => reset() });
-
-  return <StyledToast position="top-center" error={error} />;
+const Toast = () => {
+  return <StyledToast position="top-center" />;
 };
 
 const StyledToast = styled(ToastContainer).attrs({})`
@@ -17,14 +15,7 @@ const StyledToast = styled(ToastContainer).attrs({})`
 
   .Toastify__toast-body {
     font-family: var(--font-family-secondary);
-  }
-
-  .Toastify__progress-bar {
-    ${props =>
-      !props.error &&
-      css`
-        background-color: var(--color-primary);
-      `};
+    color: var(--color-text-tint);
   }
 `;
 export default Toast;

@@ -5,7 +5,7 @@ import { imageUrlFor } from "../lib/image-url";
 
 import PreviewSpringLink from "./previewSpringLink";
 import BlockContent from "./blockContent";
-import Title from "./typography/headingSecondary";
+import Heading from "./typography/headingSecondary";
 import Flex from "./flex";
 import TechStack from "./projectStack";
 
@@ -23,10 +23,10 @@ function ProjectPreview(props) {
         />
       </ImageWrapper>
       <ContentWrapper>
-        <Flex gap={1}>
-          <StackWrapper gap={0} stack>
+          <StackWrapper gap={1}>
             <TechStack list={props.stack} iconOnly />
           </StackWrapper>
+        <Flex gap={1}>
           <div>
             <Title>{props.title}</Title>
             <BlockContent blocks={props._rawExcerpt} />
@@ -53,13 +53,18 @@ const ImageWrapper = styled.div`
 `;
 
 const StackWrapper = styled(Flex)`
-  padding-top: var(--spacing-1);
+  margin-top: var(--spacing-1);
 `;
 
 const ContentWrapper = styled.div`
   padding-left: var(--spacing-1);
   padding-right: var(--spacing-1);
   padding-bottom: var(--spacing-4);
+`;
+
+const Title = styled(Heading)`
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-0);
 `;
 
 export default ProjectPreview;

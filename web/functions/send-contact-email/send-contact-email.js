@@ -34,8 +34,10 @@ exports.handler = async event => {
       body: JSON.stringify({ data: "Thanks for reaching out! I'll be in touch soon." })
     };
   } catch (error) {
+    console.log("Mailgun Error: ", error);
+
     return {
-      statusCode: 422,
+      statusCode: 500,
       body: JSON.stringify({ error: `Error: ${error}` })
     };
   }

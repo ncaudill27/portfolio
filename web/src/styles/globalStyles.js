@@ -58,8 +58,6 @@ export default createGlobalStyle`
     --responsive-top-spacing-1: calc(var(--responsive-top-spacing-0) / 2);
     --responsive-top-spacing-2: calc(var(--responsive-top-spacing-0) / 3);
     --responsive-top-spacing-3: calc(var(--responsive-top-spacing-0) / 4);
-    
-    --toastify-icon-color-success: var(--color-primary);
   }
   /* ----------
     CSS RESET
