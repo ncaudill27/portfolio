@@ -8,7 +8,7 @@ import Form from "../containers/form";
 
 const ContactPage = () => {
   return (
-    <Layout title="Contact Me">
+    <Layout seo={{ title: "Contact Me" }}>
       <Wrapper width={510}>
         <MainHeader>Contact</MainHeader>
         <Form />

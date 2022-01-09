@@ -92,10 +92,8 @@ const Form = props => {
 
   return (
     <>
-      {!!response && (
-        <Toast response={response} error={emailError || serverError} reset={clearError} />
-      )}
-      <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />
+      <Toast />
+      <StyledForm {...{ ...formLogic, ...props }} />
     </>
   );
 };

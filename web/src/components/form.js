@@ -47,7 +47,7 @@ const Form = ({
 };
 
 const StyledForm = styled.form`
-  padding-top: var(--spacing-1);
+  margin-top: var(--spacing-1);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-0);
@@ -64,12 +64,13 @@ const Honeypot = styled(Label)`
 
 const StyledInput = styled.input`
   width: 100%;
+  max-width: 100%;
   padding: 2px var(--spacing-0);
   background-color: var(--color-background-io);
   border: 1px solid hsl(183, 38%, 93%);
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-regular);
-  color: var(--color-text);
+  color: var(--color-text-tint);
 `;
 
 export default Form;
