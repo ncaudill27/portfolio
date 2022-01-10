@@ -82,7 +82,7 @@ const Form = props => {
   return (
     <>
       <Toast />
-      <StyledForm onSubmit={handleSubmit} {...{ ...formLogic, ...props }} />
+      <StyledForm {...{ ...formLogic, ...props }} />
     </>
   );
 };
