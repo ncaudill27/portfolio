@@ -36,7 +36,7 @@ const Post = ({
         </CopyWrapper>
       </article>
       <Aside>
-        <BodySmall>{format(date, "MMMM d, YYYY")}</BodySmall>
+        <BodySmall>{format(date, "MMMM D, YYYY")}</BodySmall>
         <PostTagList list={tags} />
       </Aside>
     </TripleColumnLayout>
