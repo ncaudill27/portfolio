@@ -61,7 +61,7 @@ const ImageWrapper = styled.div`
 export const CopyWrapper = styled(MaxWidthWrapper)`
   margin-top: var(--spacing-2);
   // lead paragraph
-  & > p:nth-child(3) {
+  & > p:nth-child(2) {
     font-size: ${22 / 16}rem;
     font-weight: var(--font-weight-medium);
   }
