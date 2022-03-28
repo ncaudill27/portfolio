@@ -42,10 +42,7 @@ const HamburgerMenu = () => {
         (styles, item) =>
           item && (
             <StyledModal style={{ ...styles }} aria-label="Site navigation">
-              <animated.div as={DialogContent}>
-                <ButtonBackground onClick={close}>
-                  <VisuallyHidden>Close navigation menu</VisuallyHidden>
-                </ButtonBackground>
+              <Content>
                 <MenuList>
                   <Trail
                     isOpen={isOpen}
@@ -67,7 +64,7 @@ const HamburgerMenu = () => {
                     <MenuLink to="/contact/">Contact</MenuLink>
                   </Trail>
                 </MenuList>
-              </animated.div>
+              </Content>
             </StyledModal>
           )
       )}
@@ -87,6 +84,8 @@ const ExteriorButton = styled.button`
   border-bottom-right-radius: 2px;
   z-index: 1;
 
+  color: var(--color-text);
+
   @media (min-width: 915px) {
     display: none;
   }
@@ -105,7 +104,7 @@ const StyledModal = styled(animated(DialogOverlay))`
   backdrop-filter: blur(5px);
 `;
 
-const ButtonBackground = styled.button`
+const Content = styled(animated(DialogContent))`
   position: fixed;
   top: 0;
   left: 0;
