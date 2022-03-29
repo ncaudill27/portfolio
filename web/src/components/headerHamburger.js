@@ -43,6 +43,9 @@ const HamburgerMenu = () => {
           item && (
             <StyledModal style={{ ...styles }} aria-label="Site navigation">
               <Content>
+                <CloseButton onClick={close}>
+                  <VisuallyHidden>Close Button</VisuallyHidden>
+                </CloseButton>
                 <MenuList>
                   <Trail
                     isOpen={isOpen}
@@ -88,6 +91,16 @@ const ExteriorButton = styled.button`
 
   @media (min-width: 915px) {
     display: none;
+  }
+`;
+
+const CloseButton = styled(ExteriorButton)`
+  height: 48px;
+  width: 48px;
+  background: transparent;
+
+  &:focus {
+    /* outline: 2px solid red; */
   }
 `;
 
