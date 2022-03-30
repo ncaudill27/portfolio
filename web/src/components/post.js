@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { format } from "date-fns";
 
-import Title from "./typography/headingPrimary";
+import Heading from "./typography/headingPrimary";
 import BodySmall from "./typography/bodySmall";
 
 import TripleColumnLayout from "./layoutTripleColumn";
@@ -42,6 +42,10 @@ const Post = ({
     </TripleColumnLayout>
   );
 };
+
+const Title = styled(Heading)`
+  margin-top: 32px;
+`;
 
 const ImageWrapper = styled.div`
   width: 100%;
