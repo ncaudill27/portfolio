@@ -98,10 +98,6 @@ const CloseButton = styled(ExteriorButton)`
   height: 48px;
   width: 48px;
   background: transparent;
-
-  &:focus {
-    /* outline: 2px solid red; */
-  }
 `;
 
 const StyledModal = styled(animated(DialogOverlay))`

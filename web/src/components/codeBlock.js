@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import { DialogOverlay, DialogContent } from "@reach/dialog";
@@ -27,103 +27,37 @@ const CARBON = {
 const CodeBlock = ({ snippet, name, ...props }) => {
   const { src } = CARBON[snippet];
 
-  const [isOpen, setIsOpen] = React.useState(false);
+  // useCallback ref to delete unwanted <p> created by Notion blocks
+  const iframeEl = useCallback(node => {
+    if (node) {
+      const pTag = node.parentNode;
 
-  const toggleOpen = () => setIsOpen(prev => !prev);
-  const close = () => setIsOpen(false);
+      pTag.parentNode.replaceChild(node, pTag);
+    }
+  });
 
-  // const transitions = useTransition(isOpen, {
-  //   from: { opacity: 0 },
-  //   enter: { opacity: 1 },
-  //   leave: { opacity: 0 },
-  //   config: config.gentle
-  // });
-
-  // const contentStyles = useSpring({
-  //   transform
-  // })
-
-  return (
-    // <>
-    //   <Button variant="outline" onClick={toggleOpen}>Open code snippet</Button>
-    //   {transitions(
-    //     (styles, item) =>
-    //       item && (
-    //   <StyledModal
-    //     style={{ ...styles }}
-    //     isOpen={isOpen}
-    //     onDismiss={close}
-    //   >
-    //     <StyledModalContent style={{ "--max-width": maxWidth }}>
-    //       <CloseButton onClick={close}>
-    //         <VisuallyHidden>Close {name}</VisuallyHidden>
-    //         <Cancel />
-    //       </CloseButton>
-    //       <Heading>{name}</Heading>
-    <StyledCarbonFrame src={src} sandbox="allow-scripts allow-same-origin" {...props} />
-    //     </StyledModalContent>
-    //   </StyledModal>
-    //   )
-    //   )}
-    // </>
-  );
+  return <StyledCarbonFrame src={src} {...props} ref={iframeEl} />;
 };
 
-const StyledModal = styled(DialogOverlay)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: none;
-  padding-top: var(--spacing-7);
-  padding-left: var(--spacing-1);
-  padding-right: var(--spacing-1);
-  padding-bottom: var(--spacing-3);
-  margin: 0;
-
-  background-color: hsl(183deg, 58%, 95%, 0.85);
-  backdrop-filter: blur(5px);
-`;
-
-const StyledModalContent = styled(DialogContent)`
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0 auto;
-  max-width: var(--max-width);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  background: transparent;
-`;
-
 const StyledCarbonFrame = styled.iframe`
+  display: block;
   flex-grow: 1;
 
-  width: 100%;
+  width: min(450px, 100%);
+
+  margin-top: 32px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
   height: 50vh;
   border: 0;
   border-radius: 5px;
   transform: scale(1);
   overflow: hidden;
-`;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: var(--spacing-7);
-  right: var(--spacing-1);
-
-  height: 45px;
-  width: 45px;
-  padding: var(--spacing-0);
-
-  background-color: transparent;
-  border: none;
-  border-bottom-right-radius: 2px;
-  z-index: 1;
+  /* @media (min-width: 482px) {
+    display: flex;
+  } */
 `;
 
 export default CodeBlock;
