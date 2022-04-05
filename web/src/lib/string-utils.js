@@ -12,20 +12,14 @@ function emDasher(node) {
   }
 }
 
-const validate = email => {
+const validEmail = email => {
+  console.log(email);
   const regex = new RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     "i"
   );
+  console.log(regex.test(email));
   return regex.test(email);
-};
-
-const validateEmail = async email => {
-  let validEmail = true;
-
-  if (!email || !validate(email)) validEmail = false;
-
-  return validEmail;
 };
 
 const slugify = str => {
@@ -35,4 +29,4 @@ const slugify = str => {
     .replace(/\s/g, "-");
 };
 
-export { validateEmail, emDasher, ucfirst, slugify };
+export { validEmail, emDasher, ucfirst, slugify };

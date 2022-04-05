@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { validateEmail } from "../lib/string-utils";
+import { validEmail } from "../lib/string-utils";
 
 import StyledForm from "../components/form";
 import Toast from "../components/toast";
@@ -42,13 +42,14 @@ const Form = props => {
     e.preventDefault();
     if (!!honeypot) return; // kick out if honeypot filled
 
-    // call validation function to check inputs
-    const { validEmail } = await validateEmail(email);
+    // send back empty email fields
     if (email === "") {
       toast.error("Email cannot be empty.");
       return;
     }
-    if (!validEmail) {
+
+    // call validation function to check inputs
+    if (!validEmail(email)) {
       toast.error("Please enter a valid email.");
       return; // kick out if invalid email
     }
