@@ -1,13 +1,5 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
-
-import { DialogOverlay, DialogContent } from "@reach/dialog";
-import VisuallyHidden from "@reach/visually-hidden";
-import Cancel from "./images/iconCancel";
-import Heading from "./typography/headingSecondary";
-import Button from "./button";
-
-// import { useSpring, useTransition, animated, config } from "@react-spring/web";
 
 const CARBON = {
   json: {
@@ -54,10 +46,6 @@ const StyledCarbonFrame = styled.iframe`
   border-radius: 5px;
   transform: scale(1);
   overflow: hidden;
-
-  /* @media (min-width: 482px) {
-    display: flex;
-  } */
 `;
 
 export default CodeBlock;
