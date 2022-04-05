@@ -11,3 +11,5 @@
 
 # old files for reference
 /archive
+# Local Netlify folder
+.netlify
