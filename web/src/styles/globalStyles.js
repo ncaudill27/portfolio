@@ -5,19 +5,20 @@ export default createGlobalStyle`
     /* ----------
     SPACING VARIABLES
     ---------- */
-    --spacing-0: 8px;
-    --spacing-1: 16px;
-    --spacing-2: 24px;
-    --spacing-3: 32px;
-    --spacing-4: 40px;
-    --spacing-5: 48px;
-    --spacing-6: 56px;
-    --spacing-7: 64px;
-    --spacing-8: 72px;
-    --spacing-9: 80px;
-    --spacing-10: 88px;
-    --spacing-11: 96px;
-    --spacing-12: 104px;
+    --base: 8px;
+    --spacing-0: calc(var(--base) * 1);
+    --spacing-1: calc(var(--base) * 2);
+    --spacing-2: calc(var(--base) * 3);
+    --spacing-3: calc(var(--base) * 4);
+    --spacing-4: calc(var(--base) * 5);
+    --spacing-5: calc(var(--base) * 6);
+    --spacing-6: calc(var(--base) * 7);
+    --spacing-7: calc(var(--base) * 8);
+    --spacing-8: calc(var(--base) * 9);
+    --spacing-9: calc(var(--base) * 10);
+    --spacing-10: calc(var(--base) * 11);
+    --spacing-11: calc(var(--base) * 12);
+    --spacing-12: calc(var(--base) * 13);
     /* ----------
     COLOR PALETTE
     ---------- */
