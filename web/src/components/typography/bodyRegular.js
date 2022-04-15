@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { emDasher } from "../../lib/string-utils";
 
-import { RootWrapper as Aside } from "../asideBlock";
-
 const Body = ({ children, ...props }) => {
   return <StyledBody {...props}>{React.Children.map(children, emDasher)}</StyledBody>;
 };
