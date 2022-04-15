@@ -11,7 +11,6 @@ import Strong from "../components/typography/strong";
 import VisuallyHidden from "@reach/visually-hidden";
 
 import Layout from "../containers/layout";
-import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 import Github from "../components/images/iconGithub";
 import Twitter from "../components/images/iconTwitter";
@@ -39,7 +38,7 @@ const IndexPage = ({ data }) => {
       }}
     >
       <main>
-        <IntroWrapper style={styles} width={510}>
+        <IntroWrapper style={styles}>
           <MainHeader ref={titleEl}>{site.title}</MainHeader>
           <MainBody style={{ "--width": width + "px" }}>
             Front-end developer, former bartender/<Strong>hellion</Strong>, and <em>forever</em> a
@@ -97,7 +96,7 @@ const MainBody = styled(Body)`
   transition: width 150ms ease-in-out;
 `;
 
-const IntroWrapper = styled(animated(MaxWidthWrapper))`
+const IntroWrapper = styled(animated.div)`
   margin-top: var(--responsive-top-spacing-0);
 
   padding: 0 var(--spacing-1);

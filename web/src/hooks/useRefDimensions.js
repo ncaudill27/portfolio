@@ -11,7 +11,7 @@ function debounce(fn, ms) {
   };
 }
 
-const useRefHeight = ref => {
+const useRefDimensions = ref => {
   const [height, setHeight] = React.useState(null);
   const [width, setWidth] = React.useState(null);
 
@@ -23,7 +23,7 @@ const useRefHeight = ref => {
       const debouncedHandleResize = debounce(function handleResize() {
         setHeight(ref.current.getBoundingClientRect().height);
         setWidth(ref.current.getBoundingClientRect().width);
-      }, 500);
+      }, 100);
 
       window.addEventListener("resize", debouncedHandleResize);
 
@@ -36,4 +36,4 @@ const useRefHeight = ref => {
   return { height, width };
 };
 
-export default useRefHeight;
+export default useRefDimensions;
