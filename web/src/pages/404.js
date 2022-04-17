@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'gatsby'
 
 import Layout from "../components/layout";
 import Heading from "../components/typography/headingPrimary";
 import Body from "../components/typography/bodyRegular";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
+import Button from "../components/button";
 
 const NotFoundPage = () => {
   return (
@@ -12,13 +14,20 @@ const NotFoundPage = () => {
       <IntroWrapper>
         <MainHeader>NOT FOUND</MainHeader>
         <Body>Oopsy! You just hit a route that doesn&#39;t exist... the sadness.</Body>
+        <Button as={Link} to="/">Go back home</Button>
       </IntroWrapper>
     </Layout>
   );
 };
 
 const IntroWrapper = styled(MaxWidthWrapper)`
-  margin-top: var(--responsive-top-spacing-0);
+  position: absolute;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
 
   text-align: center;
 `;
