@@ -59,8 +59,8 @@ const HamburgerMenu = () => {
       {transitions(
         (styles, item) =>
           item && (
-            <StyledModal style={{ ...styles }} aria-label="Site navigation">
-              <Content onClick={close}>
+            <StyledOverlay style={{ ...styles }}>
+              <StyledContent onClick={close} aria-label="Site navigation">
                 <CloseButton onClick={close}>
                   <VisuallyHidden>Close navigation menu</VisuallyHidden>
                 </CloseButton>
@@ -85,8 +85,8 @@ const HamburgerMenu = () => {
                     <MenuLink to="/contact/">Contact</MenuLink>
                   </Trail>
                 </MenuList>
-              </Content>
-            </StyledModal>
+              </StyledContent>
+            </StyledOverlay>
           )
       )}
     </>
@@ -118,7 +118,7 @@ const CloseButton = styled(ExteriorButton)`
   background: transparent;
 `;
 
-const StyledModal = styled(animated(DialogOverlay))`
+const StyledOverlay = styled(animated(DialogOverlay))`
   position: fixed;
   top: 0;
   left: 0;
@@ -132,7 +132,7 @@ const StyledModal = styled(animated(DialogOverlay))`
   background-color: hsl(183deg, 58%, 95%, 0.85);
 `;
 
-const Content = styled(animated(DialogContent))`
+const StyledContent = styled(animated(DialogContent))`
   position: fixed;
   top: 0;
   left: 0;
