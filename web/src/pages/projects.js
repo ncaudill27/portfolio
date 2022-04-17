@@ -38,7 +38,11 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(limit: 6, filter: { slug: { current: { ne: null } } }) {
+    projects: allSanitySampleProject(
+      limit: 6
+      filter: { slug: { current: { ne: null } } }
+      sort: { fields: _createdAt, order: DESC }
+    ) {
       edges {
         node {
           ...SanityProject
