@@ -16,6 +16,7 @@ const Button = ({ variant = "fill", children, ...props }) => {
 };
 
 const ButtonBase = styled.button`
+  display: inline-block;
   width: fit-content;
   margin-top: var(--spacing-1);
   margin-bottom: var(--spacing-1);
@@ -23,6 +24,7 @@ const ButtonBase = styled.button`
   border: 2px solid transparent;
   border-radius: 2px;
   appearance: none;
+  text-decoration: none;
 
   font-family: var(--font-family-primary);
   --type-fontsize-min: ${18 / 16}rem; // 18px
