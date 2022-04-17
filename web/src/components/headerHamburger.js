@@ -6,7 +6,6 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import Portal from "@reach/portal";
 import VisuallyHidden from "@reach/visually-hidden";
 import { useTransition, animated, config } from "@react-spring/web";
-import "@reach/dialog/styles.css";
 
 import Trail from "./trail";
 
