@@ -9,6 +9,25 @@ import { useTransition, animated, config } from "@react-spring/web";
 
 import Trail from "./trail";
 
+const projectsQuery = graphql`
+  query ProjectsQuery {
+    projects: allSanitySampleProject(
+      limit: 3
+      filter: { slug: { current: { ne: null } } }
+      sort: { fields: _createdAt, order: DESC }
+    ) {
+      edges {
+        node {
+          slug {
+            current
+          }
+          title
+        }
+      }
+    }
+  }
+`;
+
 const HamburgerMenu = () => {
   const data = useStaticQuery(projectsQuery);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -33,7 +52,7 @@ const HamburgerMenu = () => {
             "--blur": isOpen ? "none" : "blur(5px)"
           }}
         >
-          <VisuallyHidden>Toggle navigation menu</VisuallyHidden>
+          <VisuallyHidden>Open navigation menu</VisuallyHidden>
           <Hamburger size={25} label={isOpen ? "Close menu" : "Open menu"} toggled={isOpen} />
         </ExteriorButton>
       </Portal>
@@ -43,7 +62,7 @@ const HamburgerMenu = () => {
             <StyledModal style={{ ...styles }} aria-label="Site navigation">
               <Content onClick={close}>
                 <CloseButton onClick={close}>
-                  <VisuallyHidden>Close Button</VisuallyHidden>
+                  <VisuallyHidden>Close navigation menu</VisuallyHidden>
                 </CloseButton>
                 <MenuList>
                   <Trail
@@ -151,21 +170,6 @@ const MenuLink = styled(Link)`
 const SubMenuLink = styled(MenuLink)`
   padding-left: var(--spacing-7);
   font-size: 1.4375em; //23px
-`;
-
-const projectsQuery = graphql`
-  query ProjectsQuery {
-    projects: allSanitySampleProject {
-      edges {
-        node {
-          slug {
-            current
-          }
-          title
-        }
-      }
-    }
-  }
 `;
 
 export default HamburgerMenu;
