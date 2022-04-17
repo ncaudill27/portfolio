@@ -91,7 +91,6 @@ const MainBody = styled(Body)`
   margin-left: auto;
   margin-right: auto;
   width: var(--width);
-  min-width: 297px;
 
   transition: width 150ms ease-in-out;
 `;
