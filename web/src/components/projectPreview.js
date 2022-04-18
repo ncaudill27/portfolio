@@ -4,7 +4,7 @@ import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
 import PreviewSpringLink from "./previewSpringLink";
-import BlockContent from "./blockContent";
+import BlockContent from "./sanityBlockContent";
 import Heading from "./typography/headingSecondary";
 import Flex from "./flex";
 import TechStack from "./projectStack";
@@ -23,9 +23,9 @@ function ProjectPreview(props) {
         />
       </ImageWrapper>
       <ContentWrapper>
-          <StackWrapper gap={1}>
-            <TechStack list={props.stack} iconOnly />
-          </StackWrapper>
+        <StackWrapper gap={1}>
+          <TechStack list={props.stack} iconOnly />
+        </StackWrapper>
         <Flex gap={1}>
           <div>
             <Title>{props.title}</Title>

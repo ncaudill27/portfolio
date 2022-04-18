@@ -5,7 +5,7 @@ import { imageUrlFor } from "../lib/image-url";
 // TYPOGRAPHY
 import Title from "./typography/headingPrimary";
 import Header from "./headerSide";
-import BlockContent from "./blockContent";
+import BlockContent from "./sanityBlockContent";
 import Body from "./typography/bodyRegular";
 // UI COMPONENTS
 import Layout from "../containers/layout";
