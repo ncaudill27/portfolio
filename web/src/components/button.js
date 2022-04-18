@@ -27,8 +27,8 @@ const ButtonBase = styled.button`
   text-decoration: none;
 
   font-family: var(--font-family-primary);
-  --type-fontsize-min: ${18 / 16}rem; // 18px
-  --type-fontsize-max: ${21 / 16}rem; // 23px
+  --type-fontsize-min: ${18 / 16}rem;
+  --type-fontsize-max: ${21 / 16}rem;
   --type-fontsize-value: 0.8rem + 0.68vw;
   font-size: calc(
     (clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max)) - 2px)
@@ -41,7 +41,7 @@ const ButtonBase = styled.button`
   &:disabled {
     background-color: var(--color-text-transparent);
     cursor: wait;
-  }
+  }w
 `;
 
 const FillButton = styled(ButtonBase)`

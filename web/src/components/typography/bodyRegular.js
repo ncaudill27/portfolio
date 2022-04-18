@@ -11,9 +11,6 @@ const StyledBody = styled.p`
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
 
-  --type-fontsize-min: 1.125em; // 18px
-  --type-fontsize-max: ${21 / 16}rem; // 23px
-  --type-fontsize-value: 0.8rem + 0.68vw;
   font-size: 18px;
 
   & + &:not(ul &) {

@@ -8,7 +8,7 @@ export default styled.span`
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   color: var(--color);
-  font-size: 1em; // 16px
+  font-size: 1rem;
   text-decoration: none;
 
   border-radius: 2px;

@@ -162,14 +162,14 @@ const MenuLink = styled(Link)`
   color: var(--color-text);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-black);
-  font-size: 1.75em; //23px
+  font-size: ${28 / 16}rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
 `;
 
 const SubMenuLink = styled(MenuLink)`
   padding-left: var(--spacing-7);
-  font-size: 1.4375em; //23px
+  font-size: ${23 / 16}rem;
 `;
 
 export default HamburgerMenu;

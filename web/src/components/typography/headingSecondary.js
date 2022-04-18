@@ -15,8 +15,8 @@ const Heading = styled.h2`
   /* ----------
     FONT SIZE VARIABLES
   ---------- */
-  --type-fontsize-min: 1.4375em; /* 23px */
-  --type-fontsize-max: 3em; /* 48px */
+  --type-fontsize-min: ${23 / 16}rem;
+  --type-fontsize-max: ${48 / 16}rem;
   --type-fontsize-value: 0.91em + 2.55vw;
   font-size: clamp(var(--type-fontsize-min), var(--type-fontsize-value), var(--type-fontsize-max));
 `;

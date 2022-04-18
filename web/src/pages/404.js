@@ -23,7 +23,7 @@ const NotFoundPage = () => {
 const IntroWrapper = styled(MaxWidthWrapper)`
   position: absolute;
   height: fit-content;
-  top: 0;
+  top: 0;w
   bottom: 0;
   right: 0;
   left: 0;
