@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import { isFuture } from "date-fns";
+import { isFuture, parseISO } from "date-fns";
 import { mapEdgesToNodes } from "../lib/helpers";
 
 import Layout from "../containers/layout";
@@ -11,7 +11,7 @@ import PostPreview from "../components/postPreview";
 
 const BlogPage = ({ data, location }) => {
   const postNodes = mapEdgesToNodes(data?.posts).filter(
-    ({ frontmatter }) => !isFuture(frontmatter.date.start)
+    ({ frontmatter }) => !isFuture(parseISO(frontmatter.date.start))
   );
 
   return (

@@ -1,5 +1,5 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem");
-const { isFuture } = require("date-fns");
+const { isFuture, parseISO } = require("date-fns");
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -72,7 +72,7 @@ async function createPostPages(graphql, { createPage }) {
   const postEdges = (result.data.allMarkdownRemark || {}).edges || [];
 
   postEdges
-    .filter(({ node }) => !isFuture(node.frontmatter.date.start))
+    .filter(({ node }) => !isFuture(parseISO(node.frontmatter.date.start)))
     .forEach(({ node }) => {
       const id = node.id;
       const slug = node.frontmatter.slug.string;

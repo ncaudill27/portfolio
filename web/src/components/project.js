@@ -6,7 +6,6 @@ import { imageUrlFor } from "../lib/image-url";
 import Title from "./typography/headingPrimary";
 import Header from "./headerSide";
 import BlockContent from "./sanityBlockContent";
-import Body from "./typography/bodyRegular";
 // UI COMPONENTS
 import Layout from "../containers/layout";
 import TripleColumnLayout from "./layoutTripleColumn";

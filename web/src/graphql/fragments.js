@@ -63,6 +63,7 @@ export const NotionPost = graphql`
   fragment NotionPost on MarkdownRemark {
     id
     htmlAst
+    # heroImg
     frontmatter {
       title
       date: Date {

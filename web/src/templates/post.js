@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 
 import Layout from "../containers/layout";
 import Post from "../components/post";
+import { getGatsbyImageData } from "gatsby-source-sanity";
 
 export const query = graphql`
   query PostTemplateQuery($id: String!) {
@@ -16,12 +17,15 @@ export const query = graphql`
 const PostTemplate = ({ data: { post }, location }) => {
   console.log("Location:", location);
   const image = post.frontmatter.hero[0].file.url;
+  // const imageData = getGatsbyImageData(post.heroImg);
+  // console.log(imageData);
 
   return (
     <Layout
       currentPath={location.pathname}
       seo={{
-        title: post.frontmatter.title
+        title: post.frontmatter.title,
+        description: post.frontmatter.brief
       }}
     >
       <ImageWrapper>

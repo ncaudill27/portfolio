@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 
 import Heading from "./typography/headingPrimary";
 import BodySmall from "./typography/bodySmall";
@@ -36,7 +36,7 @@ const Post = ({
         </CopyWrapper>
       </article>
       <Aside>
-        <BodySmall>{format(date, "MMMM D, YYYY")}</BodySmall>
+        <BodySmall>{format(parseISO(date), "MMMM d, yyyy")}</BodySmall>
         <PostTagList list={tags} />
       </Aside>
     </TripleColumnLayout>
@@ -49,12 +49,11 @@ const Title = styled(Heading)`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  
+
   & > img {
     width: 100%;
     max-height: 350px;
     object-fit: cover;
-
   }
 
   @media (min-width: 915px) {
