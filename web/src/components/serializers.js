@@ -9,6 +9,7 @@ import SecondaryHeading from "./typography/headingSecondary";
 import TertiaryHeading from "./typography/headingTertiary";
 import Body from "./typography/bodyRegular";
 import Link from "./typography/hyperlink";
+import Str from "./typography/strong";
 
 export function BlockRenderer(props) {
   const { style } = props.node;

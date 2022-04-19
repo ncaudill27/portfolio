@@ -6,9 +6,9 @@ import Heading from "../components/typography/headingPrimary";
 import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Form from "../containers/form";
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
   return (
-    <Layout seo={{ title: "Contact Me" }}>
+    <Layout currentPath={location.pathname} seo={{ title: "Contact Me" }}>
       <Wrapper width={510}>
         <MainHeader>Contact</MainHeader>
         <Form />

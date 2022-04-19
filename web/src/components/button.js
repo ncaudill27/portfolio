@@ -78,4 +78,8 @@ Button.propTypes = {
   variant: PropTypes.oneOf(["fill", "variant", "ghost"]).isRequired
 };
 
+Button.defaultProps = {
+  variant: "fill"
+};
+
 export default Button;
