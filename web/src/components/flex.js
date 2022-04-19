@@ -17,6 +17,15 @@ const Flex = ({ justify, align, gap, stack, wrap, ...props }) => {
   );
 };
 
+const StyledFlex = styled.div`
+  display: flex;
+  flex-direction: var(--direction);
+  flex-wrap: var(--wrap);
+  justify-content: var(--justify);
+  align-items: var(--align);
+  gap: var(--gap);
+`;
+
 Flex.propTypes = {
   justify: PropTypes.oneOf([
     "flex-start",
@@ -34,16 +43,9 @@ Flex.propTypes = {
     "baseline",
     "space-evenly"
   ]),
-  gap: PropTypes.number
+  gap: PropTypes.number,
+  stack: PropTypes.bool,
+  wrap: PropTypes.bool
 };
-
-const StyledFlex = styled.div`
-  display: flex;
-  flex-direction: var(--direction);
-  flex-wrap: var(--wrap);
-  justify-content: var(--justify);
-  align-items: var(--align);
-  gap: var(--gap);
-`;
 
 export default Flex;

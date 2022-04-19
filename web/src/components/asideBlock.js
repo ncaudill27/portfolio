@@ -22,7 +22,9 @@ export const RootWrapper = styled.aside`
 
   border-radius: 2px;
 
-  box-shadow: 5px 5px var(--color-background), 8px 8px var(--color-primary-muted);
+  box-shadow: 
+    5px 5px var(--color-background), // border matching background to create space
+    8px 8px var(--color-primary-muted); // offset bottom-right border
 
   @media (min-width: 860px) {
     margin-left: calc(var(--spacing-4) * -1);
