@@ -9,13 +9,13 @@ import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Flex from "../components/flex";
 import PostPreview from "../components/postPreview";
 
-const BlogPage = ({ data, errors }) => {
+const BlogPage = ({ data, location }) => {
   const postNodes = mapEdgesToNodes(data?.posts).filter(
     ({ frontmatter }) => !isFuture(frontmatter.date.start)
   );
 
   return (
-    <Layout seo={{ title: "Blog" }}>
+    <Layout currentPath={location.path} seo={{ title: "Blog" }}>
       <ListWrapper width={700}>
         <Flex gap={4} stack>
           {postNodes.map(node => (

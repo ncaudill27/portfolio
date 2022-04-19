@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
 
-import MaxWidthWrapper from "../components/maxWidthWrapper";
 import Layout from "../containers/layout";
 import Post from "../components/post";
 
@@ -14,11 +13,13 @@ export const query = graphql`
   }
 `;
 
-const PostTemplate = ({ data: { post }, errors }) => {
+const PostTemplate = ({ data: { post }, location }) => {
+  console.log("Location:", location);
   const image = post.frontmatter.hero[0].file.url;
 
   return (
     <Layout
+      currentPath={location.pathname}
       seo={{
         title: post.frontmatter.title
       }}

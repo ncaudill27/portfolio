@@ -4,10 +4,7 @@ import { graphql } from "gatsby";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
 
-import SEO from "../components/seo";
-import GraphQLErrorList from "../components/graphql-error-list";
 import Project from "../components/project";
-import MaxWidthWrapper from "../components/maxWidthWrapper";
 
 export const query = graphql`
   query ProjectTemplateQuery($id: String!) {
@@ -17,7 +14,7 @@ export const query = graphql`
   }
 `;
 
-const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
+const ProjectTemplate = ({ data: { sampleProject: project }, location }) => {
   return (
     <>
       <ImageWrapper>
@@ -33,7 +30,7 @@ const ProjectTemplate = ({ data: { sampleProject: project }, errors }) => {
           }}
         />
       </ImageWrapper>
-      <Project {...project} />
+      <Project currentPath={location.pathname} {...project} />
     </>
   );
 };

@@ -6,7 +6,7 @@ import TopHeader from "./headerTop";
 import GlobalStyles from "../styles/globalStyles";
 import SEO from "../components/seo";
 
-const Layout = ({ headerPosition, children, seo }) => (
+const Layout = ({ seo, headerPosition, children }) => (
   <>
     <GlobalStyles />
     <SEO {...seo} />
@@ -22,7 +22,8 @@ Layout.propTypes = {
     meta: PropTypes.array,
     keywords: PropTypes.arrayOf(PropTypes.string),
     title: PropTypes.string.isRequired
-  }).isRequired
-}
+  }).isRequired,
+  headerPosition: PropTypes.string.isRequired
+};
 
 export default Layout;

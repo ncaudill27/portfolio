@@ -17,9 +17,9 @@ import Twitter from "../components/images/iconTwitter";
 import Linkedin from "../components/images/iconLinkedin";
 import Mail from "../components/images/iconMail";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const site = data?.site;
-
+  
   const titleEl = React.useRef();
   const { width } = useRefDimensions(titleEl);
 
@@ -31,6 +31,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout
+    currentPath={location.pathname}
       seo={{
         title: site.title,
         description: site.description,

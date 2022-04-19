@@ -2,24 +2,16 @@ import React from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
 
-import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/projectPreviewGrid";
 import Layout from "../containers/layout";
 
-const ProjectsPage = ({ data, errors }) => {
-  if (errors) {
-    return (
-      <Layout seo={{ title: "GraphQL Error" }}>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
+const ProjectsPage = ({ data, location }) => {
   const site = data?.site;
   const projectNodes = mapEdgesToNodes(data?.projects);
 
   return (
     <Layout
+      currentPath={location.path}
       seo={{
         title: "Projects",
         description: site.description,

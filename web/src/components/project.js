@@ -19,9 +19,9 @@ import RelatedProjects from "./projectRelated";
 import Links from "./projectLinks";
 import MaxWidthWrapper from "./maxWidthWrapper";
 
-function Project({ _rawBody, title, mainImage, relatedProjects, stack, links }) {
+function Project({ _rawBody, title, mainImage, relatedProjects, stack, links, currentPath }) {
   return (
-    <Layout seo={{ title: title }}>
+    <Layout currentPath={currentPath} seo={{ title: title }}>
       <TripleColumnLayout>
         <Header />
         <Hamburger />
